@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">VirtualStudyGroup</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
 </resources>
