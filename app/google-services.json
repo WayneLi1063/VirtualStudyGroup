@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "266886003247",
+    "firebase_url": "https://virtualstudygroup-e236d.firebaseio.com",
+    "project_id": "virtualstudygroup-e236d",
+    "storage_bucket": "virtualstudygroup-e236d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266886003247:android:b4edb35977d2bcb76924da",
+        "android_client_info": {
+          "package_name": "com.example.virtualstudygroup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266886003247-vf9vi7ds89cv99amue8tjjtftn19483c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCviq0cyFd1MQDT7XMBqe48kJGbsfKeHRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266886003247-vf9vi7ds89cv99amue8tjjtftn19483c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266886003247:android:d23fb910d62864076924da",
+        "android_client_info": {
+          "package_name": "com.example.virutalstudygroup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266886003247-vf9vi7ds89cv99amue8tjjtftn19483c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCviq0cyFd1MQDT7XMBqe48kJGbsfKeHRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266886003247-vf9vi7ds89cv99amue8tjjtftn19483c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
