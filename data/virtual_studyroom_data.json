@@ -1,0 +1,782 @@
+{
+  "groupCount" : 45,
+  "groups" : {
+    "23" : {
+      "className" : "INFO340",
+      "currNumber" : 4,
+      "examSquad" : false,
+      "homeworkHelp" : true,
+      "id" : 23,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup1.jfif?alt=media&token=d1b9d4e7-d0d3-4212-9c9c-f86b3546cb78",
+      "labMates" : true,
+      "members" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : false,
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : false,
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : false,
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : true
+      },
+      "noteExchange" : false,
+      "projectPartners" : false,
+      "teamName" : "Problem-Set-Squad",
+      "totalNumber" : 4
+    },
+    "24" : {
+      "className" : "INFO340",
+      "currNumber" : 3,
+      "examSquad" : false,
+      "homeworkHelp" : true,
+      "id" : 24,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup2.jfif?alt=media&token=d8dd4251-8717-4541-b723-c7606f0230ec",
+      "labMates" : true,
+      "members" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : false,
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : true,
+        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : false
+      },
+      "noteExchange" : false,
+      "projectPartners" : true,
+      "teamName" : "Baggy-Bag-Project",
+      "totalNumber" : 3
+    },
+    "26" : {
+      "className" : "ESS101",
+      "currNumber" : 5,
+      "examSquad" : false,
+      "homeworkHelp" : true,
+      "id" : 26,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup4.jfif?alt=media&token=76aa10c8-7e79-49e5-a17b-ae5e53ed3a9a",
+      "labMates" : true,
+      "members" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : false,
+        "3kfudC9dJuRkGHRxIYHucM8wsa63" : false,
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : false,
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : true,
+        "t6fN8LEh6LRES0vHVl1Cargm8xO2" : false
+      },
+      "noteExchange" : false,
+      "projectPartners" : false,
+      "teamName" : "Hiker Groups",
+      "totalNumber" : 5
+    },
+    "27" : {
+      "className" : "INFO370",
+      "currNumber" : 4,
+      "examSquad" : true,
+      "homeworkHelp" : false,
+      "id" : 27,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup6.jfif?alt=media&token=104f4fa0-dd0a-4879-9fb4-0300c6a85500",
+      "labMates" : false,
+      "members" : {
+        "5ZleCuKtSwcVVqtfYldsQebt6cv1" : false,
+        "I7cLpWNg4Ddor1IsXWT6kUpublN2" : false,
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : true,
+        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : false
+      },
+      "noteExchange" : true,
+      "projectPartners" : true,
+      "teamName" : "Data Scientists!",
+      "totalNumber" : 4
+    },
+    "28" : {
+      "className" : "ME123",
+      "currNumber" : 2,
+      "examSquad" : true,
+      "homeworkHelp" : true,
+      "id" : 28,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup8.jfif?alt=media&token=c95c4010-cb71-472a-a89c-44500e854b9e",
+      "labMates" : true,
+      "members" : {
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : false,
+        "ZwUNkNfoyYaFX27SIyugEGrXdN82" : true
+      },
+      "noteExchange" : true,
+      "projectPartners" : false,
+      "teamName" : "Gear Head Squad Up!",
+      "totalNumber" : 2
+    },
+    "29" : {
+      "className" : "ENG244",
+      "currNumber" : 3,
+      "examSquad" : true,
+      "homeworkHelp" : true,
+      "id" : 29,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup7.jfif?alt=media&token=41525793-50cc-40f9-be79-3ad6c4db7180",
+      "labMates" : false,
+      "members" : {
+        "N988auJrO6MOzEwUlI3rEBwnTNH2" : false,
+        "ZwUNkNfoyYaFX27SIyugEGrXdN82" : true,
+        "mtwpYLH1lLQSpBDyx6eRvC24RV83" : false
+      },
+      "noteExchange" : false,
+      "projectPartners" : false,
+      "teamName" : "A rose by any name",
+      "totalNumber" : 3
+    },
+    "30" : {
+      "className" : "CSE143",
+      "currNumber" : 3,
+      "examSquad" : true,
+      "homeworkHelp" : true,
+      "id" : 30,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup5.jfif?alt=media&token=6d2ef932-9792-4ba5-8a7c-d6ac845aa3e5",
+      "labMates" : false,
+      "members" : {
+        "6dobrrRejbRrLCY3cg8TZfAzarq1" : false,
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : false,
+        "ZwUNkNfoyYaFX27SIyugEGrXdN82" : true
+      },
+      "noteExchange" : true,
+      "projectPartners" : false,
+      "teamName" : "Exam prep",
+      "totalNumber" : 3
+    },
+    "31" : {
+      "className" : "ESS100",
+      "currNumber" : 4,
+      "examSquad" : false,
+      "homeworkHelp" : false,
+      "id" : 31,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup9.jfif?alt=media&token=58a1955b-c51e-46d4-a7d3-6a14278f31d9",
+      "labMates" : true,
+      "members" : {
+        "0oGtMOMtZoShHFti1ZiGmNOrMjz2" : false,
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : false,
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : false,
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : true
+      },
+      "noteExchange" : true,
+      "projectPartners" : false,
+      "teamName" : "New Burke Visit Group",
+      "totalNumber" : 5
+    },
+    "32" : {
+      "className" : "CHEM142",
+      "currNumber" : 2,
+      "examSquad" : true,
+      "homeworkHelp" : true,
+      "id" : 32,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup10.jfif?alt=media&token=521dd2bd-9215-49ef-b5d1-615ec1a99b4d",
+      "labMates" : true,
+      "members" : {
+        "5ZleCuKtSwcVVqtfYldsQebt6cv1" : true,
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : false
+      },
+      "noteExchange" : true,
+      "projectPartners" : false,
+      "teamName" : "Chemistry Reaction",
+      "totalNumber" : 4
+    },
+    "34" : {
+      "className" : "ESS102",
+      "currNumber" : 3,
+      "examSquad" : true,
+      "homeworkHelp" : false,
+      "id" : 34,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup6.jfif?alt=media&token=104f4fa0-dd0a-4879-9fb4-0300c6a85500",
+      "labMates" : true,
+      "members" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : false,
+        "9yF6MRY2x0NUHU1s2rwupJIfPNt2" : false,
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : true
+      },
+      "noteExchange" : true,
+      "projectPartners" : false,
+      "teamName" : "ESS Squad",
+      "totalNumber" : 3
+    },
+    "38" : {
+      "className" : "INFO340",
+      "currNumber" : 3,
+      "examSquad" : true,
+      "homeworkHelp" : false,
+      "id" : 38,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fcat.jpg?alt=media&token=9ab9c517-a7bb-45c9-87fd-24b3ba749f1b",
+      "labMates" : false,
+      "members" : {
+        "0oGtMOMtZoShHFti1ZiGmNOrMjz2" : false,
+        "9yF6MRY2x0NUHU1s2rwupJIfPNt2" : false,
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : true
+      },
+      "noteExchange" : false,
+      "projectPartners" : true,
+      "teamName" : "Project Testing",
+      "totalNumber" : 3
+    },
+    "40" : {
+      "className" : "INFO 200",
+      "currNumber" : 1,
+      "examSquad" : false,
+      "homeworkHelp" : false,
+      "id" : 40,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fbad.jpg?alt=media&token=bd0cb92e-068c-45f2-b3e4-f37d19684723",
+      "labMates" : false,
+      "members" : {
+        "I7cLpWNg4Ddor1IsXWT6kUpublN2" : true
+      },
+      "noteExchange" : false,
+      "projectPartners" : true,
+      "teamName" : "Code bois",
+      "totalNumber" : 3
+    },
+    "41" : {
+      "className" : "INFO340",
+      "currNumber" : 1,
+      "examSquad" : false,
+      "homeworkHelp" : false,
+      "id" : 41,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup6.jfif?alt=media&token=104f4fa0-dd0a-4879-9fb4-0300c6a85500",
+      "labMates" : false,
+      "members" : {
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : true
+      },
+      "noteExchange" : false,
+      "projectPartners" : true,
+      "teamName" : "INFO 340 Wi 20",
+      "totalNumber" : 4
+    },
+    "42" : {
+      "className" : "info340",
+      "currNumber" : 1,
+      "examSquad" : false,
+      "homeworkHelp" : true,
+      "id" : 42,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup6.jfif?alt=media&token=104f4fa0-dd0a-4879-9fb4-0300c6a85500",
+      "labMates" : false,
+      "members" : {
+        "t6fN8LEh6LRES0vHVl1Cargm8xO2" : true
+      },
+      "noteExchange" : false,
+      "projectPartners" : false,
+      "teamName" : "test",
+      "totalNumber" : 3
+    },
+    "43" : {
+      "className" : "INFO360",
+      "currNumber" : 1,
+      "examSquad" : true,
+      "homeworkHelp" : false,
+      "id" : 43,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2FWeChat%20Image_20200202164212.jpg?alt=media&token=547ec88b-6c4b-4c83-a3ad-dd5f812ea24c",
+      "labMates" : true,
+      "members" : {
+        "9yF6MRY2x0NUHU1s2rwupJIfPNt2" : true
+      },
+      "noteExchange" : false,
+      "projectPartners" : false,
+      "teamName" : "Boating",
+      "totalNumber" : 4
+    },
+    "44" : {
+      "className" : "INFO340",
+      "currNumber" : 1,
+      "examSquad" : false,
+      "homeworkHelp" : false,
+      "id" : 44,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgroup6.jfif?alt=media&token=104f4fa0-dd0a-4879-9fb4-0300c6a85500",
+      "labMates" : false,
+      "members" : {
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : true
+      },
+      "noteExchange" : false,
+      "projectPartners" : false,
+      "teamName" : "Video Test",
+      "totalNumber" : 2
+    },
+    "45" : {
+      "className" : "INFO360",
+      "currNumber" : 2,
+      "examSquad" : false,
+      "homeworkHelp" : false,
+      "id" : 45,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2FWeChat%20Image_20200202164650.jpg?alt=media&token=35c8687f-a260-4831-a6b9-6103194bc167",
+      "labMates" : true,
+      "members" : {
+        "9yF6MRY2x0NUHU1s2rwupJIfPNt2" : true,
+        "FdJ2XXCDTLfwcVAlCP8U3l1rKIc2" : false
+      },
+      "noteExchange" : false,
+      "projectPartners" : false,
+      "teamName" : "Group Hiking",
+      "totalNumber" : 4
+    }
+  },
+  "users" : {
+    "0oGtMOMtZoShHFti1ZiGmNOrMjz2" : {
+      "courses" : {
+        "INFO 340" : "INFO 340"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "t@test.com",
+      "name" : "Joel Test",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "0oGtMOMtZoShHFti1ZiGmNOrMjz2"
+    },
+    "19TlrUUJetgjdRGk9nRAXSWZYlz2" : {
+      "courses" : {
+        "info340" : "info340"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "annajun1224@gmail.com",
+      "name" : "Anna Huang",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "19TlrUUJetgjdRGk9nRAXSWZYlz2"
+    },
+    "2xYublHKU6RAcrzT0SCY5kIkdPK2" : {
+      "courses" : {
+        "ENG131" : "ENG131",
+        "INFO101" : "INFO101"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "bill@gmail.com",
+      "name" : "Bill Cornor",
+      "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2F11667534_10102203860243201_2713296330820668368_n.jpg?alt=media&token=2cb33b94-5ff6-4288-992c-0ae8d51f30b4",
+      "uid" : "2xYublHKU6RAcrzT0SCY5kIkdPK2"
+    },
+    "3kfudC9dJuRkGHRxIYHucM8wsa63" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "michelle.qw.lee@gmail.com",
+      "name" : "Michelle Lee",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "3kfudC9dJuRkGHRxIYHucM8wsa63"
+    },
+    "534hktSB9ehv6j5FrbJ4v7AgJQx1" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "testing@test.com",
+      "name" : "Hello Hello",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "534hktSB9ehv6j5FrbJ4v7AgJQx1"
+    },
+    "5ZleCuKtSwcVVqtfYldsQebt6cv1" : {
+      "courses" : {
+        "CHEM142" : "CHEM142",
+        "INFO370" : "INFO370",
+        "ME123" : "ME123"
+      },
+      "chat" : {
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "gregw16@mail.com",
+      "name" : "Greg Williams",
+      "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fdavid.PNG?alt=media&token=298df141-1652-440a-84f5-ed7b5d248b56",
+      "uid" : "5ZleCuKtSwcVVqtfYldsQebt6cv1"
+    },
+    "5qwoWvcbfpfGDNZqc9uaaBoy8g92" : {
+      "chat" : {
+      },
+      "email" : "test@test.com",
+      "name" : "Test",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "5qwoWvcbfpfGDNZqc9uaaBoy8g92"
+    },
+    "6dobrrRejbRrLCY3cg8TZfAzarq1" : {
+      "courses" : {
+        "INFO 340" : "INFO 340"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "michael.k.freeman@gmail.com",
+      "name" : "Michael Freeman",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "6dobrrRejbRrLCY3cg8TZfAzarq1"
+    },
+    "7dOmSUxF2qdHR0KBoH7KDZiQ0bo1" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "angellin880221@gmail.com",
+      "name" : "Angel Lin",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "7dOmSUxF2qdHR0KBoH7KDZiQ0bo1"
+    },
+    "8aOXZNwUhpe8TkBViFtklkhCMuP2" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "a@a.com",
+      "name" : "Wayne Li",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "8aOXZNwUhpe8TkBViFtklkhCMuP2"
+    },
+    "9yF6MRY2x0NUHU1s2rwupJIfPNt2" : {
+      "courses" : {
+        "INFO360" : "INFO360"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "davidj2@gmail.com",
+      "name" : "David J",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "9yF6MRY2x0NUHU1s2rwupJIfPNt2"
+    },
+    "9zWiV7R2xgTvN4dsHCaKyCBXrnp2" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "njjjj@123.com",
+      "name" : "jnjnj",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "9zWiV7R2xgTvN4dsHCaKyCBXrnp2"
+    },
+    "AozbVnN66WZqBAEOsqNII40Zo8W2" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "seanyang0506@gmail.com",
+      "name" : "Sean Yang",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "AozbVnN66WZqBAEOsqNII40Zo8W2"
+    },
+    "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : {
+      "courses" : {
+        "INFO 201" : "INFO 201",
+        "INFO340" : "INFO340"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "joelross@uw.edu",
+      "name" : "Joel Ross",
+      "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fcat.jpg?alt=media&token=0610e273-6090-4d2d-bc6b-035d41ab77d0",
+      "uid" : "B3Ljp0uVGmMBADeWGU3WjTyOXun1"
+    },
+    "FdJ2XXCDTLfwcVAlCP8U3l1rKIc2" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "dianadai.dy2020@gmail.com",
+      "name" : "Diana Dai",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "FdJ2XXCDTLfwcVAlCP8U3l1rKIc2"
+    },
+    "I7cLpWNg4Ddor1IsXWT6kUpublN2" : {
+      "courses" : {
+        "INFO 200" : "INFO 200"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "joncady@uw.edu",
+      "name" : "Jonathan Cady",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "I7cLpWNg4Ddor1IsXWT6kUpublN2"
+    },
+    "K7IN8x9FNgV1OB9a9r4zk5e36s02" : {
+      "courses" : {
+        "info340" : "info340"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "gmraemozzer@gmail.com",
+      "name" : "枘爅䅚",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "K7IN8x9FNgV1OB9a9r4zk5e36s02"
+    },
+    "KmDM47hHOGNnL6MeCzj80rQ5sqg2" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "hello@hi.edu",
+      "name" : "hello hi",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "KmDM47hHOGNnL6MeCzj80rQ5sqg2"
+    },
+    "N988auJrO6MOzEwUlI3rEBwnTNH2" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "sdffds@gmail.com",
+      "name" : "test",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "N988auJrO6MOzEwUlI3rEBwnTNH2"
+    },
+    "Rmgt1lzWcVchBsjznDZbF9rwPJ83" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "aaron.li729@gmail.com",
+      "name" : "Aaron Li",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "Rmgt1lzWcVchBsjznDZbF9rwPJ83"
+    },
+    "SEYGAF1CYxeqmmLDUOxST0ItKit1" : {
+      "courses" : {
+        "ESS100" : "ESS100",
+        "ESS102" : "ESS102",
+        "INFO340" : "INFO340",
+        "INFO360" : "INFO360"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "wayneli@gmail.com",
+      "name" : "Wayne Li",
+      "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Flong.PNG?alt=media&token=b88a7dd2-f856-483b-b04a-0a90cfad6cc5",
+      "uid" : "SEYGAF1CYxeqmmLDUOxST0ItKit1"
+    },
+    "WV9mdhI54NU715tzZTy2XzHjV9P2" : {
+      "courses" : {
+        "INFO340" : "INFO340"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "pen@pow.com",
+      "name" : "PenumbraPow",
+      "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2F496ecb14589707.562865d064f9e.png?alt=media&token=2e106086-04aa-4c8b-b144-044d641f527d",
+      "uid" : "WV9mdhI54NU715tzZTy2XzHjV9P2"
+    },
+    "Xsj17gmSquTh9nZvi1Uuxh5bV8L2" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "jesuswalkspk@icloud.com",
+      "name" : "Test Test",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "Xsj17gmSquTh9nZvi1Uuxh5bV8L2"
+    },
+    "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : {
+      "courses" : {
+        "INFO340" : "INFO340",
+        "INFO360" : "INFO360"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "kel28@uw.edu",
+      "name" : "Coco Li",
+      "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2FitElfV3.png?alt=media&token=4ca236d9-8758-4834-9490-8e76b8e662e5",
+      "uid" : "ZfIg16edDJP0jt8mhzhiRG0jnCm2"
+    },
+    "ZwUNkNfoyYaFX27SIyugEGrXdN82" : {
+      "courses" : {
+        "CSE143" : "CSE143",
+        "ENG244" : "ENG244",
+        "ME123" : "ME123"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "davidj2@hotmail.com",
+      "name" : "David Jones",
+      "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgreg.PNG?alt=media&token=01205e42-d2dc-4faa-9cb0-514c9ec87a28",
+      "uid" : "ZwUNkNfoyYaFX27SIyugEGrXdN82"
+    },
+    "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : {
+      "courses" : {
+        "INFO 300" : "INFO 300",
+        "INFO 340" : "INFO 340"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "jcman98@gmail.com",
+      "name" : "Jonathan Cady",
+      "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2FprofilePic.jpg?alt=media&token=c7414014-9674-4872-af39-08ce2d1ea4ed",
+      "uid" : "ax3Mb5tDBoe3FEaN9haRr0o6PuL2"
+    },
+    "bqREgvnjP8bvSO0QZdSFa0I4bai1" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "jjfjfjfjf@gmail.com",
+      "name" : "dhdh",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "bqREgvnjP8bvSO0QZdSFa0I4bai1"
+    },
+    "g2yKU1s4RbbBRvh3duePjrNaSwv1" : {
+      "courses" : {
+        "CSE443" : "CSE443",
+        "ENG244" : "ENG244",
+        "JPN123" : "JPN123"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "lucaseee@yahoo.com",
+      "name" : "Lucas Evans",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "g2yKU1s4RbbBRvh3duePjrNaSwv1"
+    },
+    "gIWWIKXZKVSeUx7mgYSpVqTashy1" : {
+      "courses" : {
+        "info340" : "info340"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "huiranl.313@gmail.com",
+      "name" : "Huiran Li",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "gIWWIKXZKVSeUx7mgYSpVqTashy1"
+    },
+    "mtwpYLH1lLQSpBDyx6eRvC24RV83" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "wongct@uw.edu",
+      "name" : "Tiffany Wong",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "mtwpYLH1lLQSpBDyx6eRvC24RV83"
+    },
+    "t6fN8LEh6LRES0vHVl1Cargm8xO2" : {
+      "courses" : {
+        "info340" : "info340"
+      },
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "wong.c.tiffany@gmail.com",
+      "name" : "Tiffany Wong",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "t6fN8LEh6LRES0vHVl1Cargm8xO2"
+    },
+    "wCuqiR0D84d7YKcNeldzHjxHWOR2" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "yichiz5@uw.edu",
+      "name" : "ddd",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "wCuqiR0D84d7YKcNeldzHjxHWOR2"
+    },
+    "xBG2vSE0G3S3BlvpksnipM57eP32" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "haoyangchen0901@gmail.com",
+      "name" : "Eric Chen",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "xBG2vSE0G3S3BlvpksnipM57eP32"
+    },
+    "z7qTZuPVNkhCxqR5jbb3xQUVohH2" : {
+      "chat" : {
+        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : "hello",
+        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "jpodj@gmail.com",
+      "name" : "Josh Freeman",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "z7qTZuPVNkhCxqR5jbb3xQUVohH2"
+    },
+    "zPMbp0JyVFTAfKJJkQkl5ktTveM2" : {
+      "chat" : {
+        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
+        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
+        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : "hello",
+        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
+      },
+      "email" : "ranh2@uw.edu",
+      "name" : "Ran Hu",
+      "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+      "uid" : "zPMbp0JyVFTAfKJJkQkl5ktTveM2"
+    }
+  }
+}
