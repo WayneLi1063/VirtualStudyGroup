@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VirtualStudyGroup</string>
+    <string name="group_image">Group Image</string>
 </resources>
