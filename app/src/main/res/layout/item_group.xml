@@ -5,7 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/padding_small">
+    android:padding="@dimen/padding_small"
+    android:layout_margin="@dimen/padding_medium"
+    android:background="@drawable/custom_corners"
+    android:foreground="?selectableItemBackground"
+    android:elevation="@dimen/padding_medium">
 
     <ImageView
         android:id="@+id/imageGroup"
