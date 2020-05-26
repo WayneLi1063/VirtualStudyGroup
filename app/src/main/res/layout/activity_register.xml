@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:background="@color/huskyPurple">
+
+    <TextView
+        android:id="@+id/welcome_back_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Welcome, New Husky!"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="40dp"
+        android:textColor="#ffffff"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/husky_profile_logo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_back_text"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@id/username_input"/>
+
+    <EditText
+        android:id="@+id/username_input"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        android:hint="Username"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/password_input"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/username_input"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:hint="Password"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_input"
+        app:layout_constraintBottom_toTopOf="@id/oldHusky"
+        android:id="@+id/btnSignup"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/oldHusky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already a Husky?"
+        app:layout_constraintRight_toLeftOf="@id/switch_to_login"
+        app:layout_constraintLeft_toLeftOf="@id/password_input"
+        app:layout_constraintTop_toBottomOf="@id/btnSignup"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch_to_login"
+        android:text="@string/logInText"
+        android:textSize="20sp"
+        android:clickable="true"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toRightOf="@id/oldHusky"
+        app:layout_constraintRight_toRightOf="@id/password_input"
+        app:layout_constraintTop_toTopOf="@id/oldHusky"
+        app:layout_constraintBottom_toBottomOf="@id/oldHusky"
+        android:textColor="#ffffff"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
