@@ -33,7 +33,7 @@
         tools:text="Course Name" />
 
     <TextView
-        android:id="@+id/textGroupDescription"
+        android:id="@+id/textTeamName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
