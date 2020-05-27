@@ -24,7 +24,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private var selectedPhoto: Uri? = null
-    private lateinit var currentUser: FirebaseUser
+    private var currentUser: FirebaseUser ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.i(TAG, "onstart")
@@ -76,18 +76,21 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun saveUserIntoDatabase() {
-        val uid = currentUser.uid
-        Log.i(TAG, uid)
-        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        currentUser?.let { user ->
 
-        val uploadUser = User(listOf(), currentUser.email, currentUser.displayName, selectedPhoto.toString(), currentUser.uid)
-        Log.i(TAG, "user upload created")
-        ref.setValue(uploadUser)
-            .addOnSuccessListener {
-                Log.i(TAG, "saved into database")
-            }.addOnFailureListener {
-                Log.i(TAG, "user upload failed")
-            }
+            val uid = user.uid
+            Log.i(TAG, uid)
+            val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+
+            val uploadUser = User(listOf(), user.email, user.displayName, selectedPhoto.toString(), user.uid)
+            Log.i(TAG, "user upload created")
+            ref.setValue(uploadUser)
+                .addOnSuccessListener {
+                    Log.i(TAG, "saved into database")
+                }.addOnFailureListener {
+                    Log.i(TAG, "user upload failed")
+                }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
