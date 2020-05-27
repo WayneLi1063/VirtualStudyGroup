@@ -32,7 +32,8 @@ class MessageActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             R.id.menu_new_message -> {
-
+                val intent = Intent(this, NewMessageActivity::class.java)
+                startActivity(intent)
             }
 
             // sign out from chat activity

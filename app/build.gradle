@@ -44,5 +44,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.3.1'
     implementation 'com.google.firebase:firebase-database:19.3.0'
     implementation 'com.google.firebase:firebase-auth-ktx:19.3.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // Groupie
+    implementation "com.xwray:groupie:2.8.0"
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 }
