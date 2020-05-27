@@ -20,11 +20,10 @@
         android:paddingTop="40dp"
         android:textColor="#ffffff"/>
 
-    <ImageView
+    <ImageButton
         android:id="@+id/logo"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:src="@drawable/husky_profile_logo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_back_text"
@@ -46,7 +45,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:id="@+id/password_input"
-        android:inputType="text"
+        android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@id/username_input"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
