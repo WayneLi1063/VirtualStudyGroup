@@ -24,6 +24,11 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
         return groupList.size
     }
 
+    fun updateGroup(newGroupList: MutableList<Group>) {
+        groupList = newGroupList
+        notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(holder: GroupListViewHolder, position: Int) {
         val group = groupList[position]
         holder.bind(group)

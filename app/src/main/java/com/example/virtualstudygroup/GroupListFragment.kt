@@ -2,24 +2,33 @@ package com.example.virtualstudygroup
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_explore.*
 
-class GroupListFragment(private val groupsData: MutableMap<String, Group>): Fragment() {
+class GroupListFragment(): Fragment() {
 
-    private lateinit var groupListAdapter: GroupListAdapter
-    private var groupsList: MutableList<Group>? = null
+    private var groupListAdapter: GroupListAdapter? = null
+    private lateinit var groupsList: MutableList<Group>
+    private val database = Firebase.database
+    private val groups = database.getReference("groups")
 
-    private var onGroupClickedListener: onGroupClickedListener? = null
+    private var onGroupClickedListener: OnGroupClickedListener? = null
 
     companion object {
         val TAG: String = GroupListFragment::class.java.simpleName
 
-        fun getInstance(groupsData: MutableMap<String, Group>): GroupListFragment {
-            return GroupListFragment(groupsData)
+        fun getInstance(): GroupListFragment {
+            return GroupListFragment()
         }
 
     }
@@ -27,7 +36,7 @@ class GroupListFragment(private val groupsData: MutableMap<String, Group>): Frag
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        if (context is onGroupClickedListener) {
+        if (context is OnGroupClickedListener) {
             onGroupClickedListener = context
         }
     }
@@ -37,8 +46,6 @@ class GroupListFragment(private val groupsData: MutableMap<String, Group>): Frag
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        groupsList = groupsData.values.toMutableList()
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_explore, container, false)
     }
@@ -46,19 +53,29 @@ class GroupListFragment(private val groupsData: MutableMap<String, Group>): Frag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val immutableGroupList = groupsList
+        groupListAdapter = GroupListAdapter(mutableListOf<Group>())
+        rvGroupList.adapter = groupListAdapter
 
-        if (immutableGroupList != null) {
-            groupListAdapter = GroupListAdapter(immutableGroupList)
-            rvGroupList.adapter = groupListAdapter
-
-            groupListAdapter.onGroupClickListener = { group ->
-                onGroupClickedListener?.onGroupClicked(group)
-            }
+        groupListAdapter?.onGroupClickListener = { group ->
+            onGroupClickedListener?.onGroupClicked(group)
         }
+
+        groups.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                groupsList = dataSnapshot.getValue<MutableMap<String, Group>>()?.values?.toMutableList()!!
+                groupListAdapter?.updateGroup(groupsList)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.i(MainActivity.TAG, "Failed to read value.", error.toException())
+            }
+        })
     }
 }
 
-interface onGroupClickedListener {
+interface OnGroupClickedListener {
     fun onGroupClicked(group: Group)
 }
