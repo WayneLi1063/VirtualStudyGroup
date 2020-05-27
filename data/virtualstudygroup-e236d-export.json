@@ -305,12 +305,6 @@
       "courses" : {
         "INFO 340" : "INFO 340"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "t@test.com",
       "name" : "Joel Test",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
@@ -319,12 +313,6 @@
     "19TlrUUJetgjdRGk9nRAXSWZYlz2" : {
       "courses" : {
         "info340" : "info340"
-      },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
       },
       "email" : "annajun1224@gmail.com",
       "name" : "Anna Huang",
@@ -336,36 +324,22 @@
         "ENG131" : "ENG131",
         "INFO101" : "INFO101"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "bill@gmail.com",
       "name" : "Bill Cornor",
       "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2F11667534_10102203860243201_2713296330820668368_n.jpg?alt=media&token=2cb33b94-5ff6-4288-992c-0ae8d51f30b4",
       "uid" : "2xYublHKU6RAcrzT0SCY5kIkdPK2"
     },
     "3kfudC9dJuRkGHRxIYHucM8wsa63" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "michelle.qw.lee@gmail.com",
       "name" : "Michelle Lee",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "3kfudC9dJuRkGHRxIYHucM8wsa63"
     },
+    "4i3kzXIrBCTdg2ZBdnmYvI126Cx1" : {
+      "email" : "seanyang@gmail.com",
+      "uid" : "4i3kzXIrBCTdg2ZBdnmYvI126Cx1"
+    },
     "534hktSB9ehv6j5FrbJ4v7AgJQx1" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "testing@test.com",
       "name" : "Hello Hello",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
@@ -377,18 +351,12 @@
         "INFO370" : "INFO370",
         "ME123" : "ME123"
       },
-      "chat" : {
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "gregw16@mail.com",
       "name" : "Greg Williams",
       "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fdavid.PNG?alt=media&token=298df141-1652-440a-84f5-ed7b5d248b56",
       "uid" : "5ZleCuKtSwcVVqtfYldsQebt6cv1"
     },
     "5qwoWvcbfpfGDNZqc9uaaBoy8g92" : {
-      "chat" : {
-      },
       "email" : "test@test.com",
       "name" : "Test",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
@@ -398,36 +366,28 @@
       "courses" : {
         "INFO 340" : "INFO 340"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "michael.k.freeman@gmail.com",
       "name" : "Michael Freeman",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "6dobrrRejbRrLCY3cg8TZfAzarq1"
     },
+    "6uYk6XLYzpcv0PVrZyaUdEsl3aL2" : {
+      "email" : "sean@gmail.com",
+      "photoURL" : "/images/user_profile_image/default_image.png",
+      "uid" : "6uYk6XLYzpcv0PVrZyaUdEsl3aL2"
+    },
     "7dOmSUxF2qdHR0KBoH7KDZiQ0bo1" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "angellin880221@gmail.com",
       "name" : "Angel Lin",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "7dOmSUxF2qdHR0KBoH7KDZiQ0bo1"
     },
+    "8TIbg0smE9XfBAU3P6qvZ7uaesO2" : {
+      "email" : "lollllll@gmail.com",
+      "photoURL" : "/images/user_profile_image/default_image.png",
+      "uid" : "8TIbg0smE9XfBAU3P6qvZ7uaesO2"
+    },
     "8aOXZNwUhpe8TkBViFtklkhCMuP2" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "a@a.com",
       "name" : "Wayne Li",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
@@ -437,36 +397,18 @@
       "courses" : {
         "INFO360" : "INFO360"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "davidj2@gmail.com",
       "name" : "David J",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "9yF6MRY2x0NUHU1s2rwupJIfPNt2"
     },
     "9zWiV7R2xgTvN4dsHCaKyCBXrnp2" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "njjjj@123.com",
       "name" : "jnjnj",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "9zWiV7R2xgTvN4dsHCaKyCBXrnp2"
     },
     "AozbVnN66WZqBAEOsqNII40Zo8W2" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "seanyang0506@gmail.com",
       "name" : "Sean Yang",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
@@ -477,24 +419,12 @@
         "INFO 201" : "INFO 201",
         "INFO340" : "INFO340"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "joelross@uw.edu",
       "name" : "Joel Ross",
       "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fcat.jpg?alt=media&token=0610e273-6090-4d2d-bc6b-035d41ab77d0",
       "uid" : "B3Ljp0uVGmMBADeWGU3WjTyOXun1"
     },
     "FdJ2XXCDTLfwcVAlCP8U3l1rKIc2" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "dianadai.dy2020@gmail.com",
       "name" : "Diana Dai",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
@@ -503,12 +433,6 @@
     "I7cLpWNg4Ddor1IsXWT6kUpublN2" : {
       "courses" : {
         "INFO 200" : "INFO 200"
-      },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
       },
       "email" : "joncady@uw.edu",
       "name" : "Jonathan Cady",
@@ -519,48 +443,28 @@
       "courses" : {
         "info340" : "info340"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "gmraemozzer@gmail.com",
       "name" : "枘爅䅚",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "K7IN8x9FNgV1OB9a9r4zk5e36s02"
     },
     "KmDM47hHOGNnL6MeCzj80rQ5sqg2" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "hello@hi.edu",
       "name" : "hello hi",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "KmDM47hHOGNnL6MeCzj80rQ5sqg2"
     },
     "N988auJrO6MOzEwUlI3rEBwnTNH2" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "sdffds@gmail.com",
       "name" : "test",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "N988auJrO6MOzEwUlI3rEBwnTNH2"
     },
+    "QbSUVKs3NCcjcsamrrQjez9To8f2" : {
+      "email" : "test@test.com",
+      "uid" : "QbSUVKs3NCcjcsamrrQjez9To8f2"
+    },
     "Rmgt1lzWcVchBsjznDZbF9rwPJ83" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "aaron.li729@gmail.com",
       "name" : "Aaron Li",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
@@ -573,26 +477,19 @@
         "INFO340" : "INFO340",
         "INFO360" : "INFO360"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "wayneli@gmail.com",
       "name" : "Wayne Li",
       "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Flong.PNG?alt=media&token=b88a7dd2-f856-483b-b04a-0a90cfad6cc5",
       "uid" : "SEYGAF1CYxeqmmLDUOxST0ItKit1"
     },
+    "VwhcTYfAZsY4zpypQxAK9Q7Ao092" : {
+      "email" : "nophoto@sss.com",
+      "photoURL" : "/images/user_profile_image/default_image.png",
+      "uid" : "VwhcTYfAZsY4zpypQxAK9Q7Ao092"
+    },
     "WV9mdhI54NU715tzZTy2XzHjV9P2" : {
       "courses" : {
         "INFO340" : "INFO340"
-      },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
       },
       "email" : "pen@pow.com",
       "name" : "PenumbraPow",
@@ -600,12 +497,6 @@
       "uid" : "WV9mdhI54NU715tzZTy2XzHjV9P2"
     },
     "Xsj17gmSquTh9nZvi1Uuxh5bV8L2" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "jesuswalkspk@icloud.com",
       "name" : "Test Test",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
@@ -615,12 +506,6 @@
       "courses" : {
         "INFO340" : "INFO340",
         "INFO360" : "INFO360"
-      },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
       },
       "email" : "kel28@uw.edu",
       "name" : "Coco Li",
@@ -633,12 +518,6 @@
         "ENG244" : "ENG244",
         "ME123" : "ME123"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "davidj2@hotmail.com",
       "name" : "David Jones",
       "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2Fgreg.PNG?alt=media&token=01205e42-d2dc-4faa-9cb0-514c9ec87a28",
@@ -649,40 +528,27 @@
         "INFO 300" : "INFO 300",
         "INFO 340" : "INFO 340"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "jcman98@gmail.com",
       "name" : "Jonathan Cady",
       "photoURL" : "https://firebasestorage.googleapis.com/v0/b/round-table-a62ad.appspot.com/o/img%2FprofilePic.jpg?alt=media&token=c7414014-9674-4872-af39-08ce2d1ea4ed",
       "uid" : "ax3Mb5tDBoe3FEaN9haRr0o6PuL2"
     },
     "bqREgvnjP8bvSO0QZdSFa0I4bai1" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "jjfjfjfjf@gmail.com",
       "name" : "dhdh",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "bqREgvnjP8bvSO0QZdSFa0I4bai1"
+    },
+    "e4SJGVQzh4P6s9HnfiHoPkAew453" : {
+      "email" : "testest@gmail.cy",
+      "photoURL" : "/images/user_profile_image/default_image.png",
+      "uid" : "e4SJGVQzh4P6s9HnfiHoPkAew453"
     },
     "g2yKU1s4RbbBRvh3duePjrNaSwv1" : {
       "courses" : {
         "CSE443" : "CSE443",
         "ENG244" : "ENG244",
         "JPN123" : "JPN123"
-      },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
       },
       "email" : "lucaseee@yahoo.com",
       "name" : "Lucas Evans",
@@ -693,38 +559,50 @@
       "courses" : {
         "info340" : "info340"
       },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "huiranl.313@gmail.com",
       "name" : "Huiran Li",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "gIWWIKXZKVSeUx7mgYSpVqTashy1"
     },
+    "gjmvvf7zvyXyQSPtGyzk76I3NU03" : {
+      "email" : "sean@gmail.com",
+      "photoURL" : "/images/user_profile_image/default_image.png",
+      "uid" : "gjmvvf7zvyXyQSPtGyzk76I3NU03"
+    },
+    "l06NJC4MYEh7jQTrsEKaO7b47n92" : {
+      "email" : "ghhhu@gmail.com",
+      "photoURL" : "/images/user_profile_image/default_image.png",
+      "uid" : "l06NJC4MYEh7jQTrsEKaO7b47n92"
+    },
     "mtwpYLH1lLQSpBDyx6eRvC24RV83" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "wongct@uw.edu",
       "name" : "Tiffany Wong",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "mtwpYLH1lLQSpBDyx6eRvC24RV83"
     },
+    "nAmOnAFBItc2rWYBa8ebCbAmPgj1" : {
+      "email" : "seanyang@gmail.com",
+      "photoURL" : "content://com.google.android.apps.photos.contentprovider/-1/1/content%3A%2F%2Fmedia%2Fexternal%2Fimages%2Fmedia%2F24/ORIGINAL/NONE/image%2Fjpeg/419447182",
+      "uid" : "nAmOnAFBItc2rWYBa8ebCbAmPgj1"
+    },
+    "pTTvOCZRiEMpQos2sSPfrOBrO3o1" : {
+      "email" : "weawewefawfwe@gmail.com",
+      "photoURL" : "content://com.google.android.apps.photos.contentprovider/-1/1/content%3A%2F%2Fmedia%2Fexternal%2Fimages%2Fmedia%2F24/ORIGINAL/NONE/image%2Fjpeg/878455306",
+      "uid" : "pTTvOCZRiEMpQos2sSPfrOBrO3o1"
+    },
+    "phJb1xEgpSWF5doagmYOSftcEot1" : {
+      "email" : "test1@gmail.com",
+      "photoURL" : "/images/user_profile_image/default_image.png",
+      "uid" : "phJb1xEgpSWF5doagmYOSftcEot1"
+    },
+    "rinoUQBj15Z3WMSxKsAFJmXHUgt2" : {
+      "email" : "seanyang@gmail.com",
+      "photoURL" : "/images/user_profile_image/default_image.png",
+      "uid" : "rinoUQBj15Z3WMSxKsAFJmXHUgt2"
+    },
     "t6fN8LEh6LRES0vHVl1Cargm8xO2" : {
       "courses" : {
         "info340" : "info340"
-      },
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
       },
       "email" : "wong.c.tiffany@gmail.com",
       "name" : "Tiffany Wong",
@@ -732,47 +610,24 @@
       "uid" : "t6fN8LEh6LRES0vHVl1Cargm8xO2"
     },
     "wCuqiR0D84d7YKcNeldzHjxHWOR2" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "yichiz5@uw.edu",
       "name" : "ddd",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "wCuqiR0D84d7YKcNeldzHjxHWOR2"
     },
     "xBG2vSE0G3S3BlvpksnipM57eP32" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "haoyangchen0901@gmail.com",
       "name" : "Eric Chen",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "xBG2vSE0G3S3BlvpksnipM57eP32"
     },
     "z7qTZuPVNkhCxqR5jbb3xQUVohH2" : {
-      "chat" : {
-        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : "hello",
-        "SEYGAF1CYxeqmmLDUOxST0ItKit1" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "jpodj@gmail.com",
       "name" : "Josh Freeman",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
       "uid" : "z7qTZuPVNkhCxqR5jbb3xQUVohH2"
     },
     "zPMbp0JyVFTAfKJJkQkl5ktTveM2" : {
-      "chat" : {
-        "2xYublHKU6RAcrzT0SCY5kIkdPK2" : "hello",
-        "B3Ljp0uVGmMBADeWGU3WjTyOXun1" : "hello",
-        "ax3Mb5tDBoe3FEaN9haRr0o6PuL2" : "hello",
-        "ZfIg16edDJP0jt8mhzhiRG0jnCm2" : "hello"
-      },
       "email" : "ranh2@uw.edu",
       "name" : "Ran Hu",
       "photoURL" : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",

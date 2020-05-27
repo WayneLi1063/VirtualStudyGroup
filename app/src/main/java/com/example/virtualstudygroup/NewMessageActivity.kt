@@ -70,7 +70,7 @@ class NewMessageActivity : AppCompatActivity() {
 
 class UserItem(val user: UserChat): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        viewHolder.itemView.tvChatUserName.text = user.name
+        viewHolder.itemView.tvChatUserName.text = user.email
         if (user.photoURL.startsWith("https:")) {
             Picasso.get().load(user.photoURL)?.into(viewHolder.itemView.ivChatUserImage)
         }
