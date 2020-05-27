@@ -47,6 +47,11 @@ class LoginActivity : AppCompatActivity() {
                                 "Log in successful, current user = ${auth.currentUser?.email}"
                             )
                             currentUser = auth.currentUser
+
+                            // invoke the message activity
+                            val intent = Intent(this, MessageActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
                         } else {
                             Log.i(TAG, "Log in failed")
                             Toast.makeText(
