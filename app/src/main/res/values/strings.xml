@@ -6,4 +6,6 @@
     <string name="email">Email</string>
     <string name="signUpHereText"><u>Sign up here</u></string>
     <string name="logInText"><u>Log in here</u></string>
+    <string name="new_message">New Message</string>
+    <string name="sign_out">Sign Out</string>
 </resources>
