@@ -70,6 +70,7 @@ class NewMessageActivity : AppCompatActivity() {
 
 class UserItem(val user: UserChat): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        // show email instead of user name b/c username info missing
         viewHolder.itemView.tvChatUserName.text = user.email
         if (user.photoURL.startsWith("https:")) {
             Picasso.get().load(user.photoURL)?.into(viewHolder.itemView.ivChatUserImage)
