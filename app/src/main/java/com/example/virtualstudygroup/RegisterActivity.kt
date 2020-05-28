@@ -61,8 +61,11 @@ class RegisterActivity : AppCompatActivity() {
                                 Log.i(TAG, "No photo selected, use default")
                                 val default_photo_name = "default_image.png"
                                 val ref = FirebaseStorage.getInstance().getReference("/images/user_profile_image/$default_photo_name")
-                                selectedPhoto = Uri.parse(ref.path)
-                                saveUserIntoDatabase()
+                                ref.downloadUrl.addOnSuccessListener {
+
+                                    selectedPhoto = it
+                                    saveUserIntoDatabase()
+                                }
                             }
                         } else {
                             Log.i(TAG, "Create user failed")
@@ -86,6 +89,9 @@ class RegisterActivity : AppCompatActivity() {
             Log.i(TAG, "user upload created")
             ref.setValue(uploadUser)
                 .addOnSuccessListener {
+                    getApp().currentUser = currentUser
+                    val intent = Intent(this, UserProfileActivity::class.java)
+                    startActivity(intent)
                     Log.i(TAG, "saved into database")
                 }.addOnFailureListener {
                     Log.i(TAG, "user upload failed")
@@ -115,8 +121,11 @@ class RegisterActivity : AppCompatActivity() {
         val ref = FirebaseStorage.getInstance().getReference("/images/user_profile_image/$filename")
         ref.putFile(photoUri)
             .addOnSuccessListener {
-                Log.i(TAG, "Photo uploaded, uri = ${it.metadata?.path}")
-                saveUserIntoDatabase()
+                ref.downloadUrl.addOnSuccessListener {
+                    Log.i(TAG, "Photo uploaded, uri = $it")
+                    selectedPhoto = it
+                    saveUserIntoDatabase()
+                }
             }
     }
 
