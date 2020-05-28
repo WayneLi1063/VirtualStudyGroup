@@ -85,7 +85,7 @@ class RegisterActivity : AppCompatActivity() {
             Log.i(TAG, uid)
             val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
-            val uploadUser = User(listOf(), user.email, user.displayName, selectedPhoto.toString(), user.uid)
+            val uploadUser = User(listOf(), user.email!!, "", "", "", "", selectedPhoto.toString(), user.uid)
             Log.i(TAG, "user upload created")
             ref.setValue(uploadUser)
                 .addOnSuccessListener {

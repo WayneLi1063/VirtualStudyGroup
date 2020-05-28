@@ -2,4 +2,5 @@
     <string name="app_name">VirtualStudyGroup</string>
     <string name="signUpHereText"><u>Sign up here</u></string>
     <string name="logInText"><u>Log in here</u></string>
+    <string name="profile"><b>Profile</b></string>
 </resources>
