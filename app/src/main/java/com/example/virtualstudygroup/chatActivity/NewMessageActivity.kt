@@ -1,20 +1,18 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.chatActivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.recyclerview.widget.RecyclerView
-import com.example.virtualstudygroup.model.User
+import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.model.UserChat
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
-import kotlinx.android.synthetic.main.activity_message.*
 import kotlinx.android.synthetic.main.activity_message.chat_toolbar
 import kotlinx.android.synthetic.main.activity_new_message.*
 import kotlinx.android.synthetic.main.user_row_message.view.*
@@ -50,7 +48,11 @@ class NewMessageActivity : AppCompatActivity() {
                     Log.i("Diana", it.toString())
                     val user = it.getValue(UserChat::class.java)
                     user?.let {
-                        adapter.add(UserItem(user))
+                        adapter.add(
+                            UserItem(
+                                user
+                            )
+                        )
                     }
                 }
                 new_message_list.adapter = adapter
@@ -81,13 +83,4 @@ class UserItem(val user: UserChat): Item<GroupieViewHolder>() {
         return R.layout.user_row_message
     }
 
-}
-
-data class UserChat(
-    val email: String?,
-    val name: String?,
-    val photoURL: String,
-    val uid: String
-) {
-    constructor(): this("","","","")
 }
