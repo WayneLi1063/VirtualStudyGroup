@@ -13,7 +13,6 @@ import com.example.virtualstudygroup.model.ChatMessage
 import com.example.virtualstudygroup.model.UserChat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -21,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_message.*
 import kotlinx.android.synthetic.main.main_message_row.view.*
 
 class MessageActivity : AppCompatActivity() {
-    val adapter = GroupAdapter<GroupieViewHolder>()
+    private val adapter = GroupAdapter<GroupieViewHolder>()
     val latestMessageMap = HashMap<String, ChatMessage>()
 
     companion object {
@@ -44,7 +43,7 @@ class MessageActivity : AppCompatActivity() {
         verifyUserIsLoggedIn()
     }
 
-    class MainMessageRow(val chatMessage: ChatMessage): Item<GroupieViewHolder>(){
+    class MainMessageRow(private val chatMessage: ChatMessage): Item<GroupieViewHolder>(){
         override fun getLayout(): Int {
             return R.layout.main_message_row
         }
@@ -54,7 +53,6 @@ class MessageActivity : AppCompatActivity() {
             viewHolder.itemView.tv_message_recent.text = chatMessage.text
             // viewHolder.itemView.iv_message_image
         }
-
     }
 
     private fun updateMessageRecyclerView() {
