@@ -1,5 +1,6 @@
 package com.example.virtualstudygroup.chatActivity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,10 @@ import kotlinx.android.synthetic.main.activity_new_message.*
 import kotlinx.android.synthetic.main.user_row_message.view.*
 
 class NewMessageActivity : AppCompatActivity() {
+
+    companion object {
+        val USER_KEY = "USER_KEY"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,11 +60,21 @@ class NewMessageActivity : AppCompatActivity() {
                         )
                     }
                 }
+                
+                adapter.setOnItemClickListener { item, view ->
+                    val userItem = item as UserItem
+
+                    val intent = Intent(view.context, ChatLogActivity::class.java)
+                    intent.putExtra(USER_KEY,userItem.user)
+                    startActivity(intent)
+
+                    finish()
+                }
+                
                 new_message_list.adapter = adapter
             }
 
             override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         })
     }
@@ -73,7 +88,12 @@ class NewMessageActivity : AppCompatActivity() {
 class UserItem(val user: UserChat): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         // show email instead of user name b/c username info missing
-        viewHolder.itemView.tvChatUserName.text = user.email
+        if (user.name == "") {
+            viewHolder.itemView.tvChatUserName.text = user.email
+        } else {
+            viewHolder.itemView.tvChatUserName.text = user.name
+        }
+
         if (user.photoURL.startsWith("https:")) {
             Picasso.get().load(user.photoURL)?.into(viewHolder.itemView.ivChatUserImage)
         }
@@ -82,5 +102,4 @@ class UserItem(val user: UserChat): Item<GroupieViewHolder>() {
     override fun getLayout(): Int {
         return R.layout.user_row_message
     }
-
 }
