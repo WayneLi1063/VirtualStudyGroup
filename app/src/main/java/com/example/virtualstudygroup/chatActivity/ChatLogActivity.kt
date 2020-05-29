@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.activity_chat_log.*
 import kotlinx.android.synthetic.main.activity_message.chat_toolbar
 import kotlinx.android.synthetic.main.chat_from_row.view.*
 import kotlinx.android.synthetic.main.chat_to_row.view.*
-import java.sql.Timestamp
 
 class ChatLogActivity : AppCompatActivity() {
 
@@ -27,7 +26,7 @@ class ChatLogActivity : AppCompatActivity() {
     var toUser: UserChat? = null
 
     companion object {
-        val CHATAG = "ChatLog"
+        const val CHATAG = "ChatLog"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +41,7 @@ class ChatLogActivity : AppCompatActivity() {
         chat_log_recycler.adapter = adapter
 
         // get and show user email / name based on info
-        toUser = intent.getParcelableExtra<UserChat>(NewMessageActivity.USER_KEY)
+        toUser = intent.getParcelableExtra(NewMessageActivity.USER_KEY)
         if (toUser?.name == "") {
             supportActionBar?.title= toUser!!.email
         } else {
@@ -127,7 +126,7 @@ class ChatLogActivity : AppCompatActivity() {
     }
 }
 
-class ChatFromItem(val text: String, val user: UserChat): Item<GroupieViewHolder>() {
+class ChatFromItem(val text: String, private val user: UserChat): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.tv_user_chat_log_from.text = text
 
@@ -142,7 +141,7 @@ class ChatFromItem(val text: String, val user: UserChat): Item<GroupieViewHolder
     }
 }
 
-class ChatToItem (val text: String, val user: UserChat): Item<GroupieViewHolder>() {
+class ChatToItem (val text: String, private val user: UserChat): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.tv_user_chat_log_to.text = text
 

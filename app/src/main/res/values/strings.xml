@@ -12,4 +12,6 @@
     <string name="enter_message">Enter Message</string>
     <string name="sample_message">sample message</string>
     <string name="multi_line_sample_message">let\'s show a longlonglonglong text that may go into multiple lines</string>
+    <string name="to_user_image">to user image</string>
+    <string name="from_user_image">from user image</string>
 </resources>

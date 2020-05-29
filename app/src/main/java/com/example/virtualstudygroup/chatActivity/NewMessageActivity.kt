@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.user_row_message.view.*
 class NewMessageActivity : AppCompatActivity() {
 
     companion object {
-        val USER_KEY = "USER_KEY"
+        const val USER_KEY = "USER_KEY"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,7 +80,7 @@ class NewMessageActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed();
+        onBackPressed()
         return super.onSupportNavigateUp()
     }
 }
