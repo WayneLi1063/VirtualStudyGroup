@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.model.ChatMessage
-import com.example.virtualstudygroup.model.User
 import com.example.virtualstudygroup.model.UserChat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
@@ -60,7 +59,9 @@ class ChatLogActivity : AppCompatActivity() {
     }
 
     private fun listenForMessages() {
-        val reference = FirebaseDatabase.getInstance().getReference("/messages")
+        val fromId = FirebaseAuth.getInstance().uid
+        val toId = toUser?.uid
+        val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId")
         reference.addChildEventListener(object: ChildEventListener {
             // listen for new messages
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
@@ -100,19 +101,24 @@ class ChatLogActivity : AppCompatActivity() {
 
         // gather information to be sent
         val fromId = FirebaseAuth.getInstance().uid
-        val user = intent.getParcelableExtra<UserChat>(NewMessageActivity.USER_KEY)
-        val toId = user?.uid
+        val toId = toUser?.uid
 
         if (fromId == null || toId == null) return
 
         // call firebase database and prepare to send new msg
-        val reference = FirebaseDatabase.getInstance().getReference("/messages").push()
+        // val reference = FirebaseDatabase.getInstance().getReference("/messages").push()
+        val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
+        val toReference = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
 
         val chatMessage = ChatMessage(reference.key!!, text, fromId, toId, System.currentTimeMillis())
         reference.setValue(chatMessage)
             .addOnSuccessListener {
                 Log.i(CHATAG, "Saved our chat message: ${reference.key}")
+                et_chat_log.text.clear()
+                chat_log_recycler.scrollToPosition(adapter.itemCount - 1)
             }
+
+        toReference.setValue(chatMessage)
     }
 
     override fun onSupportNavigateUp(): Boolean {
