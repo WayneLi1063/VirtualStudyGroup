@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.model.ChatMessage
+import com.example.virtualstudygroup.model.User
 import com.example.virtualstudygroup.model.UserChat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -23,6 +25,7 @@ import java.sql.Timestamp
 class ChatLogActivity : AppCompatActivity() {
 
     val adapter = GroupAdapter<GroupieViewHolder>()
+    var toUser: UserChat? = null
 
     companion object {
         val CHATAG = "ChatLog"
@@ -39,16 +42,14 @@ class ChatLogActivity : AppCompatActivity() {
         // set up recycler view
         chat_log_recycler.adapter = adapter
 
-        // get user email / name based on info
-        val user = intent.getParcelableExtra<UserChat>(NewMessageActivity.USER_KEY)
-
-        if (user?.name == "") {
-            supportActionBar?.title= user.email
+        // get and show user email / name based on info
+        toUser = intent.getParcelableExtra<UserChat>(NewMessageActivity.USER_KEY)
+        if (toUser?.name == "") {
+            supportActionBar?.title= toUser!!.email
         } else {
-            supportActionBar?.title = user?.name
+            supportActionBar?.title = toUser?.name
         }
 
-        // setupDummyData()
         listenForMessages()
 
         btn_send_chat_log.setOnClickListener{
@@ -68,9 +69,10 @@ class ChatLogActivity : AppCompatActivity() {
                     // check if its a from/to message
 
                     if (chatMessage.fromId == FirebaseAuth.getInstance().uid) {
-                        adapter.add(ChatFromItem(chatMessage.text))
+                        val currentUser = MessageActivity.currentUser ?:return
+                        adapter.add(ChatFromItem(chatMessage.text, currentUser))
                     } else {
-                        adapter.add(ChatToItem(chatMessage.text))
+                        adapter.add(ChatToItem(chatMessage.text, toUser!!))
                     }
                 }
 
@@ -89,14 +91,6 @@ class ChatLogActivity : AppCompatActivity() {
             }
 
         })
-    }
-
-    private fun setupDummyData() {
-        val adapter = GroupAdapter<GroupieViewHolder>()
-        adapter.add(ChatFromItem("From msg ; "))
-        adapter.add(ChatToItem("To message ;....."))
-
-        chat_log_recycler.adapter = adapter
     }
 
     // send message to the firebase database
@@ -127,9 +121,14 @@ class ChatLogActivity : AppCompatActivity() {
     }
 }
 
-class ChatFromItem(val text: String): Item<GroupieViewHolder>() {
+class ChatFromItem(val text: String, val user: UserChat): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.tv_user_chat_log_from.text = text
+
+        val uri = user.photoURL
+        if (uri.startsWith("https:")) {
+            Picasso.get().load(uri).into(viewHolder.itemView.iv_user_chat_log_from)
+        }
     }
 
     override fun getLayout(): Int {
@@ -137,9 +136,15 @@ class ChatFromItem(val text: String): Item<GroupieViewHolder>() {
     }
 }
 
-class ChatToItem (val text: String): Item<GroupieViewHolder>() {
+class ChatToItem (val text: String, val user: UserChat): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.tv_user_chat_log_to.text = text
+
+        // load our user image into the start
+        val uri = user.photoURL
+        if (uri.startsWith("https:")) {
+            Picasso.get().load(uri).into(viewHolder.itemView.iv_user_chat_log_to)
+        }
     }
 
     override fun getLayout(): Int {
