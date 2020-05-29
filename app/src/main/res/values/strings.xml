@@ -14,4 +14,5 @@
     <string name="multi_line_sample_message">let\'s show a longlonglonglong text that may go into multiple lines</string>
     <string name="to_user_image">to user image</string>
     <string name="from_user_image">from user image</string>
+    <string name="user_name">USER Name</string>
 </resources>
