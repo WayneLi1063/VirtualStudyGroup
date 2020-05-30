@@ -14,6 +14,8 @@ import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.main_message_row.view.*
 
 class LatestMessageRow(private val chatMessage: ChatMessage): Item<GroupieViewHolder>(){
+    var chatPartnerUser: UserChat ?= null
+
     override fun getLayout(): Int {
         return R.layout.main_message_row
     }
@@ -32,18 +34,18 @@ class LatestMessageRow(private val chatMessage: ChatMessage): Item<GroupieViewHo
         val reference = FirebaseDatabase.getInstance().getReference("/users/$chatPartnerId")
         reference.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
-                val user = p0.getValue(UserChat::class.java) ?: return
+                chatPartnerUser = p0.getValue(UserChat::class.java) ?: return
 
                 // show chat partner name
-                if (user.name != "") {
-                    viewHolder.itemView.tv_message_name.text = user.name
+                if (chatPartnerUser!!.name != "") {
+                    viewHolder.itemView.tv_message_name.text = chatPartnerUser!!.name
                 } else {
-                    viewHolder.itemView.tv_message_name.text = user.email
+                    viewHolder.itemView.tv_message_name.text = chatPartnerUser!!.email
                 }
 
                 // show chat partner image
-                if (user.photoURL.startsWith("https:")) {
-                    Picasso.get().load(user.photoURL)?.into(viewHolder.itemView.iv_message_image)
+                if (chatPartnerUser!!.photoURL.startsWith("https:")) {
+                    Picasso.get().load(chatPartnerUser!!.photoURL)?.into(viewHolder.itemView.iv_message_image)
                 }
             }
 

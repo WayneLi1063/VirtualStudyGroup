@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.virtualstudygroup.LoginActivity
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
+import com.example.virtualstudygroup.chatActivity.NewMessageActivity.Companion.USER_KEY
 import com.example.virtualstudygroup.model.ChatMessage
 import com.example.virtualstudygroup.model.UserChat
 import com.example.virtualstudygroup.views.LatestMessageRow
@@ -33,15 +34,20 @@ class MessageActivity : AppCompatActivity() {
 
         setSupportActionBar(chat_toolbar)
 
-        // setupDummyRows()
         messages_recycler.adapter = adapter
         messages_recycler.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
         fetchCurrentUser()
-
+        verifyUserIsLoggedIn()
         listenForLatestMessage()
 
-        verifyUserIsLoggedIn()
+        // set up adapter item listener
+        adapter.setOnItemClickListener{item, view ->
+            val intent = Intent(this, ChatLogActivity::class.java)
+            val row = item as LatestMessageRow
+            intent.putExtra(USER_KEY, row.chatPartnerUser)
+            startActivity(intent)
+        }
     }
 
     private fun updateMessageRecyclerView() {

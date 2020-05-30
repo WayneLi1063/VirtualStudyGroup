@@ -65,7 +65,6 @@ class ChatLogActivity : AppCompatActivity() {
                 val chatMessage = p0.getValue(ChatMessage::class.java)
                 chatMessage?.let {
                     // check if its a from/to message
-
                     if (chatMessage.fromId == FirebaseAuth.getInstance().uid) {
                         val currentUser = MessageActivity.currentUser ?:return
                         adapter.add(ChatFromItem(chatMessage.text, currentUser))
@@ -74,6 +73,8 @@ class ChatLogActivity : AppCompatActivity() {
                     }
                 }
 
+                // scroll to the bottom of the screen
+                chat_log_recycler.scrollToPosition(adapter.itemCount - 1)
             }
 
             override fun onCancelled(p0: DatabaseError) {
