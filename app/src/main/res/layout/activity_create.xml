@@ -167,7 +167,7 @@
                         />
 
                     <Button
-                        android:id="@+id/btnProjectPartner"
+                        android:id="@+id/btnProjectPartners"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Project Partners"
@@ -180,7 +180,7 @@
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Homework Help"
-                        android:layout_toRightOf="@+id/btnProjectPartner"
+                        android:layout_toRightOf="@+id/btnProjectPartners"
                         android:layout_below="@id/btnLabMates"
                         android:layout_margin="4dp"
                         android:background="@drawable/tag_button_corners"/>
@@ -190,13 +190,14 @@
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Note Exchange"
-                        android:layout_below="@id/btnProjectPartner"
+                        android:layout_below="@id/btnProjectPartners"
                         android:layout_margin="4dp"
                         android:background="@drawable/tag_button_corners"/>
 
                 </RelativeLayout>
 
                 <Button
+                    android:id="@+id/btnFinish"
                     android:layout_marginTop="@dimen/padding_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
