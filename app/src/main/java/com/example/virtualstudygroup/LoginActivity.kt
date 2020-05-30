@@ -47,15 +47,18 @@ class LoginActivity : AppCompatActivity() {
                             currentUser = auth.currentUser
 
                             // invoke the message activity
-                            /*
+
                             val intent = Intent(this, MessageActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
 
-                             */
                             getApp().currentUser = currentUser
 
+                            // start profile activity
+                            /*
                             val intent = Intent(this, UserProfileActivity::class.java)
                             startActivity(intent)
+                             */
                         } else {
                             Log.i(TAG, "Log in failed")
                             Toast.makeText(
