@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.chatActivity.MessageActivity
@@ -31,6 +32,7 @@ class RegisterActivity : AppCompatActivity() {
         Log.i(TAG, "onstart")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        getApp().currentUser = null
         supportActionBar?.hide()
         auth = Firebase.auth
 
@@ -47,6 +49,8 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         btnSignup.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
+            btnSignup.isClickable = false
             val username = username_input.text.toString()
             val password = password_input.text.toString()
             if (username.isEmpty() || password.isEmpty()) {
@@ -64,15 +68,17 @@ class RegisterActivity : AppCompatActivity() {
                                 val default_photo_name = "default_image.png"
                                 val ref = FirebaseStorage.getInstance().getReference("/images/user_profile_image/$default_photo_name")
                                 ref.downloadUrl.addOnSuccessListener {
-
                                     selectedPhoto = it
                                     saveUserIntoDatabase()
                                 }
                             }
                         } else {
+                            btnSignup.isClickable = true
                             Log.i(TAG, "Create user failed")
                         }
                     }.addOnFailureListener {
+                        progressBar.visibility = View.INVISIBLE
+                        btnSignup.isClickable = true
                         Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
                     }
 
@@ -95,9 +101,9 @@ class RegisterActivity : AppCompatActivity() {
                     // invoke profile activity
                     /*
                     val intent = Intent(this, UserProfileActivity::class.java)
+                    progressBar.visibility = View.GONE
                     startActivity(intent)
                     Log.i(TAG, "saved into database")
-
                      */
 
                     // invoke message activity
@@ -106,8 +112,9 @@ class RegisterActivity : AppCompatActivity() {
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
 
-
                 }.addOnFailureListener {
+                    progressBar.visibility = View.GONE
+
                     Log.i(TAG, "user upload failed")
                 }
         }

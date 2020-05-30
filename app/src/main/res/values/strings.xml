@@ -6,6 +6,7 @@
     <string name="email">Email</string>
     <string name="signUpHereText"><u>Sign up here</u></string>
     <string name="logInText"><u>Log in here</u></string>
+    <string name="profile"><b>Profile</b></string>
     <string name="new_message">New Message</string>
     <string name="sign_out">Sign Out</string>
     <string name="send">Send</string>
@@ -15,6 +16,4 @@
     <string name="to_user_image">to user image</string>
     <string name="from_user_image">from user image</string>
     <string name="user_name">USER Name</string>
-    <string name="profile"><b>Profile</b></string>
->>>>>>> origin/user_manager
 </resources>
