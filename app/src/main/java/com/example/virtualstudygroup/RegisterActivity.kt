@@ -63,8 +63,11 @@ class RegisterActivity : AppCompatActivity() {
                                 Log.i(TAG, "No photo selected, use default")
                                 val default_photo_name = "default_image.png"
                                 val ref = FirebaseStorage.getInstance().getReference("/images/user_profile_image/$default_photo_name")
-                                selectedPhoto = Uri.parse(ref.path)
-                                saveUserIntoDatabase()
+                                ref.downloadUrl.addOnSuccessListener {
+
+                                    selectedPhoto = it
+                                    saveUserIntoDatabase()
+                                }
                             }
                         } else {
                             Log.i(TAG, "Create user failed")
@@ -84,10 +87,13 @@ class RegisterActivity : AppCompatActivity() {
             Log.i(TAG, uid)
             val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
-            val uploadUser = User(listOf(), user.email, user.displayName, selectedPhoto.toString(), user.uid)
+            val uploadUser = User(listOf(), user.email!!, "", "", "", "", selectedPhoto.toString(), user.uid)
             Log.i(TAG, "user upload created")
             ref.setValue(uploadUser)
                 .addOnSuccessListener {
+                    getApp().currentUser = currentUser
+                    val intent = Intent(this, UserProfileActivity::class.java)
+                    startActivity(intent)
                     Log.i(TAG, "saved into database")
 
                     // invoke message activity
@@ -122,8 +128,11 @@ class RegisterActivity : AppCompatActivity() {
         val ref = FirebaseStorage.getInstance().getReference("/images/user_profile_image/$filename")
         ref.putFile(photoUri)
             .addOnSuccessListener {
-                Log.i(TAG, "Photo uploaded, uri = ${it.metadata?.path}")
-                saveUserIntoDatabase()
+                ref.downloadUrl.addOnSuccessListener {
+                    Log.i(TAG, "Photo uploaded, uri = $it")
+                    selectedPhoto = it
+                    saveUserIntoDatabase()
+                }
             }
     }
 
