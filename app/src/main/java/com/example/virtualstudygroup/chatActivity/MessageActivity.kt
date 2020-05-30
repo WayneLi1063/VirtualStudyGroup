@@ -9,6 +9,7 @@ import android.view.MenuItem
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.virtualstudygroup.LoginActivity
 import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.UserProfileActivity
 import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.chatActivity.NewMessageActivity.Companion.USER_KEY
 import com.example.virtualstudygroup.model.ChatMessage
@@ -34,6 +35,7 @@ class MessageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_message)
 
         setSupportActionBar(chat_toolbar)
+        supportActionBar?.title = "ChatRoom"
 
         messages_recycler.adapter = adapter
         messages_recycler.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
@@ -41,12 +43,22 @@ class MessageActivity : AppCompatActivity() {
         fetchCurrentUser()
         verifyUserIsLoggedIn()
         listenForLatestMessage()
+        setupBotNavBar()
 
         // set up adapter item listener
         adapter.setOnItemClickListener{item, view ->
             val intent = Intent(this, ChatLogActivity::class.java)
             val row = item as LatestMessageRow
             intent.putExtra(USER_KEY, row.chatPartnerGroup)
+            startActivity(intent)
+        }
+    }
+
+    private fun setupBotNavBar() {
+        // btn_explore_groups.setOnClickListener()
+        btn_profile.setOnClickListener{
+            val intent = Intent(this, UserProfileActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
     }
@@ -125,12 +137,14 @@ class MessageActivity : AppCompatActivity() {
             }
 
             // sign out from chat activity
-            R.id.menu_sign_out -> {
+            /* R.id.menu_sign_out -> {
                 FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
+
+             */
         }
         return super.onOptionsItemSelected(item)
     }
