@@ -9,4 +9,13 @@
     <string name="profile"><b>Profile</b></string>
     <string name="new_message">New Message</string>
     <string name="sign_out">Sign Out</string>
+    <string name="send">Send</string>
+    <string name="enter_message">Enter Message</string>
+    <string name="sample_message">sample message</string>
+    <string name="multi_line_sample_message">let\'s show a longlonglonglong text that may go into multiple lines</string>
+    <string name="to_user_image">to user image</string>
+    <string name="from_user_image">from user image</string>
+    <string name="user_name">USER Name</string>
+    <string name="profile"><b>Profile</b></string>
+>>>>>>> origin/user_manager
 </resources>
