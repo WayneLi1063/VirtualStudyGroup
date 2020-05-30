@@ -16,6 +16,4 @@
     <string name="to_user_image">to user image</string>
     <string name="from_user_image">from user image</string>
     <string name="user_name">USER Name</string>
-    <string name="profile"><b>Profile</b></string>
->>>>>>> origin/user_manager
 </resources>
