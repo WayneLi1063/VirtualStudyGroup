@@ -120,7 +120,7 @@ class UserProfileEditActivity : AppCompatActivity() {
             val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
             if (selectedPhoto == null) {
-                selectedPhoto = currentUser.photoUrl
+                selectedPhoto = Uri.parse(userData.photoURL)
             }
 
             val uploadUser = User(listOf(),

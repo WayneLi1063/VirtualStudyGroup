@@ -3,9 +3,10 @@ package com.example.virtualstudygroup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -42,6 +43,15 @@ class UserProfileActivity : AppCompatActivity() {
                 p0.let {
                     userData = it.getValue(User::class.java)
                     fillUpInfo()
+                    btnChangePassword.setOnClickListener {
+                        var auth = Firebase.auth
+                        var emailAddress = currentUser!!.email
+                        auth.sendPasswordResetEmail(emailAddress!!)
+                        Toast.makeText(applicationContext,
+                            "Please check your email for reset link",
+                            Toast.LENGTH_SHORT).show()
+
+                    }
                 }
             }
 
