@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/padding_small"
     android:layout_margin="@dimen/padding_medium"
-    android:background="@drawable/custom_corners"
+    android:background="@drawable/group_card_corners"
     android:foreground="?selectableItemBackground"
     android:elevation="@dimen/padding_medium">
 

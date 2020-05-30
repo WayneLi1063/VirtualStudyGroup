@@ -1,17 +1,18 @@
 package com.example.virtualstudygroup
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_explore.*
 
-class MainActivity : AppCompatActivity() {
+class ExploreActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "Printing"
@@ -24,8 +25,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        
+        setContentView(R.layout.activity_explore)
+
         groupListAdapter = GroupListAdapter(mutableListOf<Group>())
         rvGroupList.adapter = groupListAdapter
 
@@ -46,6 +47,11 @@ class MainActivity : AppCompatActivity() {
                 Log.i(TAG, "Failed to read value.", error.toException())
             }
         })
+
+        btnCreate.setOnClickListener {
+            val intent = Intent(this, CreateGroupActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 //    private fun getGroupListFragment() =
