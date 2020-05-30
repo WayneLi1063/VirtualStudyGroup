@@ -4,12 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_login.*
+import java.lang.Exception
 
 class LoginActivity : AppCompatActivity() {
 
@@ -25,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
 
         switch_to_signup.setOnClickListener {
             val intent: Intent = Intent(this, RegisterActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
 
@@ -45,7 +50,13 @@ class LoginActivity : AppCompatActivity() {
                             currentUser = auth.currentUser
                             getApp().currentUser = currentUser
                             val intent = Intent(this, UserProfileActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
+
+//                            // invoke the message activity
+//                            val intent = Intent(this, MessageActivity::class.java)
+//
+//                            startActivity(intent)
                         } else {
                             Log.i(TAG, "Log in failed")
                             Toast.makeText(

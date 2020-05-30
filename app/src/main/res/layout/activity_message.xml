@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MessageActivity">
+
+    <!--<include
+        android:id="@+id/toolbar"
+        layout="@layout/bar_layout"/>-->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/chat_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/BarTheme"
+        android:elevation="4dp"
+        app:titleTextColor="@color/white"
+        />
+
+    <!--
+      <item android:id="@+id/menu_new_message"
+        android:title="@string/new_message"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/menu_sign_out"
+        android:title="@string/sign_out"
+        app:showAsAction="ifRoom"/>
+    -->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

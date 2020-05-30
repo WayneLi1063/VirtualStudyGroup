@@ -3,5 +3,8 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="huskyPurple">#4b2e83</color>
+    <color name="huskyPurple">#4B2E83</color>
+    <color name="white">#ffffff</color>
+    <color name="huskyGold">#85754D</color>
+
 </resources>
