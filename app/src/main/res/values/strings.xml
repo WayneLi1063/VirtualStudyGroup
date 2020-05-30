@@ -4,4 +4,13 @@
     <string name="team_name">Team Name</string>
     <string name="course_name">Course Name</string>
     <string name="create_your_group">Create your group</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="signUpHereText"><u>Sign up here</u></string>
+    <string name="logInText"><u>Log in here</u></string>
+    <string name="profile"><b>Profile</b></string>
+    <string name="new_message">New Message</string>
+    <string name="sign_out">Sign Out</string>
 </resources>
