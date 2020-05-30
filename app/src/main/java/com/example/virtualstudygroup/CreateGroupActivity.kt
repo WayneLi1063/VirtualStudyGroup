@@ -1,7 +1,6 @@
 package com.example.virtualstudygroup
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 
 class CreateGroupActivity : AppCompatActivity() {
@@ -17,7 +16,8 @@ class CreateGroupActivity : AppCompatActivity() {
     private var noteExchange: Boolean? = null
     private var projectPartners: Boolean? = null
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_create)
     }
 }

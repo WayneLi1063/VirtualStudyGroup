@@ -13,4 +13,6 @@
     <string name="profile"><b>Profile</b></string>
     <string name="new_message">New Message</string>
     <string name="sign_out">Sign Out</string>
+    <string name="explore">EXPLORE</string>
+    <string name="create">CREATE</string>
 </resources>
