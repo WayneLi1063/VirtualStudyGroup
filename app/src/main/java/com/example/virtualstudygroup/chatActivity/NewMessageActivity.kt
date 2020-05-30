@@ -6,17 +6,15 @@ import android.os.Bundle
 import android.util.Log
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.model.UserChat
+import com.example.virtualstudygroup.views.UserItem
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_message.chat_toolbar
 import kotlinx.android.synthetic.main.activity_new_message.*
-import kotlinx.android.synthetic.main.user_row_message.view.*
 
 class NewMessageActivity : AppCompatActivity() {
 
@@ -82,24 +80,5 @@ class NewMessageActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()
-    }
-}
-
-class UserItem(val user: UserChat): Item<GroupieViewHolder>() {
-    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        // show email instead of user name b/c username info missing
-        if (user.name == "") {
-            viewHolder.itemView.tvChatUserName.text = user.email
-        } else {
-            viewHolder.itemView.tvChatUserName.text = user.name
-        }
-
-        if (user.photoURL.startsWith("https:")) {
-            Picasso.get().load(user.photoURL)?.into(viewHolder.itemView.ivChatUserImage)
-        }
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.user_row_message
     }
 }

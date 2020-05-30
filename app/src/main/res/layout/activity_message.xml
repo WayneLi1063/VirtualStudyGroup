@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".chatActivity.MessageActivity">
 
-    <!--<include
-        android:id="@+id/toolbar"
-        layout="@layout/bar_layout"/>-->
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/chat_toolbar"
         android:layout_width="match_parent"
@@ -28,16 +24,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chat_toolbar" />
-
-    <!--
-      <item android:id="@+id/menu_new_message"
-        android:title="@string/new_message"
-        app:showAsAction="ifRoom"/>
-
-    <item android:id="@+id/menu_sign_out"
-        android:title="@string/sign_out"
-        app:showAsAction="ifRoom"/>
-    -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

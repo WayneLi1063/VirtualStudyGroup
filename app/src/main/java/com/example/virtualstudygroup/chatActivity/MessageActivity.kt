@@ -6,18 +6,18 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.virtualstudygroup.LoginActivity
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.model.ChatMessage
 import com.example.virtualstudygroup.model.UserChat
+import com.example.virtualstudygroup.views.LatestMessageRow
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_message.*
-import kotlinx.android.synthetic.main.main_message_row.view.*
 
 class MessageActivity : AppCompatActivity() {
     private val adapter = GroupAdapter<GroupieViewHolder>()
@@ -35,6 +35,7 @@ class MessageActivity : AppCompatActivity() {
 
         // setupDummyRows()
         messages_recycler.adapter = adapter
+        messages_recycler.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
         fetchCurrentUser()
 
@@ -43,22 +44,10 @@ class MessageActivity : AppCompatActivity() {
         verifyUserIsLoggedIn()
     }
 
-    class MainMessageRow(private val chatMessage: ChatMessage): Item<GroupieViewHolder>(){
-        override fun getLayout(): Int {
-            return R.layout.main_message_row
-        }
-
-        override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-            // viewHolder.itemView.tv_message_name.text = chatMessage.text
-            viewHolder.itemView.tv_message_recent.text = chatMessage.text
-            // viewHolder.itemView.iv_message_image
-        }
-    }
-
     private fun updateMessageRecyclerView() {
         adapter.clear()
         latestMessageMap.values.forEach{
-            adapter.add(MainMessageRow(it))
+            adapter.add(LatestMessageRow(it))
         }
     }
 
@@ -89,10 +78,8 @@ class MessageActivity : AppCompatActivity() {
 
             override fun onChildRemoved(p0: DataSnapshot) {
             }
-
         })
     }
-
 
     private fun fetchCurrentUser() {
         val uid = FirebaseAuth.getInstance().uid
