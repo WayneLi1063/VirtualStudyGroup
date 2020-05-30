@@ -31,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
         Log.i(TAG, "onstart")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        getApp().currentUser = null
         supportActionBar?.hide()
         auth = Firebase.auth
 
@@ -48,6 +49,7 @@ class RegisterActivity : AppCompatActivity() {
 
         btnSignup.setOnClickListener {
             progressBar.visibility = View.VISIBLE
+            btnSignup.isClickable = false
             val username = username_input.text.toString()
             val password = password_input.text.toString()
             if (username.isEmpty() || password.isEmpty()) {
@@ -70,9 +72,12 @@ class RegisterActivity : AppCompatActivity() {
                                 }
                             }
                         } else {
+                            btnSignup.isClickable = true
                             Log.i(TAG, "Create user failed")
                         }
                     }.addOnFailureListener {
+                        progressBar.visibility = View.INVISIBLE
+                        btnSignup.isClickable = true
                         Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
                     }
 

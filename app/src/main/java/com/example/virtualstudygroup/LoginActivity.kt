@@ -21,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_login)
+        getApp().currentUser = null
 
         auth = Firebase.auth
 
@@ -37,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Username or password can't be empty", Toast.LENGTH_SHORT)
                     .show()
             } else {
+                btnLogin.isClickable = false
                 progressBar.visibility = View.VISIBLE
                 auth.signInWithEmailAndPassword(username, password)
                     .addOnCompleteListener(this) { task ->
@@ -56,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
 //                            startActivity(intent)
                         } else {
                             progressBar.visibility = View.INVISIBLE
+                            btnLogin.isClickable = true
                             Log.i(TAG, "Log in failed")
                             Toast.makeText(
                                 this,

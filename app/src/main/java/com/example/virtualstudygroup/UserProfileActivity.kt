@@ -1,5 +1,6 @@
 package com.example.virtualstudygroup
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +23,11 @@ class UserProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
         currentUser = getApp().currentUser
+        btnSignout.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
         assert(currentUser != null)
         fetchUser()
     }
@@ -48,9 +54,14 @@ class UserProfileActivity : AppCompatActivity() {
             year_text.text = "Year: ${user.year}"
             major_text.text = "Major: ${user.major}"
             interest_text.text = "Interest: ${user.interest}"
+            name_text.text = "Name: ${user.name}"
 
             Picasso.get().load(user.photoURL).into(user_profile_image)
 
+        }
+        btnEdit.setOnClickListener {
+            val intent = Intent(this, UserProfileEditActivity::class.java)
+            startActivity(intent)
         }
     }
 }
