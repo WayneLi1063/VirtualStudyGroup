@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.model.User
@@ -46,6 +47,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         btnSignup.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
             val username = username_input.text.toString()
             val password = password_input.text.toString()
             if (username.isEmpty() || password.isEmpty()) {
@@ -63,7 +65,6 @@ class RegisterActivity : AppCompatActivity() {
                                 val default_photo_name = "default_image.png"
                                 val ref = FirebaseStorage.getInstance().getReference("/images/user_profile_image/$default_photo_name")
                                 ref.downloadUrl.addOnSuccessListener {
-
                                     selectedPhoto = it
                                     saveUserIntoDatabase()
                                 }
@@ -92,14 +93,17 @@ class RegisterActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     getApp().currentUser = currentUser
                     val intent = Intent(this, UserProfileActivity::class.java)
+                    progressBar.visibility = View.GONE
                     startActivity(intent)
                     Log.i(TAG, "saved into database")
 
-                    // invoke message activity
-                    val intent = Intent(this, MessageActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
+//                    // invoke message activity
+//                    val intent = Intent(this, MessageActivity::class.java)
+//                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                    startActivity(intent)
                 }.addOnFailureListener {
+                    progressBar.visibility = View.GONE
+
                     Log.i(TAG, "user upload failed")
                 }
         }
