@@ -104,7 +104,6 @@ class ChatLogActivity : AppCompatActivity() {
         if (fromId == null || toId == null) return
 
         // call firebase database and prepare to send new msg
-        // val reference = FirebaseDatabase.getInstance().getReference("/messages").push()
         val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
         val toReference = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
         val latestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId")

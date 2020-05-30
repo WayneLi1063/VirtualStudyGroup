@@ -34,27 +34,22 @@ class NewMessageActivity : AppCompatActivity() {
 
         // set up recycler view
         val adapter = GroupAdapter<GroupieViewHolder>()
-
         new_message_list.adapter = adapter
 
-        fetchUsers()
-
+        fetchChats()
     }
 
-    private fun fetchUsers() {
+    private fun fetchChats() {
+        val adapter = GroupAdapter<GroupieViewHolder>()
         val ref = FirebaseDatabase.getInstance().getReference("/users")
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
-                val adapter = GroupAdapter<GroupieViewHolder>()
-
                 p0.children.forEach {
                     Log.i("Diana", it.toString())
                     val user = it.getValue(UserChat::class.java)
                     user?.let {
                         adapter.add(
-                            UserItem(
-                                user
-                            )
+                            UserItem(user)
                         )
                     }
                 }
@@ -75,6 +70,8 @@ class NewMessageActivity : AppCompatActivity() {
             override fun onCancelled(p0: DatabaseError) {
             }
         })
+
+        val refGroups = FirebaseDatabase.getInstance().getReference("/groups")
     }
 
     override fun onSupportNavigateUp(): Boolean {
