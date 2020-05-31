@@ -21,7 +21,6 @@ class CreateGroupActivity : AppCompatActivity() {
 
     private var groupName: String? = null
     private var courseName: String? = null
-    private var currNumber: Int = 1
     private var totalNumber: Int? = null
     private var groupImage: Uri? = null
     private var examSquad: Boolean = false
@@ -140,11 +139,12 @@ class CreateGroupActivity : AppCompatActivity() {
                             leaders = mutableMapOf(uid to true),
                             groupDescription = groupDescription)
                     val hashID = newGroup.hashCode().toString()
+                    val groupID = groupName.hashCode().toString().plus("_").plus(hashID)
                     val groupRef = Firebase.database.getReference("groups")
-                    groupRef.child(hashID).setValue(newGroup)
+                    groupRef.child(groupID).setValue(newGroup)
 
                     val userRef = Firebase.database.getReference("users")
-                    userRef.child(uid).child("groups").child(hashID).setValue(true)
+                    userRef.child(uid).child("groups").child(groupID).setValue(true)
 
                     val intent = Intent(this, ExploreActivity::class.java)
                     startActivity(intent)

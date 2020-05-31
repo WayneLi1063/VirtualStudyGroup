@@ -37,6 +37,11 @@ class UserProfileActivity : AppCompatActivity() {
             val intent = Intent(this, ExploreActivity::class.java)
             startActivity(intent)
         }
+
+        btnMyGroup.setOnClickListener {
+            val intent = Intent(this, MyGroupActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun fetchUser() {

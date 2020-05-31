@@ -161,9 +161,11 @@
                     android:padding="@dimen/padding_small"/>
 
 
-                <RelativeLayout
+                <GridLayout
+                    android:id="@+id/glTagList"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:columnCount="2">
 
                     <Button
                         android:id="@+id/btnExamSquad"
@@ -179,7 +181,6 @@
                         android:layout_height="wrap_content"
                         android:text="Lab Mates"
                         android:layout_margin="4dp"
-                        android:layout_toEndOf="@+id/btnExamSquad"
                         android:background="@drawable/tag_button_corners"
                         />
 
@@ -188,7 +189,6 @@
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Project Partners"
-                        android:layout_below="@id/btnExamSquad"
                         android:layout_margin="4dp"
                         android:background="@drawable/tag_button_corners"/>
 
@@ -197,8 +197,6 @@
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Homework Help"
-                        android:layout_toRightOf="@+id/btnProjectPartners"
-                        android:layout_below="@id/btnLabMates"
                         android:layout_margin="4dp"
                         android:background="@drawable/tag_button_corners"/>
 
@@ -207,11 +205,10 @@
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Note Exchange"
-                        android:layout_below="@id/btnProjectPartners"
                         android:layout_margin="4dp"
                         android:background="@drawable/tag_button_corners"/>
 
-                </RelativeLayout>
+                </GridLayout>
 
                 <Button
                     android:id="@+id/btnFinish"

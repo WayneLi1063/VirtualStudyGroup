@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ExploreActivity"/>
         <activity android:name=".UserProfileEditActivity"/>
+        <activity android:name=".MyGroupActivity"/>
         <activity android:name=".NewMessageActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />

@@ -12,7 +12,7 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_explore.*
 
-class ExploreActivity : AppCompatActivity() {
+class MyGroupActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "Printing"
@@ -25,7 +25,7 @@ class ExploreActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_explore)
+        setContentView(R.layout.activity_my_group)
 
         groupListAdapter = GroupListAdapter(mutableListOf<Group>())
         rvGroupList.adapter = groupListAdapter
@@ -40,7 +40,7 @@ class ExploreActivity : AppCompatActivity() {
                 // whenever data at this location is updated.
                 val groupValues = dataSnapshot.getValue<MutableMap<String, Group>>()
                 if (groupValues != null) {
-                    filterExploreList(groupValues)
+                    filterMyGroupList(groupValues)
                 }
             }
 
@@ -56,7 +56,7 @@ class ExploreActivity : AppCompatActivity() {
         }
     }
 
-    private fun filterExploreList(groupValues: MutableMap<String, Group>) {
+    private fun filterMyGroupList(groupValues: MutableMap<String, Group>) {
         val user = getApp().currentUser
         val uid = user?.uid
 
@@ -70,17 +70,20 @@ class ExploreActivity : AppCompatActivity() {
                     // whenever data at this location is updated.
                     val userGroupValues = dataSnapshot.getValue<MutableMap<String, Boolean>>()
                     if (userGroupValues != null) {
+                        val newGroupValues: MutableList<Group> = mutableListOf()
                         userGroupValues.keys.forEach { key ->
-                                groupValues.remove(key)
+                            groupValues[key]?.let { group ->
+                                newGroupValues.add(group)
+                            }
                         }
-                        groupsList = groupValues.values.toMutableList()
+                        groupsList = newGroupValues
                         groupListAdapter?.updateGroup(groupsList)
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     // Failed to read value
-                    Log.i(MyGroupActivity.TAG, "Failed to read value.", error.toException())
+                    Log.i(TAG, "Failed to read value.", error.toException())
                 }
             })
         }
