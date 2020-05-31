@@ -3,6 +3,7 @@ package com.example.virtualstudygroup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseUser
@@ -31,6 +32,16 @@ class UserProfileActivity : AppCompatActivity() {
         }
         assert(currentUser != null)
         fetchUser()
+
+        btnExploration.setOnClickListener {
+            val intent = Intent(this, ExploreActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnMyGroup.setOnClickListener {
+            val intent = Intent(this, MyGroupActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun fetchUser() {

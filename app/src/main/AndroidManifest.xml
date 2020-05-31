@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserProfileEditActivity"></activity>
+        <activity android:name=".ExploreActivity"/>
+        <activity android:name=".UserProfileEditActivity"/>
+        <activity android:name=".MyGroupActivity"/>
         <activity android:name=".NewMessageActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
@@ -22,6 +24,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".CreateGroupActivity">
+
         </activity>
     </application>
 

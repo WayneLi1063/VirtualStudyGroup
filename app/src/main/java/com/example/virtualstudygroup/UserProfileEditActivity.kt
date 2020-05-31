@@ -43,7 +43,7 @@ class UserProfileEditActivity : AppCompatActivity() {
     }
 
     private fun fetchUser() {
-        val uid = currentUser?.uid
+        val uid = currentUser.uid
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {}
@@ -59,7 +59,7 @@ class UserProfileEditActivity : AppCompatActivity() {
     }
 
     private fun fillUpInfo() {
-        userData?.let { user ->
+        userData.let { user ->
             Picasso.get().load(user.photoURL).into(user_profile_image)
             username_text.text = user.email
             user.year?.let {
@@ -113,7 +113,7 @@ class UserProfileEditActivity : AppCompatActivity() {
     }
 
     private fun updateUserInfo() {
-        currentUser?.let { user ->
+        currentUser.let { user ->
 
             val uid = user.uid
             Log.i(RegisterActivity.TAG, uid)

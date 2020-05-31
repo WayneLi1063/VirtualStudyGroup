@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_small"
+    android:layout_margin="@dimen/padding_medium"
+    android:background="@drawable/group_card_corners"
+    android:foreground="?selectableItemBackground"
+    android:elevation="@dimen/padding_medium">
+
+    <ImageView
+        android:id="@+id/imageGroup"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_small"
+        android:contentDescription="@string/group_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/jp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/textCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintTop_toBottomOf="@id/imageGroup"
+        tools:text="@string/course_name" />
+
+    <TextView
+        android:id="@+id/textTeamName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintTop_toBottomOf="@id/textCourse"
+        tools:text="@string/team_name" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
