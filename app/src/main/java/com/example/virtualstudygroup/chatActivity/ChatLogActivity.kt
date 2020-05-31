@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.model.ChatMessage
-import com.example.virtualstudygroup.model.UserChat
+import com.example.virtualstudygroup.model.GroupChat
+import com.example.virtualstudygroup.model.User
 import com.example.virtualstudygroup.views.ChatFromItem
 import com.example.virtualstudygroup.views.ChatToItem
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.activity_chat_log.*
@@ -21,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_message.chat_toolbar
 class ChatLogActivity : AppCompatActivity() {
 
     val adapter = GroupAdapter<GroupieViewHolder>()
-    var toUser: UserChat? = null
+    var toGroup: GroupChat? = null
 
     companion object {
         const val CHATAG = "ChatLog"
@@ -39,12 +37,16 @@ class ChatLogActivity : AppCompatActivity() {
         chat_log_recycler.adapter = adapter
 
         // get and show user email / name based on info
-        toUser = intent.getParcelableExtra(NewMessageActivity.USER_KEY)
-        if (toUser?.name == "") {
-            supportActionBar?.title= toUser!!.email
+        toGroup = intent.getParcelableExtra(NewMessageActivity.USER_KEY)
+        supportActionBar?.title = toGroup?.teamName
+        /*
+        if (toGroup?.teamName == "") {
+            supportActionBar?.title= toGroup!!.className
         } else {
-            supportActionBar?.title = toUser?.name
+            supportActionBar?.title = toGroup?.teamName
         }
+
+         */
 
         listenForMessages()
 
@@ -57,19 +59,34 @@ class ChatLogActivity : AppCompatActivity() {
 
     private fun listenForMessages() {
         val fromId = FirebaseAuth.getInstance().uid
-        val toId = toUser?.uid
-        val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId")
+        val toId = toGroup?.id
+        Log.i(CHATAG, "the group id is: $toId")
+        val reference = FirebaseDatabase.getInstance().getReference("/group-messages/$toId")
         reference.addChildEventListener(object: ChildEventListener {
             // listen for new messages
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 val chatMessage = p0.getValue(ChatMessage::class.java)
                 chatMessage?.let {
+                    Log.i(CHATAG, "received a new message: ${chatMessage.text}")
+
                     // check if its a from/to message
-                    if (chatMessage.fromId == FirebaseAuth.getInstance().uid) {
+                    if (chatMessage.fromId == fromId) {
                         val currentUser = MessageActivity.currentUser ?:return
                         adapter.add(ChatFromItem(chatMessage.text, currentUser))
                     } else {
-                        adapter.add(ChatToItem(chatMessage.text, toUser!!))
+                        val userRef = FirebaseDatabase.getInstance().getReference("/users/${chatMessage.fromId}")
+                        userRef.addListenerForSingleValueEvent(object :ValueEventListener{
+                            override fun onDataChange(p0: DataSnapshot) {
+                                val chatSender = p0.getValue(User::class.java)
+                                chatSender?.let {
+                                    Log.i(CHATAG, "the sender is ${chatSender.uid}")
+                                    adapter.add(ChatToItem(chatMessage.text, chatSender))
+                                }
+                            }
+
+                            override fun onCancelled(p0: DatabaseError) {
+                            }
+                        })
                     }
                 }
 
@@ -99,26 +116,26 @@ class ChatLogActivity : AppCompatActivity() {
 
         // gather information to be sent
         val fromId = FirebaseAuth.getInstance().uid
-        val toId = toUser?.uid
+        val toId = toGroup?.id
 
         if (fromId == null || toId == null) return
 
         // call firebase database and prepare to send new msg
-        val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
-        val toReference = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
-        val latestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId")
-        val toLatestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$toId/$fromId")
+        // val reference = FirebaseDatabase.getInstance().getReference("/group-messages/$fromId/$toId").push()
+        val toReference = FirebaseDatabase.getInstance().getReference("/group-messages/$toId").push()
+        // val latestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId")
+        val toLatestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$toId")
 
-        val chatMessage = ChatMessage(reference.key!!, text, fromId, toId, System.currentTimeMillis())
-        reference.setValue(chatMessage)
+        val chatMessage = ChatMessage(toReference.key!!, text, fromId, toId, System.currentTimeMillis())
+        toReference.setValue(chatMessage)
             .addOnSuccessListener {
-                Log.i(CHATAG, "Saved our chat message: ${reference.key}")
+                Log.i(CHATAG, "Saved our chat message: ${toReference.key}")
                 et_chat_log.text.clear()
                 chat_log_recycler.scrollToPosition(adapter.itemCount - 1)
             }
 
-        toReference.setValue(chatMessage)
-        latestMessageRef.setValue(chatMessage)
+        // toReference.setValue(chatMessage)
+        // latestMessageRef.setValue(chatMessage)
         toLatestMessageRef.setValue(chatMessage)
     }
 

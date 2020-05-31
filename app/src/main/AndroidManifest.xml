@@ -14,9 +14,13 @@
         <activity android:name=".UserProfileEditActivity"/>
         <activity android:name=".MyGroupActivity"/>
         <activity android:name=".NewMessageActivity" />
+
+        <activity android:name=".chatActivity.ChatLogActivity" />
+        <activity android:name=".chatActivity.NewMessageActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".MessageActivity" />
+        <activity android:name=".chatActivity.MessageActivity" />
+        <activity android:name=".UserProfileEditActivity" />
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

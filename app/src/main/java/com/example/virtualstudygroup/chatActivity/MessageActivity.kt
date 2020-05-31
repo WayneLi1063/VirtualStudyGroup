@@ -9,10 +9,12 @@ import android.view.MenuItem
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.virtualstudygroup.LoginActivity
 import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.UserProfileActivity
 import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.chatActivity.NewMessageActivity.Companion.USER_KEY
 import com.example.virtualstudygroup.model.ChatMessage
-import com.example.virtualstudygroup.model.UserChat
+import com.example.virtualstudygroup.model.GroupChat
+import com.example.virtualstudygroup.model.User
 import com.example.virtualstudygroup.views.LatestMessageRow
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -25,7 +27,7 @@ class MessageActivity : AppCompatActivity() {
     val latestMessageMap = HashMap<String, ChatMessage>()
 
     companion object {
-        var currentUser: UserChat? = null
+        var currentUser: User? = null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +35,7 @@ class MessageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_message)
 
         setSupportActionBar(chat_toolbar)
+        supportActionBar?.title = "ChatRoom"
 
         messages_recycler.adapter = adapter
         messages_recycler.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
@@ -40,12 +43,22 @@ class MessageActivity : AppCompatActivity() {
         fetchCurrentUser()
         verifyUserIsLoggedIn()
         listenForLatestMessage()
+        setupBotNavBar()
 
         // set up adapter item listener
         adapter.setOnItemClickListener{item, view ->
             val intent = Intent(this, ChatLogActivity::class.java)
             val row = item as LatestMessageRow
-            intent.putExtra(USER_KEY, row.chatPartnerUser)
+            intent.putExtra(USER_KEY, row.chatPartnerGroup)
+            startActivity(intent)
+        }
+    }
+
+    private fun setupBotNavBar() {
+        // btn_explore_groups.setOnClickListener()
+        btn_profile.setOnClickListener{
+            val intent = Intent(this, UserProfileActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
     }
@@ -59,7 +72,9 @@ class MessageActivity : AppCompatActivity() {
 
     private fun listenForLatestMessage() {
         val fromId = FirebaseAuth.getInstance().uid
-        val reference = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId")
+
+        // val reference = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId")
+        val reference = FirebaseDatabase.getInstance().getReference("/latest-messages")
         reference.addChildEventListener(object: ChildEventListener {
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 // new child for the latest message
@@ -85,6 +100,8 @@ class MessageActivity : AppCompatActivity() {
             override fun onChildRemoved(p0: DataSnapshot) {
             }
         })
+
+
     }
 
     private fun fetchCurrentUser() {
@@ -92,7 +109,7 @@ class MessageActivity : AppCompatActivity() {
         val reference = FirebaseDatabase.getInstance().getReference("/users/$uid")
         reference.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
-                currentUser = p0.getValue(UserChat::class.java)
+                currentUser = p0.getValue(User::class.java)
                 Log.i(CHATAG, "Current chat user ${currentUser?.uid}")
             }
 
@@ -120,12 +137,14 @@ class MessageActivity : AppCompatActivity() {
             }
 
             // sign out from chat activity
-            R.id.menu_sign_out -> {
+            /* R.id.menu_sign_out -> {
                 FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
+
+             */
         }
         return super.onOptionsItemSelected(item)
     }

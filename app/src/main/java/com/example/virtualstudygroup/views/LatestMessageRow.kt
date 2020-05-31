@@ -2,8 +2,7 @@ package com.example.virtualstudygroup.views
 
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.model.ChatMessage
-import com.example.virtualstudygroup.model.UserChat
-import com.google.firebase.auth.FirebaseAuth
+import com.example.virtualstudygroup.model.GroupChat
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -14,7 +13,7 @@ import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.main_message_row.view.*
 
 class LatestMessageRow(private val chatMessage: ChatMessage): Item<GroupieViewHolder>(){
-    var chatPartnerUser: UserChat ?= null
+    var chatPartnerGroup: GroupChat ?= null
 
     override fun getLayout(): Int {
         return R.layout.main_message_row
@@ -23,29 +22,30 @@ class LatestMessageRow(private val chatMessage: ChatMessage): Item<GroupieViewHo
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         val chatPartnerId: String
 
+        /*
         // get the chat partner
         if (chatMessage.fromId == FirebaseAuth.getInstance().uid) {
-            chatPartnerId = chatMessage.toId
+            // change here
+            chatPartnerId = chatMessage.toId.toString()
         } else {
             chatPartnerId = chatMessage.fromId
         }
 
+         */
+
         // fetch the user inside the users database
-        val reference = FirebaseDatabase.getInstance().getReference("/users/$chatPartnerId")
+        val reference = FirebaseDatabase.getInstance().getReference("/groups/${chatMessage.toId}")
         reference.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
-                chatPartnerUser = p0.getValue(UserChat::class.java) ?: return
+                chatPartnerGroup = p0.getValue(GroupChat::class.java) ?: return
 
                 // show chat partner name
-                if (chatPartnerUser!!.name != "") {
-                    viewHolder.itemView.tv_message_name.text = chatPartnerUser!!.name
-                } else {
-                    viewHolder.itemView.tv_message_name.text = chatPartnerUser!!.email
-                }
+                viewHolder.itemView.tv_message_name.text =
+                    "${chatPartnerGroup!!.className} - ${chatPartnerGroup!!.teamName}"
 
                 // show chat partner image
-                if (chatPartnerUser!!.photoURL.startsWith("https:")) {
-                    Picasso.get().load(chatPartnerUser!!.photoURL)?.into(viewHolder.itemView.iv_message_image)
+                if (chatPartnerGroup!!.img.startsWith("https:")) {
+                    Picasso.get().load(chatPartnerGroup!!.img)?.into(viewHolder.itemView.iv_message_image)
                 }
             }
 

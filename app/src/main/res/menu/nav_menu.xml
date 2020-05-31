@@ -2,12 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menu_new_message"
+    <item
+        android:id="@+id/menu_new_message"
+        android:icon="@drawable/ic_add_black_24dp"
         android:title="@string/new_message"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/menu_sign_out"
+    <!--
+        <item android:id="@+id/menu_sign_out"
         android:title="@string/sign_out"
         app:showAsAction="ifRoom"/>
+    -->
+
 
 </menu>

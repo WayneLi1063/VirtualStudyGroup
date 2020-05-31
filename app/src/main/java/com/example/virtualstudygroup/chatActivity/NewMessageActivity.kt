@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.virtualstudygroup.R
-import com.example.virtualstudygroup.model.UserChat
-import com.example.virtualstudygroup.views.UserItem
+import com.example.virtualstudygroup.model.GroupChat
+import com.example.virtualstudygroup.views.GroupChatItem
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -41,24 +41,27 @@ class NewMessageActivity : AppCompatActivity() {
 
     private fun fetchChats() {
         val adapter = GroupAdapter<GroupieViewHolder>()
-        val ref = FirebaseDatabase.getInstance().getReference("/users")
+        //val ref = FirebaseDatabase.getInstance().getReference("/users")
+        val ref = FirebaseDatabase.getInstance().getReference("/groups")
+
+        // use all the groups for now
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 p0.children.forEach {
                     Log.i("Diana", it.toString())
-                    val user = it.getValue(UserChat::class.java)
-                    user?.let {
+                    val group = it.getValue(GroupChat::class.java)
+                    group?.let {
                         adapter.add(
-                            UserItem(user)
+                            GroupChatItem(group)
                         )
                     }
                 }
                 
                 adapter.setOnItemClickListener { item, view ->
-                    val userItem = item as UserItem
+                    val userItem = item as GroupChatItem
 
                     val intent = Intent(view.context, ChatLogActivity::class.java)
-                    intent.putExtra(USER_KEY,userItem.user)
+                    intent.putExtra(USER_KEY,userItem.group)
                     startActivity(intent)
 
                     finish()
@@ -71,7 +74,6 @@ class NewMessageActivity : AppCompatActivity() {
             }
         })
 
-        val refGroups = FirebaseDatabase.getInstance().getReference("/groups")
     }
 
     override fun onSupportNavigateUp(): Boolean {

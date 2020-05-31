@@ -11,10 +11,11 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_margin="8dp"
+        android:contentDescription="@string/to_user_image"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/to_user_image" />
+        app:srcCompat="@drawable/husky_logo" />
 
     <TextView
         android:id="@+id/tv_user_chat_log_from"
