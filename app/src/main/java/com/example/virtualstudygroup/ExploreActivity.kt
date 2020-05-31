@@ -38,8 +38,11 @@ class ExploreActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                groupsList = dataSnapshot.getValue<MutableMap<String, Group>>()?.values?.toMutableList()!!
-                groupListAdapter?.updateGroup(groupsList)
+                val groupValues = dataSnapshot.getValue<MutableMap<String, Group>>()?.values
+                if (groupValues != null) {
+                    groupsList = groupValues.toMutableList()
+                    groupListAdapter?.updateGroup(groupsList)
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
