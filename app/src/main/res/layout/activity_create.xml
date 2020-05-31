@@ -48,6 +48,23 @@
                 android:paddingLeft="@dimen/padding_medium"
                 android:paddingRight="@dimen/padding_medium">
 
+                <TextView
+                    android:id="@+id/tvGroupImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Group Image: "
+                    android:labelFor="@+id/btnGroupImgUpload"
+                    android:textSize="@dimen/text_large"
+                    android:padding="@dimen/padding_small"/>
+
+                <TextView
+                    android:id="@+id/tvGroupImageTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="We will use a placeholder image if you don't upload one. "
+                    android:textSize="@dimen/text_small"
+                    android:padding="@dimen/padding_small"/>
+
                 <ImageButton
                     android:id="@+id/btnGroupImgUpload"
                     android:layout_width="200dp"
@@ -132,7 +149,7 @@
                     android:textSize="24sp"
                     android:layout_margin="@dimen/padding_small"
                     android:background="@drawable/edit_text_bubble"
-                    android:inputType="number"
+                    android:inputType="textAutoCorrect"
                     android:autofillHints="2" />
 
                 <TextView

@@ -7,11 +7,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_create.*
 import java.util.*
+
 
 class CreateGroupActivity : AppCompatActivity() {
 
@@ -88,6 +92,22 @@ class CreateGroupActivity : AppCompatActivity() {
         }
 
         btnFinish.setOnClickListener {
+            if (isEmpty(etGroupName)) {
+                Toast.makeText(this, "Group name cannot be empty.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (isEmpty(etGroupSize)) {
+                Toast.makeText(this, "Group size cannot be empty.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (etGroupSize.text.toString().toInt() <= 1) {
+                Toast.makeText(this, "Group size cannot be less than 2 people.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (isEmpty(etCourseName)) {
+                Toast.makeText(this, "Course name cannot be empty.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             groupName = etGroupName.text.toString()
             courseName = etCourseName.text.toString()
             totalNumber = etGroupSize.text.toString().toInt()
@@ -101,7 +121,40 @@ class CreateGroupActivity : AppCompatActivity() {
                     groupImage = it
                 }
             }
+            if (groupName != null && courseName != null && totalNumber != null && groupImage != null) {
+                val user = getApp().currentUser
+                val uid = user?.uid
+
+                if (uid != null) {
+                    val newGroup =
+                        Group(className = courseName!!,
+                            teamName = groupName!!,
+                            currNumber = 1,
+                            totalNumber = totalNumber!!,
+                            img = groupImage.toString(),
+                            examSquad = examSquad,
+                            labMates = labMates,
+                            projectPartners = projectPartners,
+                            noteExchange = noteExchange,
+                            homeworkHelp = homeworkHelp,
+                            leaders = mutableMapOf(uid to true),
+                            groupDescription = groupDescription)
+                    val hashID = newGroup.hashCode().toString()
+                    val groupRef = Firebase.database.getReference("groups")
+                    groupRef.child(hashID).setValue(newGroup)
+
+                    val userRef = Firebase.database.getReference("users")
+                    userRef.child(uid).child("groups").child(hashID).setValue(true)
+
+                    val intent = Intent(this, ExploreActivity::class.java)
+                    startActivity(intent)
+                }
+            }
         }
+    }
+
+    private fun isEmpty(etText: EditText): Boolean {
+        return etText.text.toString().trim().isEmpty()
     }
 
     private fun uploadPhoto(photoUri: Uri) {
