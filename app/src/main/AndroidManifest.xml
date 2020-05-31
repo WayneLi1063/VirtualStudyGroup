@@ -11,18 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ExploreActivity"/>
-        <activity android:name=".UserProfileEditActivity"/>
+        <activity android:name=".userManagerActivity.UserProfileEditActivity"/>
         <activity android:name=".MyGroupActivity"/>
-        <activity android:name=".NewMessageActivity" />
-
         <activity android:name=".chatActivity.ChatLogActivity" />
         <activity android:name=".chatActivity.NewMessageActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".userManagerActivity.RegisterActivity" />
+        <activity android:name=".userManagerActivity.LoginActivity" />
         <activity android:name=".chatActivity.MessageActivity" />
-        <activity android:name=".UserProfileEditActivity" />
-        <activity android:name=".UserProfileActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".userManagerActivity.UserProfileActivity" />
+        <activity android:name=".userManagerActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

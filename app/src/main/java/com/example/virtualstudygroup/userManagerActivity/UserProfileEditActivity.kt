@@ -1,4 +1,4 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.userManagerActivity
 
 import android.app.Activity
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.text.SpannableStringBuilder
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.getApp
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot

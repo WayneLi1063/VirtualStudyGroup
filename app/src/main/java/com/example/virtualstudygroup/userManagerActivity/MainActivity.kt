@@ -1,10 +1,11 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.userManagerActivity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.virtualstudygroup.R
 
 class MainActivity : AppCompatActivity() {
 

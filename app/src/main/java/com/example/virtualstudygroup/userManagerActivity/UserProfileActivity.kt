@@ -1,10 +1,10 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.userManagerActivity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.Toast
+import com.example.virtualstudygroup.*
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
