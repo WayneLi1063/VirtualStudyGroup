@@ -9,9 +9,11 @@ import android.view.MenuItem
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.virtualstudygroup.userManagerActivity.LoginActivity
 import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.chatActivity.ChatFilterActivity.Companion.FILTER_KEY
 import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.chatActivity.NewMessageActivity.Companion.USER_KEY
+import com.example.virtualstudygroup.model.ChatFilter
 import com.example.virtualstudygroup.model.ChatMessage
 import com.example.virtualstudygroup.model.User
 import com.example.virtualstudygroup.views.LatestMessageRow
@@ -24,6 +26,7 @@ import kotlinx.android.synthetic.main.activity_message.*
 class MessageActivity : AppCompatActivity() {
     private val adapter = GroupAdapter<GroupieViewHolder>()
     val latestMessageMap = HashMap<String, ChatMessage>()
+    private var filters : ChatFilter ?= null
 
     companion object {
         var currentUser: User? = null
@@ -39,13 +42,16 @@ class MessageActivity : AppCompatActivity() {
         messages_recycler.adapter = adapter
         messages_recycler.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
+        // get filter message
+        filters = intent.getParcelableExtra(FILTER_KEY)
+
         fetchCurrentUser()
         verifyUserIsLoggedIn()
         listenForLatestMessage()
         setupBotNavBar()
 
         // set up adapter item listener
-        adapter.setOnItemClickListener{item, view ->
+        adapter.setOnItemClickListener{ item, _ ->
             val intent = Intent(this, ChatLogActivity::class.java)
             val row = item as LatestMessageRow
             intent.putExtra(USER_KEY, row.chatPartnerGroup)
@@ -64,21 +70,47 @@ class MessageActivity : AppCompatActivity() {
 
     private fun updateMessageRecyclerView() {
         adapter.clear()
-        latestMessageMap.values.forEach{
-            adapter.add(LatestMessageRow(it))
+        val filterApplied = filters
+        latestMessageMap.values.forEach{chatMessage ->
+            val groupReference = FirebaseDatabase.getInstance().getReference("/groups/${chatMessage.toId}")
+            // adapter.add(LatestMessageRow(chatMessage))
+            var validGroup = true
+            groupReference.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    val groupInfo = p0.getValue(ChatFilter::class.java)
+                    if (groupInfo != null && filterApplied != null) {
+                        Log.i(CHATAG, filterApplied.examSquad.toString())
+                        Log.i(CHATAG, filterApplied.homeWorkHelp.toString())
+                        // ADD FILTERS HERE
+                        if (filterApplied.className.isNotEmpty() && !groupInfo.className.contains(filterApplied.className)) { validGroup = false }
+                        if (filterApplied.teamName.isNotEmpty() && !groupInfo.teamName.contains(filterApplied.teamName)) { validGroup = false }
+                        if (filterApplied.examSquad && groupInfo.examSquad != filterApplied.examSquad) { validGroup = false }
+                        if (filterApplied.homeWorkHelp && groupInfo.homeWorkHelp != filterApplied.homeWorkHelp) { validGroup = false }
+                        if (filterApplied.noteExchange && groupInfo.noteExchange != filterApplied.noteExchange) { validGroup = false }
+                        if (filterApplied.projectPartners && groupInfo.projectPartners != filterApplied.projectPartners) { validGroup = false }
+                        if (filterApplied.labMates && groupInfo.labMates != filterApplied.labMates) { validGroup = false }
+                    }
+                }
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+            })
+
+            if (validGroup || filterApplied == null) {
+                adapter.add(LatestMessageRow(chatMessage))
+            }
         }
     }
 
     private fun listenForLatestMessage() {
-        val fromId = FirebaseAuth.getInstance().uid
-
+        // val fromId = FirebaseAuth.getInstance().uid
         // val reference = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId")
+
         val reference = FirebaseDatabase.getInstance().getReference("/latest-messages")
         reference.addChildEventListener(object: ChildEventListener {
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 // new child for the latest message
                 val chatMessage = p0.getValue(ChatMessage::class.java) ?:return
-
                 // add to the map
                 latestMessageMap[p0.key!!] = chatMessage
                 updateMessageRecyclerView()
