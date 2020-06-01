@@ -66,6 +66,7 @@
         app:iconifiedByDefault="false"
         app:queryBackground="@null"
         android:layout_margin="@dimen/padding_small"
+        app:defaultQueryHint="SEARCH A COURSE/TEAM NAME"
         />
 
     <androidx.recyclerview.widget.RecyclerView

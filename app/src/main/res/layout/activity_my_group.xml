@@ -45,6 +45,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/groupSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnCreate"
+        android:background="@drawable/create_button_corners"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@null"
+        android:layout_margin="@dimen/padding_small"
+        app:defaultQueryHint="SEARCH A COURSE/TEAM NAME"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGroupList"
         android:layout_width="match_parent"
@@ -54,7 +68,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCreate"
+        app:layout_constraintTop_toBottomOf="@+id/groupSearch"
         app:spanCount="2"
         tools:listitem="@layout/item_group" />
 
