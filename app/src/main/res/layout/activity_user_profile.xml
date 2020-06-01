@@ -4,7 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfileActivity">
+    tools:context=".userManagerActivity.UserProfileActivity">
+
+    <Button
+        android:id="@+id/btnExploration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/huskyPurple"
+        android:text="Exploration"
+        android:textColor="@color/white"
+        android:padding="@dimen/padding_small"
+        app:layout_constraintTop_toTopOf="@+id/topPanel"
+        app:layout_constraintBottom_toBottomOf="@+id/topPanel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="@dimen/text_medium" />
+
+    <Button
+        android:id="@+id/btnMyGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/huskyPurple"
+        android:text="My Groups"
+        android:textColor="@color/white"
+        android:padding="@dimen/padding_small"
+        app:layout_constraintTop_toTopOf="@+id/topPanel"
+        app:layout_constraintBottom_toBottomOf="@+id/topPanel"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="@dimen/text_medium" />
 
     <ImageView
         android:id="@+id/topPanel"

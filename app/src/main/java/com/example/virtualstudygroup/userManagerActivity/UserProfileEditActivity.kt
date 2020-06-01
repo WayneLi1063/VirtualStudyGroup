@@ -1,4 +1,4 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.userManagerActivity
 
 import android.app.Activity
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.text.SpannableStringBuilder
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.getApp
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -43,7 +45,7 @@ class UserProfileEditActivity : AppCompatActivity() {
     }
 
     private fun fetchUser() {
-        val uid = currentUser?.uid
+        val uid = currentUser.uid
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {}
@@ -59,7 +61,7 @@ class UserProfileEditActivity : AppCompatActivity() {
     }
 
     private fun fillUpInfo() {
-        userData?.let { user ->
+        userData.let { user ->
             Picasso.get().load(user.photoURL).into(user_profile_image)
             username_text.text = user.email
             user.year?.let {
@@ -113,7 +115,7 @@ class UserProfileEditActivity : AppCompatActivity() {
     }
 
     private fun updateUserInfo() {
-        currentUser?.let { user ->
+        currentUser.let { user ->
 
             val uid = user.uid
             Log.i(RegisterActivity.TAG, uid)

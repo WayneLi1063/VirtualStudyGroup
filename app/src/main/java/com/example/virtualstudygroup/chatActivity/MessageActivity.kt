@@ -7,13 +7,12 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.example.virtualstudygroup.LoginActivity
+import com.example.virtualstudygroup.userManagerActivity.LoginActivity
 import com.example.virtualstudygroup.R
-import com.example.virtualstudygroup.UserProfileActivity
+import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.chatActivity.NewMessageActivity.Companion.USER_KEY
 import com.example.virtualstudygroup.model.ChatMessage
-import com.example.virtualstudygroup.model.GroupChat
 import com.example.virtualstudygroup.model.User
 import com.example.virtualstudygroup.views.LatestMessageRow
 import com.google.firebase.auth.FirebaseAuth
