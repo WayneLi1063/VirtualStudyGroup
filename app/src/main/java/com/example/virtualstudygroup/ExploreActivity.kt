@@ -74,13 +74,11 @@ class ExploreActivity : AppCompatActivity() {
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
                     val userGroupValues = dataSnapshot.getValue<MutableMap<String, Boolean>>()
-                    if (userGroupValues != null) {
-                        userGroupValues.keys.forEach { key ->
-                                groupValues.remove(key)
-                        }
-                        groupsList = groupValues.values.toMutableList()
-                        groupListAdapter?.updateGroup(groupsList)
+                    userGroupValues?.keys?.forEach { key ->
+                        groupValues.remove(key)
                     }
+                    groupsList = groupValues.values.toMutableList()
+                    groupListAdapter?.updateGroup(groupsList)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
