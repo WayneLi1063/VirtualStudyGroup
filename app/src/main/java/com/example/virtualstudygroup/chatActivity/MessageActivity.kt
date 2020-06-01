@@ -136,6 +136,12 @@ class MessageActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
+            // go to filter
+            R.id.menu_filter -> {
+                val intent = Intent(this, ChatFilterActivity::class.java)
+                startActivity(intent)
+            }
+
             // sign out from chat activity
             /* R.id.menu_sign_out -> {
                 FirebaseAuth.getInstance().signOut()

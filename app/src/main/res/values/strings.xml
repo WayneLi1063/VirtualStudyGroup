@@ -16,4 +16,13 @@
     <string name="to_user_image">to user image</string>
     <string name="from_user_image">from user image</string>
     <string name="user_name">USER Name</string>
+    <string name="filter">Filter</string>
+    <string name="group_name">Group Name</string>
+    <string name="class_name">Class Name</string>
+    <string name="group_goal">Group Goal</string>
+    <string name="homework_help">Homework Help</string>
+    <string name="exam_squad">Exam Squad</string>
+    <string name="note_exchange">Note Exchange</string>
+    <string name="lab_mates">Lab Mates</string>
+    <string name="project_partners">Project Partners</string>
 </resources>

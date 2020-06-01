@@ -45,7 +45,6 @@ class ChatLogActivity : AppCompatActivity() {
         } else {
             supportActionBar?.title = toGroup?.teamName
         }
-
          */
 
         listenForMessages()
@@ -71,6 +70,7 @@ class ChatLogActivity : AppCompatActivity() {
 
                     // check if its a from/to message
                     if (chatMessage.fromId == fromId) {
+                        Log.i(CHATAG, "it's from me!")
                         val currentUser = MessageActivity.currentUser ?:return
                         adapter.add(ChatFromItem(chatMessage.text, currentUser))
                     } else {

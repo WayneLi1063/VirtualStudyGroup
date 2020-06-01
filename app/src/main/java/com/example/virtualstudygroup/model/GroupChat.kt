@@ -8,7 +8,7 @@ data class GroupChat(
     val className: String,
     val teamName: String,
     val img: String,
-    val id: Long
+    val id: String
 ) : Parcelable {
-    constructor(): this("","","",-1)
+    constructor(): this("","","","")
 }
