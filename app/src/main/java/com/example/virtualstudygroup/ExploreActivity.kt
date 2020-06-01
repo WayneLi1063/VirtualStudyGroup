@@ -3,6 +3,8 @@ package com.example.virtualstudygroup
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+//import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,6 +22,7 @@ class ExploreActivity : AppCompatActivity() {
 
     private var groupListAdapter: GroupListAdapter? = null
     private lateinit var groupsList: MutableList<Group>
+//    private var groupsList: MutableList<Group>? = null
     private val database = Firebase.database
     private val groups = database.getReference("groups")
 
@@ -54,7 +57,27 @@ class ExploreActivity : AppCompatActivity() {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
         }
+
+        groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                groupListAdapter!!.filter.filter(newText)
+                return false
+            }
+        })
+
+//        btnFilter.setOnClickListener {
+//            if (groupsList != null) {
+//                val intent = Intent(this, FilterGroupActivity::class.java)
+////                intent.putExtra("GROUP_LIST", groupsList)
+//                startActivity(intent)
+//            }
+//        }
     }
+
 
     private fun filterExploreList(groupValues: MutableMap<String, Group>) {
         val user = getApp().currentUser
@@ -90,3 +113,8 @@ class ExploreActivity : AppCompatActivity() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
+
+private fun SearchView.setOnQueryTextListener(onQueryTextListener: SearchView.OnQueryTextListener) {
+
+}
+

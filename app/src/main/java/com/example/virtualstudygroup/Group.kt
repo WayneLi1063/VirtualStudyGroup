@@ -1,5 +1,8 @@
 package com.example.virtualstudygroup
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 data class Group(
     val className: String = "",
     val currNumber: Int = 0,
