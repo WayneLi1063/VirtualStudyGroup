@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.activity_message.*
 class MessageActivity : AppCompatActivity() {
     private val adapter = GroupAdapter<GroupieViewHolder>()
     val latestMessageMap = HashMap<String, ChatMessage>()
+    val GroupFilterMap = HashMap<String, ChatFilter>()
     private var filters : ChatFilter ?= null
 
     companion object {
@@ -45,6 +46,8 @@ class MessageActivity : AppCompatActivity() {
         // get filter message
         filters = intent.getParcelableExtra(FILTER_KEY)
 
+        // set up filter
+        fetchGroupFilter()
         fetchCurrentUser()
         verifyUserIsLoggedIn()
         listenForLatestMessage()
@@ -68,33 +71,50 @@ class MessageActivity : AppCompatActivity() {
         }
     }
 
+    private fun fetchGroupFilter() {
+        val groupReference = FirebaseDatabase.getInstance().getReference("/groups")
+        // adapter.add(LatestMessageRow(chatMessage))
+        groupReference.addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
+                val groupInfo = p0.getValue(ChatFilter::class.java) ?:return
+                GroupFilterMap[groupInfo.id] = groupInfo
+            }
+
+            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
+                val groupInfo = p0.getValue(ChatFilter::class.java) ?:return
+                GroupFilterMap[groupInfo.id] = groupInfo
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+            }
+
+            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+            }
+
+            override fun onChildRemoved(p0: DataSnapshot) {
+            }
+        })
+    }
+
     private fun updateMessageRecyclerView() {
         adapter.clear()
         val filterApplied = filters
         latestMessageMap.values.forEach{chatMessage ->
-            val groupReference = FirebaseDatabase.getInstance().getReference("/groups/${chatMessage.toId}")
-            // adapter.add(LatestMessageRow(chatMessage))
             var validGroup = true
-            groupReference.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot) {
-                    val groupInfo = p0.getValue(ChatFilter::class.java)
-                    if (groupInfo != null && filterApplied != null) {
-                        Log.i(CHATAG, filterApplied.examSquad.toString())
-                        Log.i(CHATAG, filterApplied.homeWorkHelp.toString())
-                        // ADD FILTERS HERE
-                        if (filterApplied.className.isNotEmpty() && !groupInfo.className.contains(filterApplied.className)) { validGroup = false }
-                        if (filterApplied.teamName.isNotEmpty() && !groupInfo.teamName.contains(filterApplied.teamName)) { validGroup = false }
-                        if (filterApplied.examSquad && groupInfo.examSquad != filterApplied.examSquad) { validGroup = false }
-                        if (filterApplied.homeWorkHelp && groupInfo.homeWorkHelp != filterApplied.homeWorkHelp) { validGroup = false }
-                        if (filterApplied.noteExchange && groupInfo.noteExchange != filterApplied.noteExchange) { validGroup = false }
-                        if (filterApplied.projectPartners && groupInfo.projectPartners != filterApplied.projectPartners) { validGroup = false }
-                        if (filterApplied.labMates && groupInfo.labMates != filterApplied.labMates) { validGroup = false }
-                    }
-                }
-                override fun onCancelled(p0: DatabaseError) {
-                }
+            val groupInfo = GroupFilterMap[chatMessage.toId]
 
-            })
+            if (groupInfo != null && filterApplied != null) {
+                Log.i(CHATAG, filterApplied.examSquad.toString())
+                Log.i(CHATAG, filterApplied.homeworkHelp.toString())
+                // ADD FILTERS HERE
+                if (filterApplied.className.isNotEmpty() && !groupInfo.className.contains(filterApplied.className, ignoreCase = true)) { validGroup = false }
+                if (filterApplied.teamName.isNotEmpty() && !groupInfo.teamName.contains(filterApplied.teamName, ignoreCase = true)) { validGroup = false }
+                if (filterApplied.examSquad && groupInfo.examSquad != filterApplied.examSquad) { validGroup = false }
+                if (filterApplied.homeworkHelp && groupInfo.homeworkHelp != filterApplied.homeworkHelp) { validGroup = false }
+                if (filterApplied.noteExchange && groupInfo.noteExchange != filterApplied.noteExchange) { validGroup = false }
+                if (filterApplied.projectPartners && groupInfo.projectPartners != filterApplied.projectPartners) { validGroup = false }
+                if (filterApplied.labMates && groupInfo.labMates != filterApplied.labMates) { validGroup = false }
+            }
 
             if (validGroup || filterApplied == null) {
                 adapter.add(LatestMessageRow(chatMessage))

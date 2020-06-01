@@ -35,8 +35,9 @@ class ChatFilterActivity : AppCompatActivity() {
         val intent = Intent(this, MessageActivity::class.java)
         val chatFilter =
             ChatFilter(
-                et_chat_group_name.text.toString(),
+                "",
                 et_chat_class_name.text.toString(),
+                et_chat_group_name.text.toString(),
                 cb_exam_squad.isChecked,
                 cb_homework_help.isChecked,
                 cb_lab_mates.isChecked,
