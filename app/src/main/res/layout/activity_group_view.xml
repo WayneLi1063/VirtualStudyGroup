@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp">
+>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -21,12 +21,44 @@
         app:titleTextColor="@color/white"
         >
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="@dimen/text_large"
-            android:text="Group"/>
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnExploration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/huskyPurple"
+                android:text="Exploration"
+                android:textColor="@color/white"
+                android:padding="@dimen/padding_small"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/text_large"
+                android:layout_weight="1"
+                android:text="Group"/>
+
+            <Button
+                android:id="@+id/btnMyGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/huskyPurple"
+                android:text="My Groups"
+                android:textColor="@color/white"
+                android:padding="@dimen/padding_small"
+                android:textSize="@dimen/text_medium"
+                android:gravity="right"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -45,6 +77,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Group Name: "
+        android:maxLines="1"
+        android:ellipsize="end"
         android:labelFor="@+id/etGroupName"
         android:textSize="24sp"
         android:padding="@dimen/padding_small"
@@ -77,84 +111,115 @@
         android:id="@+id/tvGroupTags"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Group Size: "
+        android:text="Group Tags: "
         android:labelFor="@+id/etGroupSize"
         android:textSize="24sp"
         android:padding="@dimen/padding_small"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvGroupSize"/>
 
-    <GridLayout
-        android:id="@+id/glTagList"
+    <LinearLayout
+        android:id="@+id/llTagListOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:columnCount="2"
-        app:layout_constraintTop_toBottomOf="@id/tvGroupSize">
+        app:layout_constraintTop_toBottomOf="@id/tvGroupTags"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnExamSquad"
-            android:layout_width="180dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Exam Squad"
+            android:layout_weight="1"
             android:layout_margin="4dp"
-            android:background="@drawable/tag_button_corners"/>
+            android:background="@drawable/tag_button_corners"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/btnLabMates"
-            android:layout_width="180dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Lab Mates"
+            android:layout_weight="1"
+            android:gravity="center"
             android:layout_margin="4dp"
             android:background="@drawable/tag_button_corners"
+            android:visibility="gone"
             />
 
-        <Button
-            android:id="@+id/btnProjectPartners"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Project Partners"
-            android:layout_margin="4dp"
-            android:background="@drawable/tag_button_corners"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llTagListTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llTagListOne"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnHomeworkHelp"
-            android:layout_width="180dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Homework Help"
+            android:layout_weight="1"
             android:layout_margin="4dp"
-            android:background="@drawable/tag_button_corners"/>
+            android:background="@drawable/tag_button_corners"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/btnNoteExchange"
-            android:layout_width="180dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Note Exchange"
+            android:layout_weight="1"
             android:layout_margin="4dp"
-            android:background="@drawable/tag_button_corners"/>
+            android:background="@drawable/tag_button_corners"
+            android:visibility="gone"/>
 
-    </GridLayout>
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/llTagListThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llTagListTwo"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnProjectPartners"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Project Partners"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/tag_button_corners"
+            android:visibility="gone"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvGroupDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Group Description: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        android:maxLines="4"
+        android:text="Group Description: This is a fantastic group that you absolutely should join."
+        android:maxLines="3"
         android:ellipsize="end"
         android:labelFor="@+id/etGroupDescription"
         android:textSize="24sp"
         android:padding="@dimen/padding_small"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/glTagList"/>
+        app:layout_constraintTop_toBottomOf="@id/llTagListThree"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <Button
             android:id="@+id/btnJoin"
@@ -165,7 +230,9 @@
             android:background="@color/huskyPurple"
             android:textColor="@color/white"
             android:layout_weight="1"
-            android:layout_margin="@dimen/padding_small"/>
+            android:layout_marginLeft="4dp"
+            android:visibility="gone"
+            android:layout_marginRight="4dp"/>
 
         <Button
             android:id="@+id/btnLeave"
@@ -176,7 +243,22 @@
             android:background="@color/huskyPurple"
             android:textColor="@color/white"
             android:layout_weight="1"
-            android:layout_margin="@dimen/padding_small"/>
+            android:layout_marginLeft="4dp"
+            android:visibility="gone"
+            android:layout_marginRight="4dp"/>
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_marginTop="@dimen/padding_medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:background="@color/huskyPurple"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_marginLeft="4dp"
+            android:visibility="gone"
+            android:layout_marginRight="4dp"/>
 
         <Button
             android:id="@+id/btnChatRoom"
@@ -187,7 +269,9 @@
             android:background="@color/huskyPurple"
             android:textColor="@color/white"
             android:layout_weight="1"
-            android:layout_margin="@dimen/padding_small"/>
+            android:layout_marginLeft="4dp"
+            android:visibility="gone"
+            android:layout_marginRight="4dp"/>
 
     </LinearLayout>
 

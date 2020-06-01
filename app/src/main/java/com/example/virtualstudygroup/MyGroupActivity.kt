@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.virtualstudygroup.GroupViewActivity.Companion.GROUP_KEY
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -11,6 +12,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_explore.*
+import kotlinx.android.synthetic.main.activity_user_profile.*
 
 class MyGroupActivity : AppCompatActivity() {
 
@@ -54,6 +56,11 @@ class MyGroupActivity : AppCompatActivity() {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
         }
+
+        btnExploration.setOnClickListener {
+            val intent = Intent(this, ExploreActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun filterMyGroupList(groupValues: MutableMap<String, Group>) {
@@ -90,6 +97,9 @@ class MyGroupActivity : AppCompatActivity() {
     }
 
     private fun onGroupClicked(group: Group) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(this, GroupViewActivity::class.java)
+        intent.putExtra(GROUP_KEY, group)
+
+        startActivity(intent)
     }
 }

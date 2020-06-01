@@ -123,10 +123,14 @@ class CreateGroupActivity : AppCompatActivity() {
             if (groupName != null && courseName != null && totalNumber != null && groupImage != null) {
                 val user = getApp().currentUser
                 val uid = user?.uid
+                val groupCount =  getApp().groupCount
 
-                if (uid != null) {
+                if (uid != null && groupCount != null) {
+                    val newId = "Group_${(groupCount + 1)}"
                     val newGroup =
-                        Group(className = courseName!!,
+                        Group(
+                            id = newId,
+                            className = courseName!!,
                             teamName = groupName!!,
                             currNumber = 1,
                             totalNumber = totalNumber!!,
@@ -138,13 +142,14 @@ class CreateGroupActivity : AppCompatActivity() {
                             homeworkHelp = homeworkHelp,
                             leaders = mutableMapOf(uid to true),
                             groupDescription = groupDescription)
-                    val hashID = newGroup.hashCode().toString()
-                    val groupID = groupName.hashCode().toString().plus("_").plus(hashID)
                     val groupRef = Firebase.database.getReference("groups")
-                    groupRef.child(groupID).setValue(newGroup)
+                    groupRef.child(newId).setValue(newGroup).addOnSuccessListener {
+                        val groupCountRef = Firebase.database.getReference("groupCount")
+                        groupCountRef.setValue(groupCount + 1)
+                    }
 
                     val userRef = Firebase.database.getReference("users")
-                    userRef.child(uid).child("groups").child(groupID).setValue(true)
+                    userRef.child(uid).child("groups").child(newId).setValue(true)
 
                     val intent = Intent(this, ExploreActivity::class.java)
                     startActivity(intent)

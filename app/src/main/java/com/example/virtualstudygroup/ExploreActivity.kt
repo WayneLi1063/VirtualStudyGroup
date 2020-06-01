@@ -54,6 +54,11 @@ class ExploreActivity : AppCompatActivity() {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
         }
+
+        btnMyGroup.setOnClickListener {
+            val intent = Intent(this, MyGroupActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun filterExploreList(groupValues: MutableMap<String, Group>) {
@@ -87,6 +92,9 @@ class ExploreActivity : AppCompatActivity() {
     }
 
     private fun onGroupClicked(group: Group) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(this, GroupViewActivity::class.java)
+        intent.putExtra(GroupViewActivity.GROUP_KEY, group)
+
+        startActivity(intent)
     }
 }

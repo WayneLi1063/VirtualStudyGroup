@@ -46,7 +46,7 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
             textTeamName.text = group.teamName
 
             itemView.setOnClickListener{
-                onGroupClickListener?.invoke(group)
+                    onGroupClickListener?.invoke(group)
             }
         }
 

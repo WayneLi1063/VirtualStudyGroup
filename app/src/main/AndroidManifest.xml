@@ -17,6 +17,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MessageActivity" />
+        <activity android:name=".GroupViewActivity"/>
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
