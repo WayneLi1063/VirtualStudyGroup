@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -27,12 +28,12 @@ class GroupViewActivity : AppCompatActivity() {
         val group = intent.getParcelableExtra<Group>(GROUP_KEY)
         val uid = getApp().currentUser?.uid
 
-        if (group != null && uid != null) {
+        if (group != null && uid != null && group.currNumber < group.totalNumber) {
             Picasso.get().load(group.img).error(R.drawable.ic_person_black_24dp)
                 .into(ivGroupImgUpload)
             tvGroupName.text = "Group Name: ${group.teamName}"
             tvCourseName.text = "Course Name: ${group.className}"
-            tvGroupSize.text = "Group Size: ${group.totalNumber}"
+            tvGroupSize.text = "Group Size: ${group.currNumber} out of ${group.totalNumber}"
             tvGroupDescription.text = "Group Description: ${group.groupDescription}"
 
             if (group.examSquad) {
@@ -63,11 +64,13 @@ class GroupViewActivity : AppCompatActivity() {
                 btnChatRoom.visibility = VISIBLE
 
                 btnLeave.setOnClickListener {
+                    groupRef.child("currNumber").setValue(group.currNumber - 1)
                     groupRef.child("members").child(uid).setValue(null)
-                    userRef.child("groups").child(groupId).setValue(null)
-                    btnJoin.visibility = VISIBLE
-                    btnLeave.visibility = GONE
-                    btnChatRoom.visibility = GONE
+                    userRef.child("groups").child(groupId).setValue(null).addOnSuccessListener {
+                        Toast.makeText(this, "Leave successfully.", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, ExploreActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
 
                 btnChatRoom.setOnClickListener {
@@ -87,12 +90,13 @@ class GroupViewActivity : AppCompatActivity() {
                 btnJoin.visibility = VISIBLE
 
                 btnJoin.setOnClickListener {
+                    groupRef.child("currNumber").setValue(group.currNumber + 1)
                     groupRef.child("members").child(uid).setValue(true)
-                    userRef.child("groups").child(groupId).setValue(true)
-
-                    btnLeave.visibility = VISIBLE
-                    btnChatRoom.visibility = VISIBLE
-                    btnJoin.visibility = GONE
+                    userRef.child("groups").child(groupId).setValue(true).addOnSuccessListener {
+                        Toast.makeText(this, "Leave successfully.", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, MyGroupActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
             }
         }
