@@ -93,7 +93,7 @@ class GroupViewActivity : AppCompatActivity() {
                     groupRef.child("currNumber").setValue(group.currNumber + 1)
                     groupRef.child("members").child(uid).setValue(true)
                     userRef.child("groups").child(groupId).setValue(true).addOnSuccessListener {
-                        Toast.makeText(this, "Leave successfully.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Join successfully.", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, MyGroupActivity::class.java)
                         startActivity(intent)
                     }
