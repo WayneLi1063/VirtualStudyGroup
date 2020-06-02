@@ -54,7 +54,13 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
                 } else {
                     val resultList = ArrayList<Group>()
                     for (row in groupList) {
-                        if (row.teamName.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT)) || row.className.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT)) || (row.homeworkHelp && charSearch.toLowerCase(Locale.ROOT) == "homeworkhelp")) {
+                        if (row.teamName.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
+                            || row.className.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
+                            || (row.homeworkHelp && charSearch.toLowerCase(Locale.ROOT) == "homeworkhelp")
+                            || (row.examSquad && charSearch.toLowerCase(Locale.ROOT) == "examsquad")
+                            || (row.labMates && charSearch.toLowerCase(Locale.ROOT) == "labmate")
+                            || (row.projectPartners && charSearch.toLowerCase(Locale.ROOT) == "projectpartner")
+                            || (row.noteExchange && charSearch.toLowerCase(Locale.ROOT) == "noteexchange")) {
                             resultList.add(row)
                         }
                     }

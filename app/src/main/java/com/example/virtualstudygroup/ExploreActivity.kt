@@ -29,6 +29,10 @@ class ExploreActivity : AppCompatActivity() {
     private val database = Firebase.database
     private val groups = database.getReference("groups")
     private var homeworkHelp: Boolean = false
+    private var projectPartners: Boolean = false
+    private var examSquad: Boolean = false
+    private var labMates: Boolean = false
+    private var noteExchange: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +66,7 @@ class ExploreActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Search Listener
         groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -73,6 +78,7 @@ class ExploreActivity : AppCompatActivity() {
             }
         })
 
+        // Group Tags Button onClick Listener
         btnHomeworkHelp.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (homeworkHelp) {
@@ -83,6 +89,62 @@ class ExploreActivity : AppCompatActivity() {
                     btnHomeworkHelp.setBackgroundColor(Color.GREEN)
                     homeworkHelp = !homeworkHelp
                     groupListAdapter!!.filter.filter("homeworkhelp")
+                }
+            }
+        })
+
+        btnExamSquad.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (examSquad) {
+                    btnExamSquad.setBackgroundColor(resources.getColor(R.color.beige))
+                    examSquad = !examSquad
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnExamSquad.setBackgroundColor(Color.GREEN)
+                    examSquad = !examSquad
+                    groupListAdapter!!.filter.filter("examsquad")
+                }
+            }
+        })
+
+        btnLabMates.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (labMates) {
+                    btnLabMates.setBackgroundColor(resources.getColor(R.color.beige))
+                    labMates = !labMates
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnLabMates.setBackgroundColor(Color.GREEN)
+                    labMates = !labMates
+                    groupListAdapter!!.filter.filter("labmate")
+                }
+            }
+        })
+
+        btnProjectPartners.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (projectPartners) {
+                    btnProjectPartners.setBackgroundColor(resources.getColor(R.color.beige))
+                    projectPartners = !projectPartners
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnProjectPartners.setBackgroundColor(Color.GREEN)
+                    projectPartners = !projectPartners
+                    groupListAdapter!!.filter.filter("projectpartner")
+                }
+            }
+        })
+
+        btnNoteExchange.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (noteExchange) {
+                    btnNoteExchange.setBackgroundColor(resources.getColor(R.color.beige))
+                    noteExchange = !noteExchange
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnNoteExchange.setBackgroundColor(Color.GREEN)
+                    noteExchange = !noteExchange
+                    groupListAdapter!!.filter.filter("noteexchange")
                 }
             }
         })
