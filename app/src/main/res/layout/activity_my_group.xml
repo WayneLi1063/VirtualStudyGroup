@@ -59,6 +59,17 @@
         app:defaultQueryHint="SEARCH A COURSE/TEAM NAME"
         />
 
+<!--    <Button-->
+<!--        android:id="@+id/btnHomeworkHelp"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Homework Help"-->
+<!--        android:layout_margin="4dp"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/groupSearch"-->
+<!--        android:background="@drawable/tag_button_corners"/>-->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGroupList"
         android:layout_width="match_parent"

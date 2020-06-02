@@ -1,8 +1,11 @@
 package com.example.virtualstudygroup
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 //import android.widget.SearchView
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +28,7 @@ class ExploreActivity : AppCompatActivity() {
 //    private var groupsList: MutableList<Group>? = null
     private val database = Firebase.database
     private val groups = database.getReference("groups")
+    private var homeworkHelp: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +72,34 @@ class ExploreActivity : AppCompatActivity() {
                 return false
             }
         })
+
+        btnHomeworkHelp.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (homeworkHelp) {
+                    btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.beige))
+                    homeworkHelp = !homeworkHelp
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnHomeworkHelp.setBackgroundColor(Color.GREEN)
+                    homeworkHelp = !homeworkHelp
+                    groupListAdapter!!.filter.filter("homeworkhelp")
+                }
+            }
+        })
+
+
+//        btnHomeworkHelp.setOnClickListener {
+//            homeworkHelp = if (homeworkHelp) {
+//                btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.beige))
+//                !homeworkHelp
+//            } else {
+//                btnHomeworkHelp.setBackgroundColor(Color.GREEN)
+//                !homeworkHelp
+//                groupListAdapter!!.filter.filter("homework")
+////                groupSearch.setQuery("homework", false)
+////                groupSearch.clearFocus()
+//            }
+//        }
 
 //        btnFilter.setOnClickListener {
 //            if (groupsList != null) {
