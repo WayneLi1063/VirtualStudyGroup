@@ -23,6 +23,7 @@ class CreateGroupActivity : AppCompatActivity() {
     private var courseName: String? = null
     private var totalNumber: Int? = null
     private var groupImage: Uri? = null
+    private var newGroupImage: Uri? = null
     private var examSquad: Boolean = false
     private var homeworkHelp: Boolean = false
     private var labMates: Boolean = false
@@ -117,10 +118,10 @@ class CreateGroupActivity : AppCompatActivity() {
                 val defaultPhotoName = "default_image.png"
                 val ref = FirebaseStorage.getInstance().getReference("/images/group_image/$defaultPhotoName")
                 ref.downloadUrl.addOnSuccessListener {
-                    groupImage = it
+                    newGroupImage = it
                 }
             }
-            if (groupName != null && courseName != null && totalNumber != null && groupImage != null) {
+            if (groupName != null && courseName != null && totalNumber != null && newGroupImage != null) {
                 val user = getApp().currentUser
                 val uid = user?.uid
                 val groupCount =  getApp().groupCount
@@ -134,7 +135,7 @@ class CreateGroupActivity : AppCompatActivity() {
                             teamName = groupName!!,
                             currNumber = 1,
                             totalNumber = totalNumber!!,
-                            img = groupImage.toString(),
+                            img = newGroupImage.toString(),
                             examSquad = examSquad,
                             labMates = labMates,
                             projectPartners = projectPartners,
@@ -169,7 +170,7 @@ class CreateGroupActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 ref.downloadUrl.addOnSuccessListener {
                     Log.i(RegisterActivity.TAG, "Photo uploaded, uri = $it")
-                    groupImage = it
+                    newGroupImage = it
                 }
             }
     }
