@@ -108,8 +108,14 @@ class CreateGroupActivity : AppCompatActivity() {
                 Toast.makeText(this, "Course name cannot be empty.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            val regex = """[A-Z\s]{3,6}\s?[0-9]{3}""".toRegex()
             groupName = etGroupName.text.toString()
             courseName = etCourseName.text.toString()
+            val correctCourseName = courseName?.let { it1 -> regex.matches(it1) }
+            if (correctCourseName != null && !correctCourseName) {
+                Toast.makeText(this, "Course name format is incorrect", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             totalNumber = etGroupSize.text.toString().toInt()
             groupDescription = etGroupDescription.text.toString()
             groupImage?.let { photo ->
