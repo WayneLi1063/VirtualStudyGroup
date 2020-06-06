@@ -24,6 +24,7 @@ class CreateGroupActivity : AppCompatActivity() {
     private var courseName: String? = null
     private var totalNumber: Int? = null
     private var groupImage: Uri? = null
+    private var newGroupImage: Uri? = null
     private var examSquad: Boolean = false
     private var homeworkHelp: Boolean = false
     private var labMates: Boolean = false
@@ -108,8 +109,14 @@ class CreateGroupActivity : AppCompatActivity() {
                 Toast.makeText(this, "Course name cannot be empty.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            val regex = """[A-Z\s]{3,6}\s?[0-9]{3}""".toRegex()
             groupName = etGroupName.text.toString()
             courseName = etCourseName.text.toString()
+            val correctCourseName = courseName?.let { it1 -> regex.matches(it1) }
+            if (correctCourseName != null && !correctCourseName) {
+                Toast.makeText(this, "Course name format is incorrect", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             totalNumber = etGroupSize.text.toString().toInt()
             groupDescription = etGroupDescription.text.toString()
             groupImage?.let { photo ->
@@ -118,20 +125,24 @@ class CreateGroupActivity : AppCompatActivity() {
                 val defaultPhotoName = "default_image.png"
                 val ref = FirebaseStorage.getInstance().getReference("/images/group_image/$defaultPhotoName")
                 ref.downloadUrl.addOnSuccessListener {
-                    groupImage = it
+                    newGroupImage = it
                 }
             }
-            if (groupName != null && courseName != null && totalNumber != null && groupImage != null) {
+            if (groupName != null && courseName != null && totalNumber != null && newGroupImage != null) {
                 val user = getApp().currentUser
                 val uid = user?.uid
+                val groupCount =  getApp().groupCount
 
-                if (uid != null) {
+                if (uid != null && groupCount != null) {
+                    val newId = "Group_${(groupCount + 1)}"
                     val newGroup =
-                        Group(className = courseName!!,
+                        Group(
+                            id = newId,
+                            className = courseName!!,
                             teamName = groupName!!,
                             currNumber = 1,
                             totalNumber = totalNumber!!,
-                            img = groupImage.toString(),
+                            img = newGroupImage.toString(),
                             examSquad = examSquad,
                             labMates = labMates,
                             projectPartners = projectPartners,
@@ -139,13 +150,14 @@ class CreateGroupActivity : AppCompatActivity() {
                             homeworkHelp = homeworkHelp,
                             leaders = mutableMapOf(uid to true),
                             groupDescription = groupDescription)
-                    val hashID = newGroup.hashCode().toString()
-                    val groupID = groupName.hashCode().toString().plus("_").plus(hashID)
                     val groupRef = Firebase.database.getReference("groups")
-                    groupRef.child(groupID).setValue(newGroup)
+                    groupRef.child(newId).setValue(newGroup).addOnSuccessListener {
+                        val groupCountRef = Firebase.database.getReference("groupCount")
+                        groupCountRef.setValue(groupCount + 1)
+                    }
 
                     val userRef = Firebase.database.getReference("users")
-                    userRef.child(uid).child("groups").child(groupID).setValue(true)
+                    userRef.child(uid).child("groups").child(newId).setValue(true)
 
                     val intent = Intent(this, ExploreActivity::class.java)
                     startActivity(intent)
@@ -165,7 +177,7 @@ class CreateGroupActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 ref.downloadUrl.addOnSuccessListener {
                     Log.i(RegisterActivity.TAG, "Photo uploaded, uri = $it")
-                    groupImage = it
+                    newGroupImage = it
                 }
             }
     }

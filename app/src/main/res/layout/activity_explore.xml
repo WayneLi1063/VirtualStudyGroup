@@ -22,12 +22,33 @@
         app:titleTextColor="@color/white"
         >
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="@dimen/text_large"
-            android:text="@string/explore"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|right"
+                android:textSize="@dimen/text_large"
+                android:layout_weight="5"
+                android:text="Explore"/>
+
+            <Button
+                android:id="@+id/btnMyGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/huskyPurple"
+                android:text="My Groups"
+                android:textColor="@color/white"
+                android:padding="@dimen/padding_small"
+                android:textSize="@dimen/text_medium"
+                android:gravity="right"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
 
     </androidx.appcompat.widget.Toolbar>
 

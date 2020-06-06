@@ -1,6 +1,11 @@
 package com.example.virtualstudygroup
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Group(
+    val id: String = "",
     val className: String = "",
     val currNumber: Int = 0,
     val totalNumber: Int = 0,
@@ -14,4 +19,4 @@ data class Group(
     val leaders: MutableMap<String, Boolean>? = null,
     val members: MutableMap<String, Boolean>? = null,
     val groupDescription: String? = null
-)
+) : Parcelable
