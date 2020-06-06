@@ -1,8 +1,13 @@
 package com.example.virtualstudygroup
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
+//import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,8 +25,14 @@ class ExploreActivity : AppCompatActivity() {
 
     private var groupListAdapter: GroupListAdapter? = null
     private lateinit var groupsList: MutableList<Group>
+//    private var groupsList: MutableList<Group>? = null
     private val database = Firebase.database
     private val groups = database.getReference("groups")
+    private var homeworkHelp: Boolean = false
+    private var projectPartners: Boolean = false
+    private var examSquad: Boolean = false
+    private var labMates: Boolean = false
+    private var noteExchange: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +70,113 @@ class ExploreActivity : AppCompatActivity() {
             val intent = Intent(this, MyGroupActivity::class.java)
             startActivity(intent)
         }
+
+        // Search Listener
+        groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                groupListAdapter!!.filter.filter(newText)
+                return false
+            }
+        })
+
+        // Group Tags Button onClick Listener
+        btnHomeworkHelp.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (homeworkHelp) {
+                    btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.beige))
+                    homeworkHelp = !homeworkHelp
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnHomeworkHelp.setBackgroundColor(Color.GREEN)
+                    homeworkHelp = !homeworkHelp
+                    groupListAdapter!!.filter.filter("homeworkhelp")
+                }
+            }
+        })
+
+        btnExamSquad.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (examSquad) {
+                    btnExamSquad.setBackgroundColor(resources.getColor(R.color.beige))
+                    examSquad = !examSquad
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnExamSquad.setBackgroundColor(Color.GREEN)
+                    examSquad = !examSquad
+                    groupListAdapter!!.filter.filter("examsquad")
+                }
+            }
+        })
+
+        btnLabMates.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (labMates) {
+                    btnLabMates.setBackgroundColor(resources.getColor(R.color.beige))
+                    labMates = !labMates
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnLabMates.setBackgroundColor(Color.GREEN)
+                    labMates = !labMates
+                    groupListAdapter!!.filter.filter("labmate")
+                }
+            }
+        })
+
+        btnProjectPartners.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (projectPartners) {
+                    btnProjectPartners.setBackgroundColor(resources.getColor(R.color.beige))
+                    projectPartners = !projectPartners
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnProjectPartners.setBackgroundColor(Color.GREEN)
+                    projectPartners = !projectPartners
+                    groupListAdapter!!.filter.filter("projectpartner")
+                }
+            }
+        })
+
+        btnNoteExchange.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (noteExchange) {
+                    btnNoteExchange.setBackgroundColor(resources.getColor(R.color.beige))
+                    noteExchange = !noteExchange
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnNoteExchange.setBackgroundColor(Color.GREEN)
+                    noteExchange = !noteExchange
+                    groupListAdapter!!.filter.filter("noteexchange")
+                }
+            }
+        })
+
+
+//        btnHomeworkHelp.setOnClickListener {
+//            homeworkHelp = if (homeworkHelp) {
+//                btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.beige))
+//                !homeworkHelp
+//            } else {
+//                btnHomeworkHelp.setBackgroundColor(Color.GREEN)
+//                !homeworkHelp
+//                groupListAdapter!!.filter.filter("homework")
+////                groupSearch.setQuery("homework", false)
+////                groupSearch.clearFocus()
+//            }
+//        }
+
+//        btnFilter.setOnClickListener {
+//            if (groupsList != null) {
+//                val intent = Intent(this, FilterGroupActivity::class.java)
+////                intent.putExtra("GROUP_LIST", groupsList)
+//                startActivity(intent)
+//            }
+//        }
     }
+
 
     private fun filterExploreList(groupValues: MutableMap<String, Group>) {
         val user = getApp().currentUser
@@ -96,3 +213,8 @@ class ExploreActivity : AppCompatActivity() {
         startActivity(intent)
     }
 }
+
+private fun SearchView.setOnQueryTextListener(onQueryTextListener: SearchView.OnQueryTextListener) {
+
+}
+

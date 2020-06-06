@@ -3,15 +3,24 @@ package com.example.virtualstudygroup
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import java.util.*
+import kotlin.collections.ArrayList
 
-class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.Adapter<GroupListAdapter.GroupListViewHolder>() {
+class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.Adapter<GroupListAdapter.GroupListViewHolder>(),
+    Filterable {
 
     var onGroupClickListener: ((group: Group) -> Unit)? = null
+    private var groupFilterList: MutableList<Group>? = null
 
+    init {
+        groupFilterList = groupList
+    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -21,7 +30,7 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
     }
 
     override fun getItemCount(): Int {
-        return groupList.size
+        return groupFilterList?.size!!
     }
 
     fun updateGroup(newGroupList: MutableList<Group>) {
@@ -30,8 +39,45 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
     }
 
     override fun onBindViewHolder(holder: GroupListViewHolder, position: Int) {
-        val group = groupList[position]
-        holder.bind(group)
+        val group = groupFilterList?.get(position)
+        if (group != null) {
+            holder.bind(group)
+        }
+    }
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                if (charSearch.isEmpty()) {
+                    groupFilterList = groupList
+                } else {
+                    val resultList = ArrayList<Group>()
+                    for (row in groupList) {
+                        if (row.teamName.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
+                            || row.className.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
+                            || (row.homeworkHelp && charSearch.toLowerCase(Locale.ROOT) == "homeworkhelp")
+                            || (row.examSquad && charSearch.toLowerCase(Locale.ROOT) == "examsquad")
+                            || (row.labMates && charSearch.toLowerCase(Locale.ROOT) == "labmate")
+                            || (row.projectPartners && charSearch.toLowerCase(Locale.ROOT) == "projectpartner")
+                            || (row.noteExchange && charSearch.toLowerCase(Locale.ROOT) == "noteexchange")) {
+                            resultList.add(row)
+                        }
+                    }
+                    groupFilterList = resultList
+                }
+                val filterResults = FilterResults()
+                filterResults.values = groupFilterList
+                return filterResults
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                groupFilterList = results?.values as MutableList<Group>
+                notifyDataSetChanged()
+            }
+
+        }
     }
 
     inner class GroupListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

@@ -31,4 +31,6 @@
     <string name="project_partners">Project Partners</string>
     <string name="explore">EXPLORE</string>
     <string name="create">CREATE</string>
+    <string name="filter_group">FILTER GROUP</string>
+    <string name="filter">FILTER</string>
 </resources>
