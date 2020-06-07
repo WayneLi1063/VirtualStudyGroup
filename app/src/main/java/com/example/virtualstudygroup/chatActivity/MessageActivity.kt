@@ -43,7 +43,7 @@ class MessageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_message)
 
         setSupportActionBar(chat_toolbar)
-        supportActionBar?.title = "ChatRoom"
+        supportActionBar?.title = "Chat Room"
 
         messages_recycler.adapter = adapter
         messages_recycler.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
