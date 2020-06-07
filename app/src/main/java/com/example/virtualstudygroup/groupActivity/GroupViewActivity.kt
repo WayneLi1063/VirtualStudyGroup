@@ -7,6 +7,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.model.Group
 import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.chatActivity.ChatLogActivity
+import com.example.virtualstudygroup.chatActivity.NewMessageActivity
 import com.example.virtualstudygroup.getApp
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -77,7 +79,9 @@ class GroupViewActivity : AppCompatActivity() {
                 }
 
                 btnChatRoom.setOnClickListener {
-
+                    val intent = Intent(this, ChatLogActivity::class.java)
+                    intent.putExtra(NewMessageActivity.USER_KEY,group.id)
+                    startActivity(intent)
                 }
             } else if (isLeader != null && isLeader) {
                 btnEdit.visibility = VISIBLE
@@ -87,7 +91,9 @@ class GroupViewActivity : AppCompatActivity() {
 
                 }
                 btnChatRoom.setOnClickListener {
-
+                    val intent = Intent(this, ChatLogActivity::class.java)
+                    intent.putExtra(NewMessageActivity.USER_KEY,group.id)
+                    startActivity(intent)
                 }
             } else { // User has not yet join the group
                 btnJoin.visibility = VISIBLE
