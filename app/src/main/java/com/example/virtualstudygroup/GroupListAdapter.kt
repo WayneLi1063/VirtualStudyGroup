@@ -30,7 +30,10 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
     }
 
     override fun getItemCount(): Int {
-        return groupFilterList?.size!!
+        if (groupFilterList.isNullOrEmpty()) {
+            return groupList.size
+        }
+        return groupFilterList!!.size
     }
 
     fun updateGroup(newGroupList: MutableList<Group>) {
@@ -39,9 +42,14 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
     }
 
     override fun onBindViewHolder(holder: GroupListViewHolder, position: Int) {
-        val group = groupFilterList?.get(position)
-        if (group != null) {
+        if (groupFilterList.isNullOrEmpty()) {
+            val group = groupList[position]
             holder.bind(group)
+        } else {
+            val group = groupFilterList?.get(position)
+            if (group != null) {
+                holder.bind(group)
+            }
         }
     }
 
