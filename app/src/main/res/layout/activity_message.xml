@@ -23,7 +23,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chat_toolbar"
-        android:background="@drawable/create_button_corners"
+        android:background="@drawable/unselected_button"
         app:iconifiedByDefault="false"
         app:queryBackground="@null"
         android:layout_margin="@dimen/padding_small"
@@ -53,6 +53,7 @@
 
         <ImageButton
             android:id="@+id/btn_explore_groups"
+            android:contentDescription="@string/explore_groups"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_explore_black_24dp"
@@ -62,6 +63,7 @@
 
         <ImageButton
             android:id="@+id/btn_my_groups"
+            android:contentDescription="@string/my_groups"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
@@ -71,6 +73,7 @@
 
         <ImageButton
             android:id="@+id/btn_chatroom"
+            android:contentDescription="@string/chat_rooms"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
@@ -80,6 +83,7 @@
 
         <ImageButton
             android:id="@+id/btn_profile"
+            android:contentDescription="@string/user_profile"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_person_black_24dp"

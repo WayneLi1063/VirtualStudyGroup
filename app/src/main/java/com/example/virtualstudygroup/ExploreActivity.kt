@@ -98,11 +98,11 @@ class ExploreActivity : AppCompatActivity() {
         btnHomeworkHelp.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (homeworkHelp) {
-                    btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    btnHomeworkHelp.setBackgroundResource(R.drawable.unselected_button)
                     homeworkHelp = !homeworkHelp
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    btnHomeworkHelp.setBackgroundResource(R.drawable.selected_button)
                     homeworkHelp = !homeworkHelp
                     groupListAdapter!!.filter.filter("homeworkhelp")
                 }
@@ -112,11 +112,11 @@ class ExploreActivity : AppCompatActivity() {
         btnExamSquad.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (examSquad) {
-                    btnExamSquad.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    btnExamSquad.setBackgroundResource(R.drawable.unselected_button)
                     examSquad = !examSquad
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnExamSquad.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    btnExamSquad.setBackgroundResource(R.drawable.selected_button)
                     examSquad = !examSquad
                     groupListAdapter!!.filter.filter("examsquad")
                 }
@@ -126,11 +126,11 @@ class ExploreActivity : AppCompatActivity() {
         btnLabMates.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (labMates) {
-                    btnLabMates.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    btnLabMates.setBackgroundResource(R.drawable.unselected_button)
                     labMates = !labMates
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnLabMates.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    btnLabMates.setBackgroundResource(R.drawable.selected_button)
                     labMates = !labMates
                     groupListAdapter!!.filter.filter("labmate")
                 }
@@ -140,11 +140,11 @@ class ExploreActivity : AppCompatActivity() {
         btnProjectPartners.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (projectPartners) {
-                    btnProjectPartners.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    btnProjectPartners.setBackgroundResource(R.drawable.unselected_button)
                     projectPartners = !projectPartners
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnProjectPartners.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    btnProjectPartners.setBackgroundResource(R.drawable.selected_button)
                     projectPartners = !projectPartners
                     groupListAdapter!!.filter.filter("projectpartner")
                 }
@@ -154,11 +154,11 @@ class ExploreActivity : AppCompatActivity() {
         btnNoteExchange.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (noteExchange) {
-                    btnNoteExchange.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    btnNoteExchange.setBackgroundResource(R.drawable.unselected_button)
                     noteExchange = !noteExchange
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnNoteExchange.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    btnNoteExchange.setBackgroundResource(R.drawable.selected_button)
                     noteExchange = !noteExchange
                     groupListAdapter!!.filter.filter("noteexchange")
                 }
