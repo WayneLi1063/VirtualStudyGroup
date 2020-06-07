@@ -66,6 +66,7 @@ class ExploreActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         btnMyGroup.setOnClickListener {
             val intent = Intent(this, MyGroupActivity::class.java)
             startActivity(intent)
@@ -175,6 +176,10 @@ class ExploreActivity : AppCompatActivity() {
 //                startActivity(intent)
 //            }
 //        }
+        btnMyGroup.setOnClickListener {
+            val intent = Intent(this, MyGroupActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

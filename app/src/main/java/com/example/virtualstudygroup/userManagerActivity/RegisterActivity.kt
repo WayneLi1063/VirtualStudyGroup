@@ -38,6 +38,9 @@ class RegisterActivity : AppCompatActivity() {
         supportActionBar?.hide()
         auth = Firebase.auth
 
+        Toast.makeText(this, getString(R.string.hint_to_upload_picture),
+                                Toast.LENGTH_SHORT).show()
+
         logo.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
@@ -100,15 +103,6 @@ class RegisterActivity : AppCompatActivity() {
             ref.setValue(uploadUser)
                 .addOnSuccessListener {
                     getApp().currentUser = currentUser
-                    // invoke profile activity
-                    /*
-                    val intent = Intent(this, UserProfileActivity::class.java)
-                    progressBar.visibility = View.GONE
-                    startActivity(intent)
-                    Log.i(TAG, "saved into database")
-                     */
-
-                    // invoke message activity
 
                     val intent = Intent(this, MessageActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)

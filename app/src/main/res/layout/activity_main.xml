@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Husky,\nLet's Study!"
+        android:text="@string/welcome_screen_display_message"
         android:textSize="50sp"
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"

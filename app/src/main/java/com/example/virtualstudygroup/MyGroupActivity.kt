@@ -57,12 +57,6 @@ class MyGroupActivity : AppCompatActivity() {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
         }
-        // conflicts here before
-
-        btnExploration.setOnClickListener {
-            val intent = Intent(this, ExploreActivity::class.java)
-            startActivity(intent)
-        }
 
         groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -74,6 +68,10 @@ class MyGroupActivity : AppCompatActivity() {
                 return false
             }
         })
+        btnExploration.setOnClickListener {
+            val intent = Intent(this, ExploreActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun filterMyGroupList(groupValues: MutableMap<String, Group>) {
