@@ -66,19 +66,17 @@
     -->
 
 
-<!--    <Button
+    <Button
         android:id="@+id/btnCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding_small"
         android:background="@drawable/create_button_corners"
         android:text="@string/create_your_group"
         android:textSize="@dimen/text_medium"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/padding_small"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/groupSearch"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />-->
+        app:layout_constraintRight_toRightOf="parent" />
 
 <!--    <Button-->
 <!--        android:id="@+id/btnFilter"-->
@@ -97,7 +95,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/btnCreate"
         android:background="@drawable/create_button_corners"
         app:iconifiedByDefault="false"
         app:queryBackground="@null"
@@ -115,7 +113,7 @@
 <!--        app:layout_constraintRight_toRightOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@id/groupSearch"-->
 <!--        android:background="@drawable/tag_button_corners"/>-->
-<!--    <TextView
+    <TextView
         android:id="@+id/tvTag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -125,40 +123,28 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/groupSearch"
         android:textSize="@dimen/text_large"
-        android:padding="@dimen/padding_small"/>-->
+        android:padding="@dimen/padding_small"/>
 
     <GridLayout
         android:id="@+id/glTagList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/groupSearch"
+        app:layout_constraintTop_toBottomOf="@id/tvTag"
         android:layout_margin="@dimen/padding_small"
-        android:columnCount="3">
-
-        <TextView
-            android:id="@+id/tvTag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/padding_small"
-            android:padding="@dimen/padding_small"
-            android:text="Group Tag: "
-            android:textSize="20sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/groupSearch" />
+        android:columnCount="2">
 
         <Button
             android:id="@+id/btnExamSquad"
-            android:layout_width="@dimen/tag_width"
-            android:layout_height="@dimen/tag_height"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
             android:text="Exam Squad"
             android:layout_margin="4dp"
             android:background="@drawable/tag_button_corners"/>
 
         <Button
             android:id="@+id/btnLabMates"
-            android:layout_width="@dimen/tag_width"
-            android:layout_height="@dimen/tag_height"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
             android:text="Lab Mates"
             android:layout_margin="4dp"
             android:background="@drawable/tag_button_corners"
@@ -166,30 +152,28 @@
 
         <Button
             android:id="@+id/btnProjectPartners"
-            android:layout_width="@dimen/tag_width"
-            android:layout_height="@dimen/tag_height"
-            android:text="Project\nPartners"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Project Partners"
             android:layout_margin="4dp"
-            android:lines="2"
             android:background="@drawable/tag_button_corners"/>
 
         <Button
             android:id="@+id/btnHomeworkHelp"
-            android:layout_width="@dimen/tag_width"
-            android:layout_height="@dimen/tag_height"
-            android:text="Homework\nHelp"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Homework Help"
             android:layout_margin="4dp"
-            android:lines="2"
             android:background="@drawable/tag_button_corners"/>
 
         <Button
             android:id="@+id/btnNoteExchange"
-            android:layout_width="@dimen/tag_width"
-            android:layout_height="@dimen/tag_height"
-            android:text="Notes\nExchange"
-            android:lines="2"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Note Exchange"
             android:layout_margin="4dp"
             android:background="@drawable/tag_button_corners"/>
+
     </GridLayout>
 
     <androidx.recyclerview.widget.RecyclerView
