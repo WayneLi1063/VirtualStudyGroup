@@ -71,7 +71,8 @@ class UserProfileActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        fillUpInfo()
+        currentUser = getApp().currentUser
+        fetchUser()
     }
 
     private fun fillUpInfo() {

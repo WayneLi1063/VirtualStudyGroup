@@ -62,7 +62,10 @@ class UserProfileEditActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        fillUpInfo()
+        getApp().currentUser?.let {
+            currentUser = it
+        }
+        fetchUser()
     }
 
     private fun fillUpInfo() {
