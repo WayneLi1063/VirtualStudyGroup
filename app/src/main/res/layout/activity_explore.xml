@@ -66,7 +66,7 @@
     -->
 
 
-    <Button
+<!--    <Button
         android:id="@+id/btnCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
         android:layout_margin="@dimen/padding_small"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent" />-->
 
 <!--    <Button-->
 <!--        android:id="@+id/btnFilter"-->
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCreate"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:background="@drawable/create_button_corners"
         app:iconifiedByDefault="false"
         app:queryBackground="@null"
@@ -113,68 +113,87 @@
 <!--        app:layout_constraintRight_toRightOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@id/groupSearch"-->
 <!--        android:background="@drawable/tag_button_corners"/>-->
-    <TextView
-        android:id="@+id/tvTag"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Group Tag: "
-        android:layout_margin="@dimen/padding_small"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/groupSearch"
-        android:textSize="@dimen/text_large"
-        android:padding="@dimen/padding_small"/>
 
-    <GridLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/glTagList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvTag"
         android:layout_margin="@dimen/padding_small"
-        android:columnCount="2">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/groupSearch">
+
+        <TextView
+            android:id="@+id/tvTag"
+            android:layout_width="@dimen/tag_width"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_small"
+            android:padding="@dimen/padding_small"
+            android:text="TAG"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnExamSquad"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnExamSquad"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Exam Squad"
+            android:layout_width="@dimen/tag_width"
+            android:layout_height="@dimen/tag_height"
             android:layout_margin="4dp"
-            android:background="@drawable/tag_button_corners"/>
+            android:background="@drawable/tag_button_corners"
+            android:text="Exam Squad"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTag"
+            app:layout_constraintLeft_toRightOf="@id/tvTag"
+            app:layout_constraintRight_toLeftOf="@id/btnLabMates"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnLabMates"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Lab Mates"
+            android:layout_width="@dimen/tag_width"
+            android:layout_height="@dimen/tag_height"
             android:layout_margin="4dp"
             android:background="@drawable/tag_button_corners"
-            />
+            android:text="Lab Mates"
+            app:layout_constraintBottom_toBottomOf="@+id/btnExamSquad"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toRightOf="@id/btnExamSquad"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnExamSquad" />
 
         <Button
             android:id="@+id/btnProjectPartners"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Project Partners"
+            android:layout_width="@dimen/tag_width"
+            android:layout_height="@dimen/tag_height"
             android:layout_margin="4dp"
-            android:background="@drawable/tag_button_corners"/>
+            android:background="@drawable/tag_button_corners"
+            android:text="Project Partners"
+            app:layout_constraintLeft_toLeftOf="@id/tvTag"
+            app:layout_constraintTop_toBottomOf="@id/tvTag" />
 
         <Button
             android:id="@+id/btnHomeworkHelp"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Homework Help"
+            android:layout_width="@dimen/tag_width"
+            android:layout_height="@dimen/tag_height"
             android:layout_margin="4dp"
-            android:background="@drawable/tag_button_corners"/>
+            android:background="@drawable/tag_button_corners"
+            android:text="Homework Help"
+            app:layout_constraintBottom_toBottomOf="@id/btnProjectPartners"
+            app:layout_constraintLeft_toRightOf="@id/btnProjectPartners"
+            app:layout_constraintRight_toLeftOf="@id/btnNoteExchange"
+            app:layout_constraintTop_toTopOf="@id/btnProjectPartners" />
 
         <Button
             android:id="@+id/btnNoteExchange"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Note Exchange"
+            android:layout_width="@dimen/tag_width"
+            android:layout_height="@dimen/tag_height"
             android:layout_margin="4dp"
-            android:background="@drawable/tag_button_corners"/>
-
-    </GridLayout>
+            android:background="@drawable/tag_button_corners"
+            android:text="Note Exchange"
+            app:layout_constraintBottom_toBottomOf="@id/btnHomeworkHelp"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toRightOf="@id/btnHomeworkHelp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnHomeworkHelp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGroupList"
