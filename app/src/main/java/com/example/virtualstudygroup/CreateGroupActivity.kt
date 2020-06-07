@@ -2,7 +2,6 @@ package com.example.virtualstudygroup
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -38,50 +37,50 @@ class CreateGroupActivity : AppCompatActivity() {
 
         btnExamSquad.setOnClickListener {
             examSquad = if (examSquad) {
-                btnExamSquad.setBackgroundColor(resources.getColor(R.color.beige))
+                btnExamSquad.setBackgroundResource(R.drawable.unselected_button)
                 !examSquad
             } else {
-                btnExamSquad.setBackgroundColor(Color.GREEN)
+                btnExamSquad.setBackgroundResource(R.drawable.selected_button)
                 !examSquad
             }
         }
 
         btnHomeworkHelp.setOnClickListener {
             homeworkHelp = if (homeworkHelp) {
-                btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.beige))
+                btnHomeworkHelp.setBackgroundResource(R.drawable.unselected_button)
                 !homeworkHelp
             } else {
-                btnHomeworkHelp.setBackgroundColor(Color.GREEN)
+                btnHomeworkHelp.setBackgroundResource(R.drawable.selected_button)
                 !homeworkHelp
             }
         }
 
         btnLabMates.setOnClickListener {
             labMates = if (labMates) {
-                btnLabMates.setBackgroundColor(resources.getColor(R.color.beige))
+                btnLabMates.setBackgroundResource(R.drawable.unselected_button)
                 !labMates
             } else {
-                btnLabMates.setBackgroundColor(Color.GREEN)
+                btnLabMates.setBackgroundResource(R.drawable.selected_button)
                 !labMates
             }
         }
 
         btnProjectPartners.setOnClickListener {
             projectPartners = if (projectPartners) {
-                btnProjectPartners.setBackgroundColor(resources.getColor(R.color.beige))
+                btnProjectPartners.setBackgroundResource(R.drawable.unselected_button)
                 !projectPartners
             } else {
-                btnProjectPartners.setBackgroundColor(Color.GREEN)
+                btnProjectPartners.setBackgroundResource(R.drawable.selected_button)
                 !projectPartners
             }
         }
 
         btnNoteExchange.setOnClickListener {
             noteExchange = if (noteExchange) {
-                btnNoteExchange.setBackgroundColor(resources.getColor(R.color.beige))
+                btnNoteExchange.setBackgroundResource(R.drawable.unselected_button)
                 !noteExchange
             } else {
-                btnNoteExchange.setBackgroundColor(Color.GREEN)
+                btnNoteExchange.setBackgroundResource(R.drawable.selected_button)
                 !noteExchange
             }
         }

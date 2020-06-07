@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/padding_small"
-        android:background="@drawable/create_button_corners"
+        android:background="@drawable/unselected_button"
         android:text="@string/create_your_group"
         android:textSize="@dimen/text_medium"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +84,7 @@
 <!--        android:id="@+id/btnFilter"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/create_button_corners"-->
+<!--        android:background="@drawable/unselected_button"-->
 <!--        android:text="@string/filter_group"-->
 <!--        android:textSize="@dimen/text_medium"-->
 <!--        android:layout_margin="@dimen/padding_small"-->
@@ -98,7 +98,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:background="@drawable/create_button_corners"
+        android:background="@drawable/unselected_button"
         app:iconifiedByDefault="false"
         app:queryBackground="@null"
         android:layout_margin="@dimen/padding_small"
@@ -141,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_small"
             android:padding="@dimen/padding_small"
-            android:text="Group Tag: "
+            android:text="@string/group_tag"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -151,7 +151,7 @@
             android:id="@+id/btnExamSquad"
             android:layout_width="@dimen/tag_width"
             android:layout_height="@dimen/tag_height"
-            android:text="Exam Squad"
+            android:text="@string/exam_squad"
             android:layout_margin="4dp"
             android:background="@drawable/tag_button_corners"/>
 
@@ -159,7 +159,7 @@
             android:id="@+id/btnLabMates"
             android:layout_width="@dimen/tag_width"
             android:layout_height="@dimen/tag_height"
-            android:text="Lab Mates"
+            android:text="@string/lab_mates"
             android:layout_margin="4dp"
             android:background="@drawable/tag_button_corners"
             />
@@ -168,7 +168,7 @@
             android:id="@+id/btnProjectPartners"
             android:layout_width="@dimen/tag_width"
             android:layout_height="@dimen/tag_height"
-            android:text="Project\nPartners"
+            android:text="@string/project_npartners"
             android:layout_margin="4dp"
             android:lines="2"
             android:background="@drawable/tag_button_corners"/>
@@ -177,7 +177,7 @@
             android:id="@+id/btnHomeworkHelp"
             android:layout_width="@dimen/tag_width"
             android:layout_height="@dimen/tag_height"
-            android:text="Homework\nHelp"
+            android:text="@string/homework_nhelp"
             android:layout_margin="4dp"
             android:lines="2"
             android:background="@drawable/tag_button_corners"/>
@@ -186,7 +186,7 @@
             android:id="@+id/btnNoteExchange"
             android:layout_width="@dimen/tag_width"
             android:layout_height="@dimen/tag_height"
-            android:text="Notes\nExchange"
+            android:text="@string/notes_nexchange"
             android:lines="2"
             android:layout_margin="4dp"
             android:background="@drawable/tag_button_corners"/>
@@ -218,6 +218,7 @@
 
         <ImageButton
             android:id="@+id/btn_explore_groups"
+            android:contentDescription="@string/explore_groups"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_explore_black_24dp"
@@ -227,6 +228,7 @@
 
         <ImageButton
             android:id="@+id/btn_my_groups"
+            android:contentDescription="@string/my_groups"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
@@ -236,6 +238,7 @@
 
         <ImageButton
             android:id="@+id/btn_chatroom"
+            android:contentDescription="@string/chat_rooms"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
@@ -245,6 +248,7 @@
 
         <ImageButton
             android:id="@+id/btn_profile"
+            android:contentDescription="@string/user_profile"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_person_black_24dp"
