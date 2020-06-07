@@ -84,7 +84,6 @@ class GroupViewActivity : AppCompatActivity() {
                     val intent = Intent(it.context, ChatLogActivity::class.java)
                     intent.putExtra(NewMessageActivity.USER_KEY, groupChat)
                     startActivity(intent)
-                    finish()
 
                 }
             } else if (isLeader != null && isLeader) {
