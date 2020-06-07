@@ -55,7 +55,7 @@ class NewMessageActivity : AppCompatActivity() {
 
                     Log.i(CHATAG, group!!.id)
                     Log.i(CHATAG, groups.toString())
-                    group?.let {
+                    group.let {
                         if (groups != null && groups.contains(group.id)) {
                             adapter.add(
                                 GroupChatItem(group)

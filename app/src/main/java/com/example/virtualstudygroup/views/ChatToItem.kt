@@ -1,7 +1,6 @@
 package com.example.virtualstudygroup.views
 
 import com.example.virtualstudygroup.R
-import com.example.virtualstudygroup.model.GroupChat
 import com.example.virtualstudygroup.model.User
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupieViewHolder

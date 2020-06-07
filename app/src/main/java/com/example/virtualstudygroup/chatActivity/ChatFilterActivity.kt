@@ -8,13 +8,12 @@ import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.model.ChatFilter
 import kotlinx.android.synthetic.main.activity_chat_filter.*
-import kotlinx.android.synthetic.main.activity_message.*
 import kotlinx.android.synthetic.main.activity_message.chat_toolbar
 
 class ChatFilterActivity : AppCompatActivity() {
 
     companion object {
-        val FILTER_KEY = "Filter Key"
+        const val FILTER_KEY = "Filter Key"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

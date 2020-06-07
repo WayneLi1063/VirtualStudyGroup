@@ -68,12 +68,11 @@ class ExploreActivity : AppCompatActivity() {
             }
         })
 
-/*
-        btnCreate.setOnClickListener {
+/*        btnCreate.setOnClickListener {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
-        }
-*/
+        }*/
+
 
         /*
         btnMyGroup.setOnClickListener {

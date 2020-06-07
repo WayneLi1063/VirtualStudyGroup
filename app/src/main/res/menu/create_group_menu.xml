@@ -6,7 +6,6 @@
         android:id="@+id/menu_create_group"
         android:title="Create Group"
         app:showAsAction="ifRoom" />
-<!--    android:icon="@drawable/ic_add_black_24dp"-->
-
+    <!--    android:icon="@drawable/ic_add_black_24dp"-->
 
 </menu>

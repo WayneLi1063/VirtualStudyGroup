@@ -80,7 +80,7 @@ class ChatLogActivity : AppCompatActivity() {
 
                                 } else {
                                     Log.i(CHATAG, "Add ${chatMessage.text} is ${chatSender.uid}")
-                                    val currentUser = MessageActivity.currentUser ?:return
+                                    // val currentUser = MessageActivity.currentUser ?:return
                                     // adapter.add(ChatToItem(chatMessage.text, chatSender))
                                     adapter.add(ChatFromItem(chatMessage.text, chatSender))
 

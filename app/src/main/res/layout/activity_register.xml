@@ -28,7 +28,7 @@
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         android:paddingTop="40dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/white"/>
 
     <ImageButton
         android:id="@+id/logo"
@@ -41,6 +41,7 @@
         app:layout_constraintBottom_toTopOf="@id/username_input"/>
 
     <EditText
+        android:textColor="@color/white"
         android:id="@+id/username_input"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -52,6 +53,7 @@
         app:layout_constraintRight_toRightOf="parent"/>
 
     <EditText
+        android:textColor="@color/white"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:id="@+id/password_input"
