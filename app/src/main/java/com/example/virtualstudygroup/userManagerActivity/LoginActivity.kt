@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
 
                             // invoke the message activity
 
-                            val intent = Intent(this, MessageActivity::class.java)
+                            val intent = Intent(this, UserProfileActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
 
