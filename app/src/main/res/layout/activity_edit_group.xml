@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:theme="@style/BarTheme"
+        android:elevation="4dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:titleTextColor="@color/white"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="@dimen/text_large"
+            android:text="EDIT"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/svCreate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_medium"
+            android:paddingRight="@dimen/padding_medium">
+
+            <TextView
+                android:id="@+id/tvGroupImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group Image: "
+                android:labelFor="@+id/btnGroupImgUpload"
+                android:textSize="@dimen/text_large"
+                android:padding="@dimen/padding_small"/>
+
+            <ImageButton
+                android:id="@+id/btnGroupImgUpload"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_small" />
+
+            <TextView
+                android:id="@+id/tvGroupName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group Name: "
+                android:labelFor="@+id/etGroupName"
+                android:textSize="@dimen/text_large"
+                android:padding="@dimen/padding_small"/>
+
+            <EditText
+                android:id="@+id/etGroupName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_small"
+                android:textSize="24sp"
+                android:hint="Group Name"
+                android:background="@drawable/edit_text_bubble"
+                android:autofillHints="Awesome Study Group"
+                android:inputType="textAutoCorrect" />
+
+            <TextView
+                android:id="@+id/tvCourseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Course Name: "
+                android:labelFor="@id/etCourseName"
+                android:textSize="@dimen/text_large"
+                android:padding="@dimen/padding_small"/>
+
+            <EditText
+                android:id="@+id/etCourseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_small"
+                android:hint="Course Name"
+                android:textSize="24sp"
+                android:background="@drawable/edit_text_bubble"
+                android:autofillHints="INFO200"
+                android:inputType="textCapCharacters" />
+
+            <TextView
+                android:id="@+id/tvGroupSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group Size: "
+                android:labelFor="@+id/etGroupSize"
+                android:textSize="@dimen/text_large"
+                android:padding="@dimen/padding_small"/>
+
+            <EditText
+                android:id="@+id/etGroupSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Group Size"
+                android:textSize="24sp"
+                android:layout_margin="@dimen/padding_small"
+                android:background="@drawable/edit_text_bubble"
+                android:inputType="number"
+                android:autofillHints="2" />
+
+            <TextView
+                android:id="@+id/tvGroupDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group Description: "
+                android:labelFor="@+id/etGroupDescription"
+                android:textSize="@dimen/text_large"
+                android:padding="@dimen/padding_small"/>
+
+            <EditText
+                android:id="@+id/etGroupDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Group Description"
+                android:textSize="24sp"
+                android:layout_margin="@dimen/padding_small"
+                android:background="@drawable/edit_text_bubble"
+                android:inputType="textAutoCorrect"
+                android:autofillHints="2" />
+
+            <TextView
+                android:id="@+id/tvTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group Tag: "
+                android:textSize="@dimen/text_large"
+                android:padding="@dimen/padding_small"/>
+
+
+            <GridLayout
+                android:id="@+id/glTagList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+
+                <Button
+                    android:id="@+id/btnExamSquad"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:text="Exam Squad"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/tag_button_corners"/>
+
+                <Button
+                    android:id="@+id/btnLabMates"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:text="Lab Mates"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/tag_button_corners"
+                    />
+
+                <Button
+                    android:id="@+id/btnProjectPartners"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:text="Project Partners"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/tag_button_corners"/>
+
+                <Button
+                    android:id="@+id/btnHomeworkHelp"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:text="Homework Help"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/tag_button_corners"/>
+
+                <Button
+                    android:id="@+id/btnNoteExchange"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:text="Note Exchange"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/tag_button_corners"/>
+
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnFinish"
+                    android:layout_margin="@dimen/padding_small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="FINISH"
+                    android:background="@color/huskyPurple"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/btnDisband"
+                    android:layout_margin="@dimen/padding_small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="DISBAND"
+                    android:background="@android:color/holo_red_light"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

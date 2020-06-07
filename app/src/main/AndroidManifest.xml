@@ -20,6 +20,7 @@
         <activity android:name=".userManagerActivity.LoginActivity" />
         <activity android:name=".chatActivity.MessageActivity" />
         <activity android:name=".userManagerActivity.UserProfileActivity" />
+        <activity android:name=".groupActivity.EditGroupActivity" />
         <activity android:name=".userManagerActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

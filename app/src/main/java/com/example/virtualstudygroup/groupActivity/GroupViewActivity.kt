@@ -22,6 +22,7 @@ class GroupViewActivity : AppCompatActivity() {
 
     companion object {
         const val GROUP_KEY = "group"
+        const val EDIT_KEY = "edit"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,7 +89,9 @@ class GroupViewActivity : AppCompatActivity() {
                 btnChatRoom.visibility = VISIBLE
 
                 btnEdit.setOnClickListener {
-
+                    val intent = Intent(this, EditGroupActivity::class.java)
+                    intent.putExtra(EDIT_KEY,group)
+                    startActivity(intent)
                 }
                 btnChatRoom.setOnClickListener {
                     val intent = Intent(this, ChatLogActivity::class.java)
