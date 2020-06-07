@@ -158,7 +158,7 @@ class CreateGroupActivity : AppCompatActivity() {
                     val userRef = Firebase.database.getReference("users")
                     userRef.child(uid).child("groups").child(newId).setValue(true)
 
-                    val intent = Intent(this, ExploreActivity::class.java)
+                    val intent = Intent(this, MyGroupActivity::class.java)
                     startActivity(intent)
                 }
             }
