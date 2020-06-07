@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".userManagerActivity.LoginActivity"
     android:background="@color/huskyPurple">
 
     <ProgressBar
@@ -20,7 +20,7 @@
         android:id="@+id/welcome_back_text"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Welcome Back, Husky!"
+        android:text="@string/welcome_back_message"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -76,7 +76,7 @@
         android:id="@+id/newHusky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New husky?"
+        android:text="@string/new_husky"
         app:layout_constraintRight_toLeftOf="@id/switch_to_signup"
         app:layout_constraintLeft_toLeftOf="@id/password_input"
         app:layout_constraintTop_toBottomOf="@id/progressBar"

@@ -4,34 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfileActivity">
+    tools:context=".userManagerActivity.UserProfileActivity">
 
-    <Button
-        android:id="@+id/btnExploration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/huskyPurple"
-        android:text="Exploration"
-        android:textColor="@color/white"
-        android:padding="@dimen/padding_small"
-        app:layout_constraintTop_toTopOf="@+id/topPanel"
-        app:layout_constraintBottom_toBottomOf="@+id/topPanel"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:textSize="@dimen/text_medium" />
+    <!--
+<Button
+    android:id="@+id/btnExploration"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/huskyPurple"
+    android:text="Exploration"
+    android:textColor="@color/white"
+    android:padding="@dimen/padding_small"
+    app:layout_constraintTop_toTopOf="@+id/topPanel"
+    app:layout_constraintBottom_toBottomOf="@+id/topPanel"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:textSize="@dimen/text_medium" />
 
-    <Button
-        android:id="@+id/btnMyGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/huskyPurple"
-        android:text="My Groups"
-        android:textColor="@color/white"
-        android:padding="@dimen/padding_small"
-        app:layout_constraintTop_toTopOf="@+id/topPanel"
-        app:layout_constraintBottom_toBottomOf="@+id/topPanel"
-        app:layout_constraintRight_toRightOf="parent"
-        android:textSize="@dimen/text_medium" />
 
+<Button
+    android:id="@+id/btnMyGroup"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/huskyPurple"
+    android:text="My Groups"
+    android:textColor="@color/white"
+    android:padding="@dimen/padding_small"
+    app:layout_constraintTop_toTopOf="@+id/topPanel"
+    app:layout_constraintBottom_toBottomOf="@+id/topPanel"
+    app:layout_constraintRight_toRightOf="parent"
+    android:textSize="@dimen/text_medium" />
+    -->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/BarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:titleTextColor="@color/white" />
+
+    <!--
     <ImageView
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
@@ -41,6 +55,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,9 +64,10 @@
         android:textColor="#ffffff"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/topPanel"
-        app:layout_constraintBottom_toBottomOf="@id/topPanel"
+        app:layout_constraintTop_toTopOf="@id/profile_toolbar"
+        app:layout_constraintBottom_toBottomOf="@id/profile_toolbar"
         android:textSize="40sp"/>
+        -->
 
     <Button
         android:id="@+id/btnEdit"
@@ -148,5 +164,52 @@
         android:text="Sign out"
         android:background="@color/huskyPurple"
         android:textColor="#ffffff"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/bot_nav_bar"
+        android:layout_width="match_parent"
+        android:background="@color/huskyPurple"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="50dp"
+        android:weightSum="100">
+
+        <ImageButton
+            android:id="@+id/btn_explore_groups"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_explore_black_24dp"
+            android:background="@color/huskyPurple"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="25"/>
+
+        <ImageButton
+            android:id="@+id/btn_my_groups"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_group_black_24dp"
+            android:background="@color/huskyPurple"
+            android:layout_weight="25"/>
+
+        <ImageButton
+            android:id="@+id/btn_chatroom"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_chat_black_24dp"
+            android:background="@color/huskyPurple"
+            android:layout_weight="25"/>
+
+        <ImageButton
+            android:id="@+id/btn_profile"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_person_black_24dp"
+            android:background="@color/huskyPurple"
+            android:layout_weight="25"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

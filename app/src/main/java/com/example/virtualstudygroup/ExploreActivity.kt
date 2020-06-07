@@ -1,9 +1,16 @@
 package com.example.virtualstudygroup
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.virtualstudygroup.chatActivity.MessageActivity
+import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -20,12 +27,23 @@ class ExploreActivity : AppCompatActivity() {
 
     private var groupListAdapter: GroupListAdapter? = null
     private lateinit var groupsList: MutableList<Group>
+//    private var groupsList: MutableList<Group>? = null
     private val database = Firebase.database
     private val groups = database.getReference("groups")
+    private var homeworkHelp: Boolean = false
+    private var projectPartners: Boolean = false
+    private var examSquad: Boolean = false
+    private var labMates: Boolean = false
+    private var noteExchange: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_explore)
+
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Explore"
+
+        setupBotNavBar()
 
         groupListAdapter = GroupListAdapter(mutableListOf<Group>())
         rvGroupList.adapter = groupListAdapter
@@ -50,16 +68,134 @@ class ExploreActivity : AppCompatActivity() {
             }
         })
 
+/*
         btnCreate.setOnClickListener {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
         }
+*/
 
+        /*
         btnMyGroup.setOnClickListener {
             val intent = Intent(this, MyGroupActivity::class.java)
             startActivity(intent)
         }
+
+         */
+
+        // Search Listener
+        groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                groupListAdapter!!.filter.filter(newText)
+                return false
+            }
+        })
+
+        // Group Tags Button onClick Listener
+        btnHomeworkHelp.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (homeworkHelp) {
+                    btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    homeworkHelp = !homeworkHelp
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    homeworkHelp = !homeworkHelp
+                    groupListAdapter!!.filter.filter("homeworkhelp")
+                }
+            }
+        })
+
+        btnExamSquad.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (examSquad) {
+                    btnExamSquad.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    examSquad = !examSquad
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnExamSquad.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    examSquad = !examSquad
+                    groupListAdapter!!.filter.filter("examsquad")
+                }
+            }
+        })
+
+        btnLabMates.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (labMates) {
+                    btnLabMates.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    labMates = !labMates
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnLabMates.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    labMates = !labMates
+                    groupListAdapter!!.filter.filter("labmate")
+                }
+            }
+        })
+
+        btnProjectPartners.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (projectPartners) {
+                    btnProjectPartners.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    projectPartners = !projectPartners
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnProjectPartners.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    projectPartners = !projectPartners
+                    groupListAdapter!!.filter.filter("projectpartner")
+                }
+            }
+        })
+
+        btnNoteExchange.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (noteExchange) {
+                    btnNoteExchange.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
+                    noteExchange = !noteExchange
+                    groupListAdapter!!.filter.filter("")
+                } else {
+                    btnNoteExchange.setBackgroundColor(resources.getColor(R.color.huskyGold))
+                    noteExchange = !noteExchange
+                    groupListAdapter!!.filter.filter("noteexchange")
+                }
+            }
+        })
+
+
+//        btnHomeworkHelp.setOnClickListener {
+//            homeworkHelp = if (homeworkHelp) {
+//                btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.beige))
+//                !homeworkHelp
+//            } else {
+//                btnHomeworkHelp.setBackgroundColor(Color.GREEN)
+//                !homeworkHelp
+//                groupListAdapter!!.filter.filter("homework")
+////                groupSearch.setQuery("homework", false)
+////                groupSearch.clearFocus()
+//            }
+//        }
+
+//        btnFilter.setOnClickListener {
+//            if (groupsList != null) {
+//                val intent = Intent(this, FilterGroupActivity::class.java)
+////                intent.putExtra("GROUP_LIST", groupsList)
+//                startActivity(intent)
+//            }
+//        }
+        /*
+        btnMyGroup.setOnClickListener {
+            val intent = Intent(this, MyGroupActivity::class.java)
+            startActivity(intent)
+        }
+
+         */
     }
+
 
     private fun filterExploreList(groupValues: MutableMap<String, Group>) {
         val user = getApp().currentUser
@@ -95,4 +231,44 @@ class ExploreActivity : AppCompatActivity() {
 
         startActivity(intent)
     }
+
+    private fun setupBotNavBar() {
+        btn_profile.setOnClickListener{
+            val intent = Intent(this, UserProfileActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_chatroom.setOnClickListener{
+            val intent = Intent(this, MessageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_my_groups.setOnClickListener{
+            val intent = Intent(this, MyGroupActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_create_group -> {
+                val intent = Intent(this, CreateGroupActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.create_group_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 }
+
+private fun SearchView.setOnQueryTextListener(onQueryTextListener: SearchView.OnQueryTextListener) {
+
+}
+

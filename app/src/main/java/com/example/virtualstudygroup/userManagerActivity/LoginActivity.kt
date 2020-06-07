@@ -1,4 +1,4 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.userManagerActivity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.chatActivity.MessageActivity
+import com.example.virtualstudygroup.getApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -26,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         switch_to_signup.setOnClickListener {
-            val intent: Intent = Intent(this, RegisterActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
@@ -35,8 +38,9 @@ class LoginActivity : AppCompatActivity() {
             val username = username_input.text.toString()
             val password = password_input.text.toString()
             if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Username or password can't be empty", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(this,
+                    getString(R.string.warning_username_password_not_filled),
+                    Toast.LENGTH_SHORT).show()
             } else {
                 btnLogin.isClickable = false
                 progressBar.visibility = View.VISIBLE
@@ -47,15 +51,15 @@ class LoginActivity : AppCompatActivity() {
                                 TAG,"Log in successful, current user = ${auth.currentUser?.email}"
                             )
                             currentUser = auth.currentUser
-                            getApp().currentUser = currentUser
-                            val intent = Intent(this, UserProfileActivity::class.java)
+
+                            // invoke the message activity
+
+                            val intent = Intent(this, MessageActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
 
-//                            // invoke the message activity
-//                            val intent = Intent(this, MessageActivity::class.java)
-//
-//                            startActivity(intent)
+                            getApp().currentUser = currentUser
+
                         } else {
                             progressBar.visibility = View.INVISIBLE
                             btnLogin.isClickable = true

@@ -10,12 +10,15 @@
 
     <style name="BarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:actionMenuTextColor">@color/white</item>
         <item name="android:textColor">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
         <item name="android:background">@color/huskyPurple</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

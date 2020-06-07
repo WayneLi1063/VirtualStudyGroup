@@ -1,4 +1,4 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.userManagerActivity
 
 import android.app.Activity
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.text.SpannableStringBuilder
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.getApp
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -56,6 +58,14 @@ class UserProfileEditActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getApp().currentUser?.let {
+            currentUser = it
+        }
+        fetchUser()
     }
 
     private fun fillUpInfo() {
@@ -136,12 +146,9 @@ class UserProfileEditActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     getApp().currentUser = currentUser
                     val intent = Intent(this, UserProfileActivity::class.java)
-//                    progressBar.visibility = View.GONE
                     startActivity(intent)
                     Log.i(RegisterActivity.TAG, "saved into database")
                 }.addOnFailureListener {
-//                    progressBar.visibility = View.GONE
-
                     Log.i(RegisterActivity.TAG, "user upload failed")
                 }
         }

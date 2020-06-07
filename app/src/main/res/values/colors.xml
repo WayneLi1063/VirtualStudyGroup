@@ -8,5 +8,7 @@
     <color name="huskyPurple">#4B2E83</color>
     <color name="white">#ffffff</color>
     <color name="huskyGold">#85754D</color>
+    <color name="huskyLightGold">#e8e3d3</color>
+
     <color name="beige">#E8E3D3</color>
 </resources>

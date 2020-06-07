@@ -11,24 +11,27 @@
         android:id="@+id/ivChatUserImage"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:src="@color/huskyGold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvChatUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Song name"
-        android:text="USER Name"
+        android:layout_marginLeft="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/user_name"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivChatUserImage"
         app:layout_constraintLeft_toRightOf="@id/ivChatUserImage"
         app:layout_constraintTop_toTopOf="@id/ivChatUserImage"
-        app:layout_constraintBottom_toBottomOf="@id/ivChatUserImage"
-        android:layout_marginStart="60dp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:textSize="20sp"/>
+        tools:text="Chat name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

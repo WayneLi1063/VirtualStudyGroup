@@ -1,10 +1,11 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.userManagerActivity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.Toast
+import com.example.virtualstudygroup.*
+import com.example.virtualstudygroup.chatActivity.MessageActivity
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -24,7 +25,12 @@ class UserProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
+
+        setSupportActionBar(profile_toolbar)
+        supportActionBar?.title = "Profile"
+
         currentUser = getApp().currentUser
+
         btnSignout.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -33,15 +39,34 @@ class UserProfileActivity : AppCompatActivity() {
         assert(currentUser != null)
         fetchUser()
 
+        setupBotNavBar()
+
+        /*
+
         btnExploration.setOnClickListener {
             val intent = Intent(this, ExploreActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
 
         btnMyGroup.setOnClickListener {
             val intent = Intent(this, MyGroupActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
+
+
+
+        btn_chatroom.setOnClickListener {
+            val intent = Intent(this, MessageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_my_groups.setOnClickListener {
+            val intent = Intent(this, MyGroupActivity::class.java)
+            startActivity(intent)
+        }*/
     }
 
     private fun fetchUser() {
@@ -55,8 +80,8 @@ class UserProfileActivity : AppCompatActivity() {
                     userData = it.getValue(User::class.java)
                     fillUpInfo()
                     btnChangePassword.setOnClickListener {
-                        var auth = Firebase.auth
-                        var emailAddress = currentUser!!.email
+                        val auth = Firebase.auth
+                        val emailAddress = currentUser!!.email
                         auth.sendPasswordResetEmail(emailAddress!!)
                         Toast.makeText(applicationContext,
                             "Please check your email for reset link",
@@ -67,6 +92,12 @@ class UserProfileActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        currentUser = getApp().currentUser
+        fetchUser()
     }
 
     private fun fillUpInfo() {
@@ -82,6 +113,26 @@ class UserProfileActivity : AppCompatActivity() {
         }
         btnEdit.setOnClickListener {
             val intent = Intent(this, UserProfileEditActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun setupBotNavBar() {
+        btn_chatroom.setOnClickListener{
+            val intent = Intent(this, MessageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_explore_groups.setOnClickListener{
+            val intent = Intent(this, ExploreActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_my_groups.setOnClickListener{
+            val intent = Intent(this, MyGroupActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
     }

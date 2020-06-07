@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bot_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/huskyPurple"
+    android:theme="@style/BarTheme" >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_marginEnd="16dp"
+        android:weightSum="100"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btn_explore_groups"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_explore_black_24dp"
+            android:background="@color/huskyPurple"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="25"/>
+
+        <ImageButton
+            android:id="@+id/btn_my_groups"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_group_black_24dp"
+            android:background="@color/huskyPurple"
+            android:layout_weight="25"/>
+
+        <ImageButton
+            android:id="@+id/btn_chatroom"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_chat_black_24dp"
+            android:background="@color/huskyPurple"
+            android:layout_weight="25"/>
+
+        <ImageButton
+            android:id="@+id/btn_profile"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_person_black_24dp"
+            android:background="@color/huskyPurple"
+            android:layout_weight="25"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.Toolbar>

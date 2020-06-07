@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".userManagerActivity.MainActivity"
     android:background="@color/huskyPurple"
     android:clickable="true"
     android:focusable="true"
@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Husky,\nLet's Study!"
+        android:text="@string/welcome_screen_display_message"
         android:textSize="50sp"
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"

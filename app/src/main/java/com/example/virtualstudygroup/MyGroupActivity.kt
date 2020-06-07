@@ -3,16 +3,20 @@ package com.example.virtualstudygroup
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.GroupViewActivity.Companion.GROUP_KEY
+import androidx.appcompat.widget.SearchView
+import com.example.virtualstudygroup.chatActivity.MessageActivity
+import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_explore.*
-import kotlinx.android.synthetic.main.activity_user_profile.*
+import kotlinx.android.synthetic.main.activity_my_group.*
 
 class MyGroupActivity : AppCompatActivity() {
 
@@ -28,6 +32,11 @@ class MyGroupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_group)
+
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "My Group"
+
+        setupBotNavBar()
 
         groupListAdapter = GroupListAdapter(mutableListOf<Group>())
         rvGroupList.adapter = groupListAdapter
@@ -52,15 +61,29 @@ class MyGroupActivity : AppCompatActivity() {
             }
         })
 
-        btnCreate.setOnClickListener {
+/*        btnCreate.setOnClickListener {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
-        }
+        }*/
 
+        groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                groupListAdapter!!.filter.filter(newText)
+                return false
+            }
+        })
+
+        /*
         btnExploration.setOnClickListener {
             val intent = Intent(this, ExploreActivity::class.java)
             startActivity(intent)
         }
+
+         */
     }
 
     private fun filterMyGroupList(groupValues: MutableMap<String, Group>) {
@@ -101,5 +124,40 @@ class MyGroupActivity : AppCompatActivity() {
         intent.putExtra(GROUP_KEY, group)
 
         startActivity(intent)
+    }
+
+    private fun setupBotNavBar() {
+        btn_profile.setOnClickListener{
+            val intent = Intent(this, UserProfileActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_chatroom.setOnClickListener{
+            val intent = Intent(this, MessageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_explore_groups.setOnClickListener{
+            val intent = Intent(this, ExploreActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_create_group -> {
+                val intent = Intent(this, CreateGroupActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.create_group_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
