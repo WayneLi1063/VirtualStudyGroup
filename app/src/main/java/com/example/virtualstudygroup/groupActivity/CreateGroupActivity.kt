@@ -38,6 +38,10 @@ class CreateGroupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create)
 
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Create"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         btnExamSquad.setOnClickListener {
             examSquad = if (examSquad) {
                 btnExamSquad.setBackgroundResource(R.drawable.unselected_button)
@@ -199,6 +203,11 @@ class CreateGroupActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Failed to select photo", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
 }

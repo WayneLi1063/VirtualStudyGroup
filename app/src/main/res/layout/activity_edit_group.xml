@@ -2,11 +2,22 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/BarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:titleTextColor="@color/white" />
+
+<!--    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -29,7 +40,7 @@
             android:textSize="@dimen/text_large"
             android:text="EDIT"/>
 
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>-->
 
     <ScrollView
         android:id="@+id/svCreate"
@@ -38,7 +49,7 @@
         android:layout_below="@+id/toolbar"
         >
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -49,186 +60,242 @@
                 android:id="@+id/tvGroupImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Group Image: "
+                android:text="@string/group_image_colon"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 android:labelFor="@+id/btnGroupImgUpload"
-                android:textSize="@dimen/text_large"
-                android:padding="@dimen/padding_small"/>
+                android:textSize="@dimen/text_20sp"
+                android:padding="@dimen/spacing_4dp"/>
 
             <ImageButton
                 android:id="@+id/btnGroupImgUpload"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/padding_small" />
+                android:contentDescription="@string/group_image"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvGroupImage" />
 
             <TextView
                 android:id="@+id/tvGroupName"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Group Name: "
+                android:text="@string/group_name_colon"
                 android:labelFor="@+id/etGroupName"
-                android:textSize="@dimen/text_large"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnGroupImgUpload"
                 android:padding="@dimen/padding_small"/>
 
             <EditText
                 android:id="@+id/etGroupName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/padding_small"
-                android:textSize="24sp"
-                android:hint="Group Name"
+                app:layout_constraintLeft_toRightOf="@id/tvGroupName"
+                app:layout_constraintTop_toTopOf="@id/tvGroupName"
+                app:layout_constraintBottom_toBottomOf="@id/tvGroupName"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="@dimen/text_20sp"
+                android:hint="@string/group_name"
                 android:background="@drawable/edit_text_bubble"
                 android:autofillHints="Awesome Study Group"
                 android:inputType="textAutoCorrect" />
 
             <TextView
                 android:id="@+id/tvCourseName"
-                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/tvGroupName"
+                app:layout_constraintLeft_toLeftOf="@id/tvGroupName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Course Name: "
+                android:text="@string/course_name_colon"
+                android:textColor="@android:color/black"
                 android:labelFor="@id/etCourseName"
-                android:textSize="@dimen/text_large"
+                android:textSize="@dimen/text_20sp"
                 android:padding="@dimen/padding_small"/>
 
             <EditText
                 android:id="@+id/etCourseName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/padding_small"
-                android:hint="Course Name"
-                android:textSize="24sp"
-                android:background="@drawable/edit_text_bubble"
                 android:autofillHints="INFO200"
-                android:inputType="textCapCharacters" />
+                android:background="@drawable/edit_text_bubble"
+                android:hint="@string/course_name"
+                android:inputType="textCapCharacters"
+                android:textSize="@dimen/text_20sp"
+                app:layout_constraintBottom_toBottomOf="@id/tvCourseName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvCourseName"
+                app:layout_constraintTop_toTopOf="@id/tvCourseName" />
 
             <TextView
                 android:id="@+id/tvGroupSize"
-                android:layout_width="match_parent"
+                app:layout_constraintLeft_toLeftOf="@id/tvCourseName"
+                app:layout_constraintTop_toBottomOf="@id/tvCourseName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Group Size: "
+                android:text="@string/group_size_colon"
                 android:labelFor="@+id/etGroupSize"
-                android:textSize="@dimen/text_large"
+                android:textSize="@dimen/text_20sp"
+                android:textColor="@android:color/black"
                 android:padding="@dimen/padding_small"/>
 
             <EditText
                 android:id="@+id/etGroupSize"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Group Size"
-                android:textSize="24sp"
                 android:layout_margin="@dimen/padding_small"
+                android:autofillHints="2"
                 android:background="@drawable/edit_text_bubble"
+                android:hint="@string/group_size"
                 android:inputType="number"
-                android:autofillHints="2" />
+                android:textSize="@dimen/text_20sp"
+                app:layout_constraintBottom_toBottomOf="@id/tvGroupSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvGroupSize"
+                app:layout_constraintTop_toTopOf="@id/tvGroupSize" />
 
             <TextView
                 android:id="@+id/tvGroupDescription"
-                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/glTagList"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Group Description: "
+                android:text="@string/group_description_colon"
                 android:labelFor="@+id/etGroupDescription"
-                android:textSize="@dimen/text_large"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_20sp"
+                android:layout_marginTop="8dp"
                 android:padding="@dimen/padding_small"/>
 
             <EditText
                 android:id="@+id/etGroupDescription"
+                app:layout_constraintTop_toBottomOf="@id/tvGroupDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Group Description"
-                android:textSize="24sp"
-                android:layout_margin="@dimen/padding_small"
+                android:hint="@string/group_description"
+                android:textSize="@dimen/text_20sp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/edit_text_bubble"
                 android:inputType="textAutoCorrect"
                 android:autofillHints="2" />
 
-            <TextView
-                android:id="@+id/tvTag"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Group Tag: "
-                android:textSize="@dimen/text_large"
-                android:padding="@dimen/padding_small"/>
-
-
-            <GridLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/glTagList"
+                app:layout_constraintTop_toBottomOf="@id/tvGroupSize"
+                android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2">
+                >
+
+                <TextView
+                    android:id="@+id/tvTag"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_width="@dimen/tag_long_width"
+                    android:layout_height="@dimen/tag_height"
+                    android:text="@string/group_tag"
+                    android:textSize="@dimen/text_20sp"
+                    android:textColor="@android:color/black" />
 
                 <Button
                     android:id="@+id/btnExamSquad"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:text="Exam Squad"
+                    android:layout_width="@dimen/tag_long_width"
+                    android:layout_height="@dimen/tag_height"
                     android:layout_margin="4dp"
-                    android:background="@drawable/tag_button_corners"/>
+                    android:background="@drawable/tag_button_corners"
+                    android:text="@string/exam_squad"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tvTag"
+                    app:layout_constraintBottom_toBottomOf="@id/tvTag"
+                    app:layout_constraintTop_toTopOf="@id/tvTag" />
 
                 <Button
                     android:id="@+id/btnLabMates"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:text="Lab Mates"
+                    app:layout_constraintTop_toBottomOf="@id/tvTag"
+                    app:layout_constraintLeft_toLeftOf="@id/tvTag"
+                    android:layout_width="@dimen/tag_long_width"
+                    android:layout_height="@dimen/tag_height"
+                    android:text="@string/lab_mates"
                     android:layout_margin="4dp"
                     android:background="@drawable/tag_button_corners"
                     />
 
                 <Button
                     android:id="@+id/btnProjectPartners"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:text="Project Partners"
+                    android:layout_width="@dimen/tag_long_width"
+                    android:layout_height="@dimen/tag_height"
                     android:layout_margin="4dp"
-                    android:background="@drawable/tag_button_corners"/>
+                    android:background="@drawable/tag_button_corners"
+                    android:text="@string/project_partners"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnLabMates"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/btnLabMates" />
 
                 <Button
                     android:id="@+id/btnHomeworkHelp"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:text="Homework Help"
+                    android:layout_width="@dimen/tag_long_width"
+                    android:layout_height="@dimen/tag_height"
                     android:layout_margin="4dp"
-                    android:background="@drawable/tag_button_corners"/>
+                    android:background="@drawable/tag_button_corners"
+                    android:text="@string/homework_help"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnLabMates" />
 
                 <Button
                     android:id="@+id/btnNoteExchange"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:text="Note Exchange"
+                    android:layout_width="@dimen/tag_long_width"
+                    android:layout_height="@dimen/tag_height"
                     android:layout_margin="4dp"
-                    android:background="@drawable/tag_button_corners"/>
+                    android:background="@drawable/tag_button_corners"
+                    android:text="@string/note_exchange"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnHomeworkHelp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/btnProjectPartners"
+                    app:layout_constraintTop_toTopOf="@id/btnHomeworkHelp" />
 
-            </GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/etGroupDescription"
+                app:layout_constraintTop_toBottomOf="@id/etGroupDescription">
 
                 <Button
                     android:id="@+id/btnFinish"
-                    android:layout_margin="@dimen/padding_small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_small"
                     android:layout_weight="1"
-                    android:text="FINISH"
                     android:background="@color/huskyPurple"
-                    android:textColor="@color/white"/>
+                    android:text="@string/finish"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/btnDisband"
-                    android:layout_margin="@dimen/padding_small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_small"
                     android:layout_weight="1"
-                    android:text="DISBAND"
-                    android:background="@android:color/holo_red_light"
-                    android:textColor="@color/white"/>
+                    android:background="@color/huskyGold"
+                    android:text="@string/disband"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
 
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

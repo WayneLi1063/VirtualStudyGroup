@@ -19,19 +19,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_create.*
 import kotlinx.android.synthetic.main.activity_edit_group.*
-import kotlinx.android.synthetic.main.activity_edit_group.btnExamSquad
-import kotlinx.android.synthetic.main.activity_edit_group.btnFinish
-import kotlinx.android.synthetic.main.activity_edit_group.btnGroupImgUpload
-import kotlinx.android.synthetic.main.activity_edit_group.btnHomeworkHelp
-import kotlinx.android.synthetic.main.activity_edit_group.btnLabMates
-import kotlinx.android.synthetic.main.activity_edit_group.btnNoteExchange
-import kotlinx.android.synthetic.main.activity_edit_group.btnProjectPartners
-import kotlinx.android.synthetic.main.activity_edit_group.etCourseName
-import kotlinx.android.synthetic.main.activity_edit_group.etGroupDescription
-import kotlinx.android.synthetic.main.activity_edit_group.etGroupName
-import kotlinx.android.synthetic.main.activity_edit_group.etGroupSize
 import java.util.*
 
 class EditGroupActivity: AppCompatActivity() {
@@ -51,6 +39,10 @@ class EditGroupActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_group)
+
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Edit"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val groupForEdit: Group? = intent.getParcelableExtra(GroupViewActivity.EDIT_KEY)
         if (groupForEdit != null) {
@@ -264,6 +256,11 @@ class EditGroupActivity: AppCompatActivity() {
         } else {
             Toast.makeText(this, "Failed to select photo", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
 }
