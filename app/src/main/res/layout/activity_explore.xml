@@ -65,6 +65,104 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+<!--    <Button-->
+<!--        android:id="@+id/btnFilter"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/create_button_corners"-->
+<!--        android:text="@string/filter_group"-->
+<!--        android:textSize="@dimen/text_medium"-->
+<!--        android:layout_margin="@dimen/padding_small"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btnCreate"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent" />-->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/groupSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnCreate"
+        android:background="@drawable/create_button_corners"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@null"
+        android:layout_margin="@dimen/padding_small"
+        app:defaultQueryHint="SEARCH A COURSE/TEAM NAME"
+        />
+
+<!--    <Button-->
+<!--        android:id="@+id/btnHomeworkHelp"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Homework Help"-->
+<!--        android:layout_margin="4dp"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/groupSearch"-->
+<!--        android:background="@drawable/tag_button_corners"/>-->
+    <TextView
+        android:id="@+id/tvTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group Tag: "
+        android:layout_margin="@dimen/padding_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/groupSearch"
+        android:textSize="@dimen/text_large"
+        android:padding="@dimen/padding_small"/>
+
+    <GridLayout
+        android:id="@+id/glTagList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvTag"
+        android:layout_margin="@dimen/padding_small"
+        android:columnCount="2">
+
+        <Button
+            android:id="@+id/btnExamSquad"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Exam Squad"
+            android:layout_margin="4dp"
+            android:background="@drawable/tag_button_corners"/>
+
+        <Button
+            android:id="@+id/btnLabMates"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Lab Mates"
+            android:layout_margin="4dp"
+            android:background="@drawable/tag_button_corners"
+            />
+
+        <Button
+            android:id="@+id/btnProjectPartners"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Project Partners"
+            android:layout_margin="4dp"
+            android:background="@drawable/tag_button_corners"/>
+
+        <Button
+            android:id="@+id/btnHomeworkHelp"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Homework Help"
+            android:layout_margin="4dp"
+            android:background="@drawable/tag_button_corners"/>
+
+        <Button
+            android:id="@+id/btnNoteExchange"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Note Exchange"
+            android:layout_margin="4dp"
+            android:background="@drawable/tag_button_corners"/>
+
+    </GridLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGroupList"
         android:layout_width="match_parent"
@@ -74,7 +172,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCreate"
+        app:layout_constraintTop_toBottomOf="@+id/glTagList"
         app:spanCount="2"
         tools:listitem="@layout/item_group" />
 
