@@ -90,7 +90,6 @@ class MessageActivity : AppCompatActivity() {
     }
 
     private fun setupBotNavBar() {
-        // btn_explore_groups.setOnClickListener()
         btn_profile.setOnClickListener{
             val intent = Intent(this, UserProfileActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
