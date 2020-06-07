@@ -20,7 +20,9 @@ class LatestMessageRow(private val chatMessage: ChatMessage): Item<GroupieViewHo
     }
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+/*
         val chatPartnerId: String
+*/
 
         /*
         // get the chat partner
