@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/iv_user_chat_log_from"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_margin="8dp"
         android:contentDescription="@string/to_user_image"
         android:src="@mipmap/ic_launcher"

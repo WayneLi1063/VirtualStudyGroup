@@ -16,6 +16,8 @@ class ChatToItem (val text: String, private val user: User): Item<GroupieViewHol
         if (uri.startsWith("https:")) {
             Picasso.get().load(uri).into(viewHolder.itemView.iv_user_chat_log_to)
         }
+
+        viewHolder.itemView.tv_user_name.text = user.name
     }
 
     override fun getLayout(): Int {
