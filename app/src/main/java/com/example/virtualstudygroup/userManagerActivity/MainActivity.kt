@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        Toast.makeText(this, "Tap anywhere to start!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.start_message), Toast.LENGTH_SHORT).show()
 
         val layout: ConstraintLayout = findViewById(R.id.welcome_screen)
         layout.setOnClickListener {

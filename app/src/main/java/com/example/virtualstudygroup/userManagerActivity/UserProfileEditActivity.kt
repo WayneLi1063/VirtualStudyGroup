@@ -146,12 +146,9 @@ class UserProfileEditActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     getApp().currentUser = currentUser
                     val intent = Intent(this, UserProfileActivity::class.java)
-//                    progressBar.visibility = View.GONE
                     startActivity(intent)
                     Log.i(RegisterActivity.TAG, "saved into database")
                 }.addOnFailureListener {
-//                    progressBar.visibility = View.GONE
-
                     Log.i(RegisterActivity.TAG, "user upload failed")
                 }
         }
