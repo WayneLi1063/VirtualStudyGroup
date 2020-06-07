@@ -4,6 +4,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
@@ -66,11 +68,12 @@ class ExploreActivity : AppCompatActivity() {
             }
         })
 
+/*
         btnCreate.setOnClickListener {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
         }
-
+*/
 
         /*
         btnMyGroup.setOnClickListener {
@@ -96,11 +99,11 @@ class ExploreActivity : AppCompatActivity() {
         btnHomeworkHelp.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (homeworkHelp) {
-                    btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.beige))
+                    btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
                     homeworkHelp = !homeworkHelp
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnHomeworkHelp.setBackgroundColor(Color.GREEN)
+                    btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.huskyGold))
                     homeworkHelp = !homeworkHelp
                     groupListAdapter!!.filter.filter("homeworkhelp")
                 }
@@ -110,11 +113,11 @@ class ExploreActivity : AppCompatActivity() {
         btnExamSquad.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (examSquad) {
-                    btnExamSquad.setBackgroundColor(resources.getColor(R.color.beige))
+                    btnExamSquad.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
                     examSquad = !examSquad
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnExamSquad.setBackgroundColor(Color.GREEN)
+                    btnExamSquad.setBackgroundColor(resources.getColor(R.color.huskyGold))
                     examSquad = !examSquad
                     groupListAdapter!!.filter.filter("examsquad")
                 }
@@ -124,11 +127,11 @@ class ExploreActivity : AppCompatActivity() {
         btnLabMates.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (labMates) {
-                    btnLabMates.setBackgroundColor(resources.getColor(R.color.beige))
+                    btnLabMates.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
                     labMates = !labMates
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnLabMates.setBackgroundColor(Color.GREEN)
+                    btnLabMates.setBackgroundColor(resources.getColor(R.color.huskyGold))
                     labMates = !labMates
                     groupListAdapter!!.filter.filter("labmate")
                 }
@@ -138,11 +141,11 @@ class ExploreActivity : AppCompatActivity() {
         btnProjectPartners.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (projectPartners) {
-                    btnProjectPartners.setBackgroundColor(resources.getColor(R.color.beige))
+                    btnProjectPartners.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
                     projectPartners = !projectPartners
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnProjectPartners.setBackgroundColor(Color.GREEN)
+                    btnProjectPartners.setBackgroundColor(resources.getColor(R.color.huskyGold))
                     projectPartners = !projectPartners
                     groupListAdapter!!.filter.filter("projectpartner")
                 }
@@ -152,11 +155,11 @@ class ExploreActivity : AppCompatActivity() {
         btnNoteExchange.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 if (noteExchange) {
-                    btnNoteExchange.setBackgroundColor(resources.getColor(R.color.beige))
+                    btnNoteExchange.setBackgroundColor(resources.getColor(R.color.huskyLightGold))
                     noteExchange = !noteExchange
                     groupListAdapter!!.filter.filter("")
                 } else {
-                    btnNoteExchange.setBackgroundColor(Color.GREEN)
+                    btnNoteExchange.setBackgroundColor(resources.getColor(R.color.huskyGold))
                     noteExchange = !noteExchange
                     groupListAdapter!!.filter.filter("noteexchange")
                 }
@@ -247,6 +250,21 @@ class ExploreActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_create_group -> {
+                val intent = Intent(this, CreateGroupActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.create_group_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
 

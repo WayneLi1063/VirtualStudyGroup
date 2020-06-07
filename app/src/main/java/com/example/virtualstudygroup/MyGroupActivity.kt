@@ -3,6 +3,8 @@ package com.example.virtualstudygroup
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.GroupViewActivity.Companion.GROUP_KEY
 import androidx.appcompat.widget.SearchView
@@ -59,10 +61,10 @@ class MyGroupActivity : AppCompatActivity() {
             }
         })
 
-        btnCreate.setOnClickListener {
+/*        btnCreate.setOnClickListener {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
-        }
+        }*/
 
         groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -142,5 +144,20 @@ class MyGroupActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_create_group -> {
+                val intent = Intent(this, CreateGroupActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.create_group_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
