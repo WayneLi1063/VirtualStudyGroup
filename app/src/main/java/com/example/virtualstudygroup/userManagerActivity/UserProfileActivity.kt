@@ -36,37 +36,9 @@ class UserProfileActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
-        assert(currentUser != null)
         fetchUser()
 
         setupBotNavBar()
-
-        /*
-
-        btnExploration.setOnClickListener {
-            val intent = Intent(this, ExploreActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-        }
-
-        btnMyGroup.setOnClickListener {
-            val intent = Intent(this, MyGroupActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-        }
-
-
-
-        btn_chatroom.setOnClickListener {
-            val intent = Intent(this, MessageActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-        }
-
-        btn_my_groups.setOnClickListener {
-            val intent = Intent(this, MyGroupActivity::class.java)
-            startActivity(intent)
-        }*/
     }
 
     private fun fetchUser() {
