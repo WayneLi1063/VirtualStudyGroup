@@ -63,6 +63,7 @@
     <string name="btn_my_groups">btn_my_groups</string>
     <string name="btn_chatroom">btn_chatroom</string>
     <string name="btn_profile">btn_profile</string>
+    <string name="user_already_signedin_message">Welcome back\n %s</string>
     <string name="create_group">Create Group</string>
     <string name="tag">Group Tag</string>
     <string name="group_size_colon">Group Size:</string>

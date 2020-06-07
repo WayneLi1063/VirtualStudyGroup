@@ -3,6 +3,7 @@ package com.example.virtualstudygroup
 import android.app.Application
 import android.util.Log
 import com.example.virtualstudygroup.groupActivity.ExploreActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

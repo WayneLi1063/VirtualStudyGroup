@@ -59,7 +59,6 @@ class LoginActivity : AppCompatActivity() {
                             startActivity(intent)
 
                             getApp().currentUser = currentUser
-
                         } else {
                             progressBar.visibility = View.INVISIBLE
                             btnLogin.isClickable = true
