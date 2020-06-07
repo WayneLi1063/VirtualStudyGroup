@@ -46,4 +46,8 @@
     <string name="project_npartners">Project\nPartners</string>
     <string name="homework_nhelp">Homework\nHelp</string>
     <string name="notes_nexchange">Notes\nExchange</string>
+    <string name="group_name_placeholder">Group Name: %s</string>
+    <string name="course_name_placeholder">Course Name: %s</string>
+    <string name="group_size_placeholder">Group Size: %s out of %s</string>
+    <string name="group_description_placeholder">Group Description: %s</string>
 </resources>

@@ -1,7 +1,6 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.groupActivity
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -9,7 +8,9 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.virtualstudygroup.*
 import com.example.virtualstudygroup.chatActivity.MessageActivity
+import com.example.virtualstudygroup.model.Group
 import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -45,7 +46,10 @@ class ExploreActivity : AppCompatActivity() {
 
         setupBotNavBar()
 
-        groupListAdapter = GroupListAdapter(mutableListOf<Group>())
+        groupListAdapter =
+            GroupListAdapter(
+                mutableListOf<Group>()
+            )
         rvGroupList.adapter = groupListAdapter
 
         groupListAdapter?.onGroupClickListener = { group ->

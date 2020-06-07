@@ -1,4 +1,4 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.groupActivity
 
 import android.app.Activity
 import android.content.Intent
@@ -9,6 +9,9 @@ import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.virtualstudygroup.model.Group
+import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.getApp
 import com.example.virtualstudygroup.userManagerActivity.RegisterActivity
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -148,7 +151,8 @@ class CreateGroupActivity : AppCompatActivity() {
                             noteExchange = noteExchange,
                             homeworkHelp = homeworkHelp,
                             leaders = mutableMapOf(uid to true),
-                            groupDescription = groupDescription)
+                            groupDescription = groupDescription
+                        )
                     val groupRef = Firebase.database.getReference("groups")
                     groupRef.child(newId).setValue(newGroup).addOnSuccessListener {
                         val groupCountRef = Firebase.database.getReference("groupCount")
