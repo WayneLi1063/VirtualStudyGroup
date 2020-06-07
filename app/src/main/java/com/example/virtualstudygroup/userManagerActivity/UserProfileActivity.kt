@@ -69,6 +69,11 @@ class UserProfileActivity : AppCompatActivity() {
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+        fillUpInfo()
+    }
+
     private fun fillUpInfo() {
         userData?.let { user ->
             username_text.text = "Username: ${user.email}"
