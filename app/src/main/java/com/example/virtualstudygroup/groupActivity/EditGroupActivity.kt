@@ -155,10 +155,10 @@ class EditGroupActivity: AppCompatActivity() {
             }
             val regex = """[A-Z\s]{3,6}\s?[0-9]{3}""".toRegex()
             groupName = etGroupName.text.toString()
-            courseName = etCourseName.text.toString()
+            courseName = etCourseName.text.toString().toUpperCase(Locale.ROOT)
             val correctCourseName = courseName?.let { it1 -> regex.matches(it1) }
             if (correctCourseName != null && !correctCourseName) {
-                Toast.makeText(this, "Course name format is incorrect", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Course name format is incorrect, correct example: 'CSE142' or 'korean 101'", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             totalNumber = etGroupSize.text.toString().toInt()
