@@ -64,5 +64,5 @@
     <string name="btn_chatroom">btn_chatroom</string>
     <string name="btn_profile">btn_profile</string>
     <string name="create_group">Create Group</string>
-    <string name="tag">TAG</string>
+    <string name="tag">Group Tag</string>
 </resources>

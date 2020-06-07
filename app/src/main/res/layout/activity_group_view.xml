@@ -76,6 +76,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_margin="@dimen/padding_small"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         >
@@ -98,10 +99,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/group_name_colon"
+                android:textColor="@android:color/black"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:labelFor="@+id/etGroupName"
-                android:textSize="24sp"
+                android:textSize="@dimen/text_20sp"
                 android:padding="@dimen/padding_small" />
 
             <TextView
@@ -109,8 +111,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/course_name_colon"
+                android:textColor="@android:color/black"
                 android:labelFor="@id/etCourseName"
-                android:textSize="24sp"
+                android:textSize="@dimen/text_20sp"
                 android:padding="@dimen/padding_small" />
 
             <TextView
@@ -118,8 +121,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/group_size"
+                android:textColor="@android:color/black"
                 android:labelFor="@+id/etGroupSize"
-                android:textSize="24sp"
+                android:textSize="@dimen/text_20sp"
                 android:padding="@dimen/padding_small" />
 
             <TextView
@@ -127,8 +131,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/group_tag"
+                android:textColor="@android:color/black"
                 android:labelFor="@+id/etGroupSize"
-                android:textSize="24sp"
+                android:textSize="@dimen/text_20sp"
                 android:padding="@dimen/padding_small"/>
 
             <LinearLayout
@@ -171,7 +176,7 @@
                     android:id="@+id/btnHomeworkHelp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/homework_nhelp"
+                    android:text="@string/homework_help"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
                     android:background="@drawable/tag_button_corners"
@@ -181,7 +186,7 @@
                     android:id="@+id/btnNoteExchange"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/notes_nexchange"
+                    android:text="@string/note_exchange"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
                     android:background="@drawable/tag_button_corners"
@@ -199,7 +204,7 @@
                     android:id="@+id/btnProjectPartners"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/project_npartners"
+                    android:text="@string/project_partners"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
                     android:background="@drawable/tag_button_corners"
@@ -213,7 +218,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/group_description_long_sample"
                 android:labelFor="@+id/etGroupDescription"
-                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_20sp"
                 android:padding="@dimen/padding_small" />
 
         </LinearLayout>
