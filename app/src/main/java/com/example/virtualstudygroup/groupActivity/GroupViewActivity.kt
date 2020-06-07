@@ -37,7 +37,7 @@ class GroupViewActivity : AppCompatActivity() {
         )
         val uid = getApp().currentUser?.uid
 
-        if (group != null && uid != null && group.currNumber < group.totalNumber) {
+        if (group != null && uid != null) {
             Picasso.get().load(group.img).error(R.drawable.ic_person_black_24dp)
                 .into(ivGroupImgUpload)
             tvGroupName.text = getString(R.string.group_name_placeholder).format(group.teamName)
@@ -104,7 +104,7 @@ class GroupViewActivity : AppCompatActivity() {
                     intent.putExtra(NewMessageActivity.USER_KEY, groupChat)
                     startActivity(intent)
                 }
-            } else { // User has not yet join the group
+            } else if (group.currNumber < group.totalNumber) { // User has not yet join the group
                 btnJoin.visibility = VISIBLE
 
                 btnJoin.setOnClickListener {
