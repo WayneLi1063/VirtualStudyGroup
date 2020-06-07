@@ -6,14 +6,15 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.GroupViewActivity.Companion.GROUP_KEY
 import androidx.appcompat.widget.SearchView
+import com.example.virtualstudygroup.chatActivity.MessageActivity
+import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_explore.*
-import kotlinx.android.synthetic.main.activity_user_profile.*
+import kotlinx.android.synthetic.main.activity_my_group.*
 
 class MyGroupActivity : AppCompatActivity() {
 
@@ -29,6 +30,8 @@ class MyGroupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_group)
+
+        setupBotNavBar()
 
         groupListAdapter = GroupListAdapter(mutableListOf<Group>())
         rvGroupList.adapter = groupListAdapter
@@ -112,5 +115,25 @@ class MyGroupActivity : AppCompatActivity() {
         intent.putExtra(GROUP_KEY, group)
 
         startActivity(intent)
+    }
+
+    private fun setupBotNavBar() {
+        btn_profile.setOnClickListener{
+            val intent = Intent(this, UserProfileActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_chatroom.setOnClickListener{
+            val intent = Intent(this, MessageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_explore_groups.setOnClickListener{
+            val intent = Intent(this, ExploreActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
     }
 }

@@ -29,6 +29,7 @@ class UserProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
         currentUser = getApp().currentUser
+
         btnSignout.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -39,11 +40,13 @@ class UserProfileActivity : AppCompatActivity() {
 
         btnExploration.setOnClickListener {
             val intent = Intent(this, ExploreActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
 
         btnMyGroup.setOnClickListener {
             val intent = Intent(this, MyGroupActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
 
@@ -70,8 +73,8 @@ class UserProfileActivity : AppCompatActivity() {
                     userData = it.getValue(User::class.java)
                     fillUpInfo()
                     btnChangePassword.setOnClickListener {
-                        var auth = Firebase.auth
-                        var emailAddress = currentUser!!.email
+                        val auth = Firebase.auth
+                        val emailAddress = currentUser!!.email
                         auth.sendPasswordResetEmail(emailAddress!!)
                         Toast.makeText(applicationContext,
                             "Please check your email for reset link",
