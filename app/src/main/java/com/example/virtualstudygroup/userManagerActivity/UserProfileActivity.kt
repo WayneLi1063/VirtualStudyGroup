@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.virtualstudygroup.*
 import com.example.virtualstudygroup.chatActivity.MessageActivity
+import com.example.virtualstudygroup.groupActivity.ExploreActivity
+import com.example.virtualstudygroup.groupActivity.MyGroupActivity
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth

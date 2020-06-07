@@ -1,4 +1,4 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.groupActivity
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,8 @@ import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.model.Group
 import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList

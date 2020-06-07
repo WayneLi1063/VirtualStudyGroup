@@ -1,12 +1,15 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.groupActivity
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.virtualstudygroup.GroupViewActivity.Companion.GROUP_KEY
+import com.example.virtualstudygroup.groupActivity.GroupViewActivity.Companion.GROUP_KEY
 import androidx.appcompat.widget.SearchView
+import com.example.virtualstudygroup.model.Group
+import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.chatActivity.MessageActivity
+import com.example.virtualstudygroup.getApp
 import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -36,7 +39,10 @@ class MyGroupActivity : AppCompatActivity() {
 
         setupBotNavBar()
 
-        groupListAdapter = GroupListAdapter(mutableListOf<Group>())
+        groupListAdapter =
+            GroupListAdapter(
+                mutableListOf<Group>()
+            )
         rvGroupList.adapter = groupListAdapter
 
         groupListAdapter?.onGroupClickListener = { group ->

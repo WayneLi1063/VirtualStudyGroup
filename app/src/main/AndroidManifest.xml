@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".chatActivity.ChatFilterActivity" />
-        <activity android:name=".ExploreActivity"/>
+        <activity android:name=".groupActivity.ExploreActivity"/>
         <activity android:name=".userManagerActivity.UserProfileEditActivity"/>
-        <activity android:name=".MyGroupActivity"/>
+        <activity android:name=".groupActivity.MyGroupActivity"/>
         <activity android:name=".chatActivity.ChatLogActivity" />
         <activity android:name=".chatActivity.NewMessageActivity" />
         <activity android:name=".userManagerActivity.RegisterActivity" />
@@ -27,8 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GroupViewActivity"/>
-        <activity android:name=".CreateGroupActivity">
+        <activity android:name=".groupActivity.GroupViewActivity"/>
+        <activity android:name=".groupActivity.CreateGroupActivity">
 
         </activity>
     </application>

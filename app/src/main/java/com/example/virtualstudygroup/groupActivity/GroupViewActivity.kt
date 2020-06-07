@@ -1,11 +1,13 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.groupActivity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.virtualstudygroup.model.Group
+import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.getApp
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
@@ -13,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_group_view.*
 import kotlinx.android.synthetic.main.activity_group_view.btnEdit
 import kotlinx.android.synthetic.main.activity_group_view.btnExploration
 import kotlinx.android.synthetic.main.activity_group_view.btnMyGroup
-import kotlinx.android.synthetic.main.activity_user_profile.*
 
 class GroupViewActivity : AppCompatActivity() {
 
@@ -25,16 +26,18 @@ class GroupViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_group_view)
 
-        val group = intent.getParcelableExtra<Group>(GROUP_KEY)
+        val group = intent.getParcelableExtra<Group>(
+            GROUP_KEY
+        )
         val uid = getApp().currentUser?.uid
 
         if (group != null && uid != null && group.currNumber < group.totalNumber) {
             Picasso.get().load(group.img).error(R.drawable.ic_person_black_24dp)
                 .into(ivGroupImgUpload)
-            tvGroupName.text = "Group Name: ${group.teamName}"
-            tvCourseName.text = "Course Name: ${group.className}"
-            tvGroupSize.text = "Group Size: ${group.currNumber} out of ${group.totalNumber}"
-            tvGroupDescription.text = "Group Description: ${group.groupDescription}"
+            tvGroupName.text = getString(R.string.group_name_placeholder).format(group.teamName)
+            tvCourseName.text = getString(R.string.course_name_placeholder).format(group.className)
+            tvGroupSize.text = getString(R.string.group_size_placeholder).format(group.currNumber, group.totalNumber)
+            tvGroupDescription.text = getString(R.string.group_description_placeholder).format(group.groupDescription)
 
             if (group.examSquad) {
                 btnExamSquad.visibility = VISIBLE

@@ -1,4 +1,4 @@
-package com.example.virtualstudygroup
+package com.example.virtualstudygroup.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
