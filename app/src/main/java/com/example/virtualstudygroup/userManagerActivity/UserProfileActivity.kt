@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.virtualstudygroup.*
+import com.example.virtualstudygroup.chatActivity.MessageActivity
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -15,6 +16,9 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_user_profile.*
+import kotlinx.android.synthetic.main.activity_user_profile.btnEdit
+import kotlinx.android.synthetic.main.activity_user_profile.btnExploration
+import kotlinx.android.synthetic.main.activity_user_profile.btnMyGroup
 
 class UserProfileActivity : AppCompatActivity() {
 
@@ -40,6 +44,12 @@ class UserProfileActivity : AppCompatActivity() {
 
         btnMyGroup.setOnClickListener {
             val intent = Intent(this, MyGroupActivity::class.java)
+            startActivity(intent)
+        }
+
+        btn_chatroom.setOnClickListener {
+            val intent = Intent(this, MessageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
     }
