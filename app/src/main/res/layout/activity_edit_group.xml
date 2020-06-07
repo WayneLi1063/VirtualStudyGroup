@@ -265,30 +265,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/etGroupDescription"
-                app:layout_constraintLeft_toLeftOf="@id/etGroupDescription"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:orientation="horizontal">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/etGroupDescription"
+                app:layout_constraintTop_toBottomOf="@id/etGroupDescription">
 
                 <Button
                     android:id="@+id/btnFinish"
-                    android:layout_margin="@dimen/padding_small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_small"
                     android:layout_weight="1"
-                    android:text="@string/finish"
                     android:background="@color/huskyPurple"
-                    android:textColor="@color/white"/>
+                    android:text="@string/finish"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/btnDisband"
-                    android:layout_margin="@dimen/padding_small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_small"
                     android:layout_weight="1"
-                    android:text="@string/disband"
                     android:background="@color/huskyGold"
-                    android:textColor="@color/white"/>
+                    android:text="@string/disband"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 

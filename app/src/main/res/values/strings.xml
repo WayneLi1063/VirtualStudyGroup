@@ -71,4 +71,5 @@
     <string name="group_description">Group Description</string>
     <string name="finish">FINISH</string>
     <string name="disband">DISBAND</string>
+    <string name="image_placeholder_prompt">We will use a default image if no image is uploaded.</string>
 </resources>
