@@ -7,7 +7,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.model.Group
 import com.example.virtualstudygroup.R
+import com.example.virtualstudygroup.chatActivity.ChatLogActivity
+import com.example.virtualstudygroup.chatActivity.NewMessageActivity
 import com.example.virtualstudygroup.getApp
+import com.example.virtualstudygroup.model.GroupChat
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
@@ -77,6 +80,11 @@ class GroupViewActivity : AppCompatActivity() {
                 }
 
                 btnChatRoom.setOnClickListener {
+                    val groupChat = GroupChat(group.className, group.teamName, group.img, group.id)
+                    val intent = Intent(it.context, ChatLogActivity::class.java)
+                    intent.putExtra(NewMessageActivity.USER_KEY, groupChat)
+                    startActivity(intent)
+                    finish()
 
                 }
             } else if (isLeader != null && isLeader) {
