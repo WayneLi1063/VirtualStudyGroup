@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.virtualstudygroup.userManagerActivity.LoginActivity
 import com.example.virtualstudygroup.R
@@ -44,7 +45,7 @@ class MessageActivity : AppCompatActivity() {
         messages_recycler.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
         // get filter message
-        filters = intent.getParcelableExtra(FILTER_KEY)
+        // filters = intent.getParcelableExtra(FILTER_KEY)
 
         // set up filter
         fetchGroupFilter()
@@ -60,6 +61,28 @@ class MessageActivity : AppCompatActivity() {
             intent.putExtra(USER_KEY, row.chatPartnerGroup)
             startActivity(intent)
         }
+
+
+        // set up search bar
+        // Search Listener
+        chatSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let {
+                    filter(newText)
+                }
+                updateMessageRecyclerView()
+                return false
+            }
+        })
+    }
+
+    private fun filter(nameFilter: String) {
+        filters = ChatFilter(
+            "", nameFilter, nameFilter, false, false, false, false, false)
     }
 
     private fun setupBotNavBar() {
@@ -104,16 +127,24 @@ class MessageActivity : AppCompatActivity() {
             val groupInfo = GroupFilterMap[chatMessage.toId]
 
             if (groupInfo != null && filterApplied != null) {
-                Log.i(CHATAG, filterApplied.examSquad.toString())
-                Log.i(CHATAG, filterApplied.homeworkHelp.toString())
+                Log.i(CHATAG, filterApplied.className)
+                Log.i(CHATAG, groupInfo.className)
+                Log.i(CHATAG, filterApplied.teamName)
+                Log.i(CHATAG, groupInfo.teamName)
                 // ADD FILTERS HERE
-                if (filterApplied.className.isNotEmpty() && !groupInfo.className.contains(filterApplied.className, ignoreCase = true)) { validGroup = false }
-                if (filterApplied.teamName.isNotEmpty() && !groupInfo.teamName.contains(filterApplied.teamName, ignoreCase = true)) { validGroup = false }
+                if (filterApplied.className.isNotEmpty()
+                    && !groupInfo.className.contains(filterApplied.className, ignoreCase = true)
+                    && filterApplied.teamName.isNotEmpty()
+                    && !groupInfo.teamName.contains(filterApplied.teamName, ignoreCase = true)) { validGroup = false }
+                // if (filterApplied.teamName.isNotEmpty() && !groupInfo.teamName.contains(filterApplied.teamName, ignoreCase = true)) { validGroup = false }
+                /*
                 if (filterApplied.examSquad && groupInfo.examSquad != filterApplied.examSquad) { validGroup = false }
                 if (filterApplied.homeworkHelp && groupInfo.homeworkHelp != filterApplied.homeworkHelp) { validGroup = false }
                 if (filterApplied.noteExchange && groupInfo.noteExchange != filterApplied.noteExchange) { validGroup = false }
                 if (filterApplied.projectPartners && groupInfo.projectPartners != filterApplied.projectPartners) { validGroup = false }
                 if (filterApplied.labMates && groupInfo.labMates != filterApplied.labMates) { validGroup = false }
+
+                 */
             }
 
             if (validGroup || filterApplied == null) {
@@ -188,10 +219,11 @@ class MessageActivity : AppCompatActivity() {
             }
 
             // go to filter
-            R.id.menu_filter -> {
+            /*R.id.menu_filter -> {
                 val intent = Intent(this, ChatFilterActivity::class.java)
                 startActivity(intent)
             }
+             */
 
             // sign out from chat activity
             /* R.id.menu_sign_out -> {

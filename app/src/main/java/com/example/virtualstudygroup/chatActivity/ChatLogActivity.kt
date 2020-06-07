@@ -68,7 +68,32 @@ class ChatLogActivity : AppCompatActivity() {
                 chatMessage?.let {
                     Log.i(CHATAG, "received a new message: ${chatMessage.text}")
 
+                    val userRef = FirebaseDatabase.getInstance().getReference("/users/${chatMessage.fromId}")
+                    userRef.addValueEventListener(object :ValueEventListener{
+                        override fun onDataChange(p0: DataSnapshot) {
+                            val chatSender = p0.getValue(User::class.java)
+                            chatSender?.let {
+                                // Log.i(CHATAG, "the sender of ${chatMessage.text} is ${chatSender.uid}")
+                                if (chatSender.uid != fromId) {
+                                    Log.i(CHATAG, "Add ${chatMessage.text} is ${chatSender.uid}")
+                                    adapter.add(ChatToItem(chatMessage.text, chatSender))
+
+                                } else {
+                                    Log.i(CHATAG, "Add ${chatMessage.text} is ${chatSender.uid}")
+                                    val currentUser = MessageActivity.currentUser ?:return
+                                    // adapter.add(ChatToItem(chatMessage.text, chatSender))
+                                    adapter.add(ChatFromItem(chatMessage.text, chatSender))
+
+                                }
+                            }
+                        }
+
+                        override fun onCancelled(p0: DatabaseError) {
+                        }
+                    })
+
                     // check if its a from/to message
+                    /*
                     if (chatMessage.fromId == fromId) {
                         Log.i(CHATAG, "it's from me!")
                         val currentUser = MessageActivity.currentUser ?:return
@@ -88,6 +113,8 @@ class ChatLogActivity : AppCompatActivity() {
                             }
                         })
                     }
+
+                     */
                 }
 
                 // scroll to the bottom of the screen
