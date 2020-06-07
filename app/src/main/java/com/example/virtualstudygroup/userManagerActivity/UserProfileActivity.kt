@@ -16,9 +16,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_user_profile.*
-import kotlinx.android.synthetic.main.activity_user_profile.btnEdit
-import kotlinx.android.synthetic.main.activity_user_profile.btnExploration
-import kotlinx.android.synthetic.main.activity_user_profile.btnMyGroup
 
 class UserProfileActivity : AppCompatActivity() {
 
@@ -38,6 +35,10 @@ class UserProfileActivity : AppCompatActivity() {
         assert(currentUser != null)
         fetchUser()
 
+        setupBotNavBar()
+
+        /*
+
         btnExploration.setOnClickListener {
             val intent = Intent(this, ExploreActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -50,6 +51,8 @@ class UserProfileActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+
         btn_chatroom.setOnClickListener {
             val intent = Intent(this, MessageActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -59,7 +62,7 @@ class UserProfileActivity : AppCompatActivity() {
         btn_my_groups.setOnClickListener {
             val intent = Intent(this, MyGroupActivity::class.java)
             startActivity(intent)
-        }
+        }*/
     }
 
     private fun fetchUser() {
@@ -106,6 +109,26 @@ class UserProfileActivity : AppCompatActivity() {
         }
         btnEdit.setOnClickListener {
             val intent = Intent(this, UserProfileEditActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun setupBotNavBar() {
+        btn_chatroom.setOnClickListener{
+            val intent = Intent(this, MessageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_explore_groups.setOnClickListener{
+            val intent = Intent(this, ExploreActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_my_groups.setOnClickListener{
+            val intent = Intent(this, MyGroupActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
     }
