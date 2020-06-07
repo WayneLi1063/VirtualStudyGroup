@@ -42,6 +42,7 @@
         android:elevation="4dp"
         android:theme="@style/BarTheme"
         app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
         app:titleTextColor="@color/white" />
 
     <!--
@@ -53,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
-        -->
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,9 +64,10 @@
         android:textColor="#ffffff"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/topPanel"
-        app:layout_constraintBottom_toBottomOf="@id/topPanel"
+        app:layout_constraintTop_toTopOf="@id/profile_toolbar"
+        app:layout_constraintBottom_toBottomOf="@id/profile_toolbar"
         android:textSize="40sp"/>
+        -->
 
     <Button
         android:id="@+id/btnEdit"
