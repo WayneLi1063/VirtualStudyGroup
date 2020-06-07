@@ -8,6 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.example.virtualstudygroup.ExploreActivity
+import com.example.virtualstudygroup.MyGroupActivity
 import com.example.virtualstudygroup.userManagerActivity.LoginActivity
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
@@ -91,6 +93,18 @@ class MessageActivity : AppCompatActivity() {
         // btn_explore_groups.setOnClickListener()
         btn_profile.setOnClickListener{
             val intent = Intent(this, UserProfileActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_explore_groups.setOnClickListener{
+            val intent = Intent(this, ExploreActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_my_groups.setOnClickListener{
+            val intent = Intent(this, MyGroupActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
