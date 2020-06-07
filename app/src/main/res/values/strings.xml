@@ -50,7 +50,7 @@
     <string name="course_name_placeholder">Course Name: %s</string>
     <string name="group_size_placeholder">Group Size: %s out of %s</string>
     <string name="group_description_placeholder">Group Description: %s</string>
-    <string name="group_size">Group Size:</string>
+    <string name="group_size">Group Size</string>
     <string name="course_name_colon">Course Name:</string>
     <string name="group_name_colon">Group Name:</string>
     <string name="group_description_long_sample">Group Description: This is a fantastic group that you absolutely should join.</string>
@@ -65,4 +65,10 @@
     <string name="btn_profile">btn_profile</string>
     <string name="create_group">Create Group</string>
     <string name="tag">Group Tag</string>
+    <string name="group_size_colon">Group Size:</string>
+    <string name="group_image_colon">Group Image:</string>
+    <string name="group_description_colon">Group Description:</string>
+    <string name="group_description">Group Description</string>
+    <string name="finish">FINISH</string>
+    <string name="disband">DISBAND</string>
 </resources>
