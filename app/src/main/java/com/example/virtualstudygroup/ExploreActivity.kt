@@ -9,6 +9,8 @@ import android.widget.Button
 //import android.widget.SearchView
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.virtualstudygroup.chatActivity.MessageActivity
+import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -37,6 +39,8 @@ class ExploreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_explore)
+
+        setupBotNavBar()
 
         groupListAdapter = GroupListAdapter(mutableListOf<Group>())
         rvGroupList.adapter = groupListAdapter
@@ -216,6 +220,26 @@ class ExploreActivity : AppCompatActivity() {
         intent.putExtra(GroupViewActivity.GROUP_KEY, group)
 
         startActivity(intent)
+    }
+
+    private fun setupBotNavBar() {
+        btn_profile.setOnClickListener{
+            val intent = Intent(this, UserProfileActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_chatroom.setOnClickListener{
+            val intent = Intent(this, MessageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+
+        btn_my_groups.setOnClickListener{
+            val intent = Intent(this, MyGroupActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
     }
 }
 
