@@ -95,7 +95,9 @@ class GroupViewActivity : AppCompatActivity() {
 
                 }
                 btnChatRoom.setOnClickListener {
-
+                    val intent = Intent(this, ChatLogActivity::class.java)
+                    intent.putExtra(NewMessageActivity.USER_KEY,group.id)
+                    startActivity(intent)
                 }
             } else { // User has not yet join the group
                 btnJoin.visibility = VISIBLE
