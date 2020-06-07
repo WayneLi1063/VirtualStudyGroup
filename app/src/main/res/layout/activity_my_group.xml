@@ -60,7 +60,6 @@
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
-    -->
 
 
     <Button
@@ -75,13 +74,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+        -->
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/groupSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCreate"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:background="@drawable/create_button_corners"
         app:iconifiedByDefault="false"
         app:queryBackground="@null"
