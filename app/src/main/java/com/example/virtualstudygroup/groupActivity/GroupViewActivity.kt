@@ -15,9 +15,6 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_group_view.*
-import kotlinx.android.synthetic.main.activity_group_view.btnEdit
-import kotlinx.android.synthetic.main.activity_group_view.btnExploration
-import kotlinx.android.synthetic.main.activity_group_view.btnMyGroup
 
 class GroupViewActivity : AppCompatActivity() {
 
@@ -29,6 +26,11 @@ class GroupViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_group_view)
+
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Group"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
         val group = intent.getParcelableExtra<Group>(
             GROUP_KEY
@@ -116,7 +118,7 @@ class GroupViewActivity : AppCompatActivity() {
             }
         }
 
-        btnExploration.setOnClickListener {
+/*        btnExploration.setOnClickListener {
             val intent = Intent(this, ExploreActivity::class.java)
             startActivity(intent)
         }
@@ -124,8 +126,13 @@ class GroupViewActivity : AppCompatActivity() {
         btnMyGroup.setOnClickListener {
             val intent = Intent(this, MyGroupActivity::class.java)
             startActivity(intent)
-        }
+        }*/
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
 }
