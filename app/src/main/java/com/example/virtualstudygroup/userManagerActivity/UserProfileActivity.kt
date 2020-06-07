@@ -25,6 +25,10 @@ class UserProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
+
+        setSupportActionBar(profile_toolbar)
+        supportActionBar?.title = "Profile"
+
         currentUser = getApp().currentUser
 
         btnSignout.setOnClickListener {

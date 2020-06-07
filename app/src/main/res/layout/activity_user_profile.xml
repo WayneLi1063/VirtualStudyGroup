@@ -35,6 +35,16 @@
     android:textSize="@dimen/text_medium" />
     -->
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/BarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white" />
+
+    <!--
     <ImageView
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
@@ -43,6 +53,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+        -->
 
     <TextView
         android:layout_width="wrap_content"

@@ -5,8 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-//import android.widget.SearchView
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.chatActivity.MessageActivity
@@ -40,6 +38,9 @@ class ExploreActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_explore)
 
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Explore"
+
         setupBotNavBar()
 
         groupListAdapter = GroupListAdapter(mutableListOf<Group>())
@@ -71,10 +72,13 @@ class ExploreActivity : AppCompatActivity() {
         }
 
 
+        /*
         btnMyGroup.setOnClickListener {
             val intent = Intent(this, MyGroupActivity::class.java)
             startActivity(intent)
         }
+
+         */
 
         // Search Listener
         groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -180,10 +184,13 @@ class ExploreActivity : AppCompatActivity() {
 //                startActivity(intent)
 //            }
 //        }
+        /*
         btnMyGroup.setOnClickListener {
             val intent = Intent(this, MyGroupActivity::class.java)
             startActivity(intent)
         }
+
+         */
     }
 
 

@@ -31,6 +31,9 @@ class MyGroupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_group)
 
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "My Group"
+
         setupBotNavBar()
 
         groupListAdapter = GroupListAdapter(mutableListOf<Group>())
@@ -71,10 +74,14 @@ class MyGroupActivity : AppCompatActivity() {
                 return false
             }
         })
+
+        /*
         btnExploration.setOnClickListener {
             val intent = Intent(this, ExploreActivity::class.java)
             startActivity(intent)
         }
+
+         */
     }
 
     private fun filterMyGroupList(groupValues: MutableMap<String, Group>) {
