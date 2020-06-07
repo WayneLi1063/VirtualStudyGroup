@@ -15,6 +15,7 @@ import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.chatActivity.NewMessageActivity.Companion.USER_KEY
+import com.example.virtualstudygroup.getApp
 import com.example.virtualstudygroup.model.ChatFilter
 import com.example.virtualstudygroup.model.ChatMessage
 import com.example.virtualstudygroup.model.User
@@ -30,6 +31,7 @@ class MessageActivity : AppCompatActivity() {
     val latestMessageMap = HashMap<String, ChatMessage>()
     val GroupFilterMap = HashMap<String, ChatFilter>()
     private var filters : ChatFilter ?= null
+    private var childEventListener: ChildEventListener ?= null
 
     companion object {
         var currentUser: User? = null
@@ -55,7 +57,6 @@ class MessageActivity : AppCompatActivity() {
         fetchGroupFilter()
         fetchCurrentUser()
         verifyUserIsLoggedIn()
-        listenForLatestMessage()
         setupBotNavBar()
 
         // set up adapter item listener
@@ -174,12 +175,31 @@ class MessageActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * During on pause and on resume, we need to toggle between listening for message to display
+     * and listening for message to send notification, so we need to remove one and add the other
+     */
+    override fun onPause() {
+        FirebaseDatabase.getInstance().getReference("/latest-messages")
+            .removeEventListener(childEventListener!!)
+        getApp().notificationManager?.startSendingNotification()
+        super.onPause()
+    }
+
+    override fun onResume() {
+        listenForLatestMessage()
+        super.onResume()
+    }
+
+
+
     private fun listenForLatestMessage() {
-        // val fromId = FirebaseAuth.getInstance().uid
-        // val reference = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId")
+
+        // stops the listener which sends notification
+        getApp().notificationManager?.stopSendingNotification()
 
         val reference = FirebaseDatabase.getInstance().getReference("/latest-messages")
-        reference.addChildEventListener(object: ChildEventListener {
+        childEventListener = object: ChildEventListener {
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 // new child for the latest message
                 val chatMessage = p0.getValue(ChatMessage::class.java) ?:return
@@ -202,9 +222,8 @@ class MessageActivity : AppCompatActivity() {
 
             override fun onChildRemoved(p0: DataSnapshot) {
             }
-        })
-
-
+        }
+        reference.addChildEventListener(childEventListener!!)
     }
 
     private fun fetchCurrentUser() {
