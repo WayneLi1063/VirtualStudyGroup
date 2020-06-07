@@ -10,7 +10,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.virtualstudygroup.userManagerActivity.LoginActivity
 import com.example.virtualstudygroup.R
-import com.example.virtualstudygroup.chatActivity.ChatFilterActivity.Companion.FILTER_KEY
 import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
 import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.chatActivity.NewMessageActivity.Companion.USER_KEY
@@ -32,6 +31,7 @@ class MessageActivity : AppCompatActivity() {
 
     companion object {
         var currentUser: User? = null
+        var groups: ArrayList<String> ?= null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +46,8 @@ class MessageActivity : AppCompatActivity() {
 
         // get filter message
         // filters = intent.getParcelableExtra(FILTER_KEY)
+
+        groups = ArrayList<String>()
 
         // set up filter
         fetchGroupFilter()
@@ -126,16 +128,25 @@ class MessageActivity : AppCompatActivity() {
             var validGroup = true
             val groupInfo = GroupFilterMap[chatMessage.toId]
 
-            if (groupInfo != null && filterApplied != null) {
-                Log.i(CHATAG, filterApplied.className)
-                Log.i(CHATAG, groupInfo.className)
-                Log.i(CHATAG, filterApplied.teamName)
-                Log.i(CHATAG, groupInfo.teamName)
-                // ADD FILTERS HERE
-                if (filterApplied.className.isNotEmpty()
-                    && !groupInfo.className.contains(filterApplied.className, ignoreCase = true)
-                    && filterApplied.teamName.isNotEmpty()
-                    && !groupInfo.teamName.contains(filterApplied.teamName, ignoreCase = true)) { validGroup = false }
+            if (groupInfo != null) {
+                val userGroups = groups
+                userGroups?.let{
+                    if (userGroups.contains(chatMessage.toId)) {
+                        // ADD FILTERS HERE
+                        if (filterApplied != null
+                            && filterApplied.className.isNotEmpty()
+                            && !groupInfo.className.contains(filterApplied.className, ignoreCase = true)
+                            && filterApplied.teamName.isNotEmpty()
+                            && !groupInfo.teamName.contains(filterApplied.teamName, ignoreCase = true)) {
+                            validGroup = false
+                        }
+
+                        if (validGroup || filterApplied == null) {
+                            adapter.add(LatestMessageRow(chatMessage))
+                        }
+                    }
+                }
+
                 // if (filterApplied.teamName.isNotEmpty() && !groupInfo.teamName.contains(filterApplied.teamName, ignoreCase = true)) { validGroup = false }
                 /*
                 if (filterApplied.examSquad && groupInfo.examSquad != filterApplied.examSquad) { validGroup = false }
@@ -143,13 +154,10 @@ class MessageActivity : AppCompatActivity() {
                 if (filterApplied.noteExchange && groupInfo.noteExchange != filterApplied.noteExchange) { validGroup = false }
                 if (filterApplied.projectPartners && groupInfo.projectPartners != filterApplied.projectPartners) { validGroup = false }
                 if (filterApplied.labMates && groupInfo.labMates != filterApplied.labMates) { validGroup = false }
-
                  */
             }
 
-            if (validGroup || filterApplied == null) {
-                adapter.add(LatestMessageRow(chatMessage))
-            }
+
         }
     }
 
@@ -193,6 +201,27 @@ class MessageActivity : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 currentUser = p0.getValue(User::class.java)
                 Log.i(CHATAG, "Current chat user ${currentUser?.uid}")
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+            }
+        })
+
+        val groupRef = FirebaseDatabase.getInstance().getReference("/users/$uid/groups")
+        groupRef.addValueEventListener(object:ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                p0.let {
+                    for (d : DataSnapshot in p0.children) {
+                        d.key?.let {
+                            val group_name = d.key
+                            if (group_name != null) {
+                                groups?.add(group_name)
+                            }
+                            Log.i(CHATAG, "hello this is " + group_name)
+                            Log.i(CHATAG, groups.toString())
+                        }
+                    }
+                }
             }
 
             override fun onCancelled(p0: DatabaseError) {
