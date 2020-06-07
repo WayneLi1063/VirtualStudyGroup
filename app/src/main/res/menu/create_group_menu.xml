@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_create_group"
-        android:title="Create Group"
+        android:title="@string/create_group"
         app:showAsAction="ifRoom" />
     <!--    android:icon="@drawable/ic_add_black_24dp"-->
 

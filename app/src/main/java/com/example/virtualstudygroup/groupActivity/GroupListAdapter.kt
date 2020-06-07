@@ -1,5 +1,6 @@
 package com.example.virtualstudygroup.groupActivity
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -64,6 +65,8 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
                 } else {
                     val resultList = ArrayList<Group>()
                     for (row in groupList) {
+                        // var validGroup = true;
+                        // rewrite the filter
                         if (row.teamName.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
                             || row.className.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
                             || (row.homeworkHelp && charSearch.toLowerCase(Locale.ROOT) == "homeworkhelp")
@@ -73,6 +76,41 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
                             || (row.noteExchange && charSearch.toLowerCase(Locale.ROOT) == "noteexchange")) {
                             resultList.add(row)
                         }
+                        /*
+                        if (charSearch.toLowerCase(Locale.ROOT).isNotEmpty()) {
+                            Log.i("filter", "not empty: " + charSearch)
+                            if (!row.teamName.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
+                                        && !row.className.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))){
+                                    Log.i("filter", "not a valid group bc charsearch: " + row.className)
+                                    validGroup = false
+                            }
+                        }
+
+                        if (row.homeworkHelp && charSearch.toLowerCase(Locale.ROOT) != "homeworkhelp"){
+                            Log.i("filter", "not a valid group bc hw: " + row.className)
+                            validGroup = false
+                        }
+                        if (row.examSquad && charSearch.toLowerCase(Locale.ROOT) != "examsquad"){
+                            Log.i("filter", "not a valid group bc exam: " + row.className)
+                            validGroup = false
+                        }
+                        if (row.labMates && charSearch.toLowerCase(Locale.ROOT) != "labmate"){
+                            Log.i("filter", "not a valid group bc lab: " + row.className)
+                            validGroup = false
+                        }
+                        if (row.projectPartners && charSearch.toLowerCase(Locale.ROOT) != "projectpartner"){
+                            Log.i("filter", "not a valid group bc project: " + row.className)
+                            validGroup = false
+                        }
+                        if (row.noteExchange && charSearch.toLowerCase(Locale.ROOT) != "noteexchange"){
+                            Log.i("filter", "not a valid group bc notes: " + row.className)
+                            validGroup = false
+                        }
+
+                        // add it here
+                        if (validGroup) {
+                            resultList.add(row)
+                        }*/
                     }
                     groupFilterList = resultList
                 }

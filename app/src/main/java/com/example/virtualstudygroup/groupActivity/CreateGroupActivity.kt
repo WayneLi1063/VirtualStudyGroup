@@ -38,6 +38,10 @@ class CreateGroupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create)
 
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Create"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         btnExamSquad.setOnClickListener {
             examSquad = if (examSquad) {
                 btnExamSquad.setBackgroundResource(R.drawable.unselected_button)
@@ -113,10 +117,10 @@ class CreateGroupActivity : AppCompatActivity() {
             }
             val regex = """[A-Z\s]{3,6}\s?[0-9]{3}""".toRegex()
             groupName = etGroupName.text.toString()
-            courseName = etCourseName.text.toString()
+            courseName = etCourseName.text.toString().toUpperCase(Locale.ROOT)
             val correctCourseName = courseName?.let { it1 -> regex.matches(it1) }
             if (correctCourseName != null && !correctCourseName) {
-                Toast.makeText(this, "Course name format is incorrect", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Course name format is incorrect, correct examples: 'CSE142' or 'korean 101'", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             totalNumber = etGroupSize.text.toString().toInt()
@@ -199,6 +203,11 @@ class CreateGroupActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Failed to select photo", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
 }
