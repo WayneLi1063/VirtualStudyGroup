@@ -58,7 +58,6 @@ class MyGroupActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-<<<<<<<<< Temporary merge branch 1
         groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -69,12 +68,10 @@ class MyGroupActivity : AppCompatActivity() {
                 return false
             }
         })
-=========
         btnExploration.setOnClickListener {
             val intent = Intent(this, ExploreActivity::class.java)
             startActivity(intent)
         }
->>>>>>>>> Temporary merge branch 2
     }
 
     private fun filterMyGroupList(groupValues: MutableMap<String, Group>) {
