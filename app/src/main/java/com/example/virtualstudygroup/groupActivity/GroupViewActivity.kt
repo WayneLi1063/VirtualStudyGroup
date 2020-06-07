@@ -77,7 +77,7 @@ class GroupViewActivity : AppCompatActivity() {
                     groupRef.child("members").child(uid).setValue(null)
                     userRef.child("groups").child(groupId).setValue(null).addOnSuccessListener {
                         Toast.makeText(this, "Leave successfully.", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, ExploreActivity::class.java)
+                        val intent = Intent(this, MyGroupActivity::class.java)
                         startActivity(intent)
                     }
                 }
@@ -111,7 +111,7 @@ class GroupViewActivity : AppCompatActivity() {
                     groupRef.child("currNumber").setValue(group.currNumber + 1)
                     groupRef.child("members").child(uid).setValue(true)
                     userRef.child("groups").child(groupId).setValue(true).addOnSuccessListener {
-                        Toast.makeText(this, "Join successfully.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Join successfully. You are now at My Groups Page.", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, MyGroupActivity::class.java)
                         startActivity(intent)
                     }

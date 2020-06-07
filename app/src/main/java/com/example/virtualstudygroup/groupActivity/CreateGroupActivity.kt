@@ -161,13 +161,16 @@ class CreateGroupActivity : AppCompatActivity() {
                     groupRef.child(newId).setValue(newGroup).addOnSuccessListener {
                         val groupCountRef = Firebase.database.getReference("groupCount")
                         groupCountRef.setValue(groupCount + 1)
+
+                        Toast.makeText(this, "Create group successfully! You are now at My Groups Page.", Toast.LENGTH_LONG).show()
+                        val intent = Intent(this, MyGroupActivity::class.java)
+                        startActivity(intent)
                     }
 
                     val userRef = Firebase.database.getReference("users")
                     userRef.child(uid).child("groups").child(newId).setValue(true)
 
-                    val intent = Intent(this, MyGroupActivity::class.java)
-                    startActivity(intent)
+
                 }
             }
         }

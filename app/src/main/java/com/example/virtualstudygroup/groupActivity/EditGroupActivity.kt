@@ -1,15 +1,17 @@
 package com.example.virtualstudygroup.groupActivity
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.getApp
@@ -221,7 +223,39 @@ class EditGroupActivity: AppCompatActivity() {
         }
 
         btnDisband.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Are you sure you want to disband this study group?")
+                .setMessage("Once the group disbands, there is no way to undo this change.")
+                .setPositiveButton("Confirm") { _, _ ->
+                    val groupRef = Firebase.database.getReference("groups")
+                    val groupMessageRef = Firebase.database.getReference("group-messages")
+                    val latestMessageRef = Firebase.database.getReference("latest-messages")
+                    val userRef = Firebase.database.getReference("users")
 
+                    if (groupForEdit != null) {
+                        val groupID = groupForEdit.id
+                        val uidList = mutableListOf<String>()
+                        groupForEdit.members?.keys?.let { it1 -> uidList.addAll(it1) }
+                        groupForEdit.leaders?.keys?.let { it1 -> uidList.addAll(it1) }
+                        uidList.forEach {uid ->
+                            userRef.child(uid).child("groups").child(groupID).setValue(null)
+                        }
+                        groupMessageRef.child(groupID).setValue(null)
+                        latestMessageRef.child(groupID).setValue(null)
+                        groupRef.child(groupID).setValue(null).addOnSuccessListener {
+                            Toast.makeText(this, "Group successfully disbanded.", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, MyGroupActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                    }
+
+                }
+                .setNegativeButton("Cancel") { _, _ ->
+
+                }
+                .create()
+                .show()
         }
     }
 
