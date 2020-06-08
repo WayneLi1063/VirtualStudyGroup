@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.*
@@ -35,6 +36,7 @@ class ExploreActivity : AppCompatActivity() {
     private var examSquad: Boolean = false
     private var labMates: Boolean = false
     private var noteExchange: Boolean = false
+    private var tagClicked: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,70 +88,115 @@ class ExploreActivity : AppCompatActivity() {
         // Group Tags Button onClick Listener
         btnHomeworkHelp.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
+                val btnToDisable  = listOf<Button>(btnExamSquad, btnLabMates, btnProjectPartners, btnNoteExchange)
                 if (homeworkHelp) {
                     btnHomeworkHelp.setBackgroundResource(R.drawable.unselected_button)
                     homeworkHelp = !homeworkHelp
                     groupListAdapter!!.filter.filter("")
+                    tagClicked = false
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = true
+                    }
                 } else {
                     btnHomeworkHelp.setBackgroundResource(R.drawable.selected_button)
                     homeworkHelp = !homeworkHelp
                     groupListAdapter!!.filter.filter("homeworkhelp")
+                    tagClicked = true
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = false
+                    }
                 }
             }
         })
 
         btnExamSquad.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
+                val btnToDisable  = listOf<Button>(btnHomeworkHelp, btnLabMates, btnProjectPartners, btnNoteExchange)
                 if (examSquad) {
                     btnExamSquad.setBackgroundResource(R.drawable.unselected_button)
                     examSquad = !examSquad
                     groupListAdapter!!.filter.filter("")
+                    tagClicked = false
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = true
+                    }
                 } else {
                     btnExamSquad.setBackgroundResource(R.drawable.selected_button)
                     examSquad = !examSquad
                     groupListAdapter!!.filter.filter("examsquad")
+                    tagClicked = true
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = false
+                    }
                 }
             }
         })
 
         btnLabMates.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
+                val btnToDisable  = listOf<Button>(btnHomeworkHelp, btnExamSquad, btnProjectPartners, btnNoteExchange)
                 if (labMates) {
                     btnLabMates.setBackgroundResource(R.drawable.unselected_button)
                     labMates = !labMates
                     groupListAdapter!!.filter.filter("")
+                    tagClicked = false
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = true
+                    }
                 } else {
                     btnLabMates.setBackgroundResource(R.drawable.selected_button)
                     labMates = !labMates
                     groupListAdapter!!.filter.filter("labmate")
+                    tagClicked = true
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = false
+                    }
                 }
             }
         })
 
         btnProjectPartners.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
+                val btnToDisable  = listOf<Button>(btnHomeworkHelp, btnExamSquad, btnLabMates, btnNoteExchange)
                 if (projectPartners) {
                     btnProjectPartners.setBackgroundResource(R.drawable.unselected_button)
                     projectPartners = !projectPartners
                     groupListAdapter!!.filter.filter("")
+                    tagClicked = false
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = true
+                    }
                 } else {
                     btnProjectPartners.setBackgroundResource(R.drawable.selected_button)
                     projectPartners = !projectPartners
                     groupListAdapter!!.filter.filter("projectpartner")
+                    tagClicked = true
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = false
+                    }
                 }
             }
         })
 
         btnNoteExchange.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
+                val btnToDisable  = listOf<Button>(btnHomeworkHelp, btnExamSquad, btnLabMates, btnProjectPartners)
                 if (noteExchange) {
                     btnNoteExchange.setBackgroundResource(R.drawable.unselected_button)
                     noteExchange = !noteExchange
                     groupListAdapter!!.filter.filter("")
+                    tagClicked = false
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = true
+                    }
                 } else {
                     btnNoteExchange.setBackgroundResource(R.drawable.selected_button)
                     noteExchange = !noteExchange
                     groupListAdapter!!.filter.filter("noteexchange")
+                    tagClicked = true
+                    for (btn in btnToDisable) {
+                        btn.isEnabled = false
+                    }
                 }
             }
         })
