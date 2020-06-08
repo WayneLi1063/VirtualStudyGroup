@@ -28,7 +28,6 @@ class ExploreActivity : AppCompatActivity() {
 
     private var groupListAdapter: GroupListAdapter? = null
     private lateinit var groupsList: MutableList<Group>
-//    private var groupsList: MutableList<Group>? = null
     private val database = Firebase.database
     private val groups = database.getReference("groups")
     private var homeworkHelp: Boolean = false
@@ -71,20 +70,6 @@ class ExploreActivity : AppCompatActivity() {
                 Log.i(TAG, "Failed to read value.", error.toException())
             }
         })
-
-/*        btnCreate.setOnClickListener {
-            val intent = Intent(this, CreateGroupActivity::class.java)
-            startActivity(intent)
-        }*/
-
-
-        /*
-        btnMyGroup.setOnClickListener {
-            val intent = Intent(this, MyGroupActivity::class.java)
-            startActivity(intent)
-        }
-
-         */
 
         // Search Listener
         groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -168,35 +153,6 @@ class ExploreActivity : AppCompatActivity() {
                 }
             }
         })
-
-
-//        btnHomeworkHelp.setOnClickListener {
-//            homeworkHelp = if (homeworkHelp) {
-//                btnHomeworkHelp.setBackgroundColor(resources.getColor(R.color.beige))
-//                !homeworkHelp
-//            } else {
-//                btnHomeworkHelp.setBackgroundColor(Color.GREEN)
-//                !homeworkHelp
-//                groupListAdapter!!.filter.filter("homework")
-////                groupSearch.setQuery("homework", false)
-////                groupSearch.clearFocus()
-//            }
-//        }
-
-//        btnFilter.setOnClickListener {
-//            if (groupsList != null) {
-//                val intent = Intent(this, FilterGroupActivity::class.java)
-////                intent.putExtra("GROUP_LIST", groupsList)
-//                startActivity(intent)
-//            }
-//        }
-        /*
-        btnMyGroup.setOnClickListener {
-            val intent = Intent(this, MyGroupActivity::class.java)
-            startActivity(intent)
-        }
-
-         */
     }
 
 
@@ -269,9 +225,5 @@ class ExploreActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.create_group_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
-}
-
-private fun SearchView.setOnQueryTextListener(onQueryTextListener: SearchView.OnQueryTextListener) {
-
 }
 
