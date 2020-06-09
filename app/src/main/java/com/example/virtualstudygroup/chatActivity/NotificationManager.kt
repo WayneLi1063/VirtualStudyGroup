@@ -72,8 +72,9 @@ class NotificationManager(private val context: Context) {
 
             override fun onChildChanged(p0: DataSnapshot, p1: String?) {
                 val chatMessage = p0.getValue(ChatMessage::class.java) ?:return
-
-                context.getApp().notificationManager?.sendOneMessage(chatMessage)
+                if (MessageActivity.groups!!.contains(chatMessage.toId)) {
+                    context.getApp().notificationManager?.sendOneMessage(chatMessage)
+                }
             }
 
             override fun onCancelled(p0: DatabaseError) {
