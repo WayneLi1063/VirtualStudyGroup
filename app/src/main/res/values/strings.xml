@@ -67,7 +67,7 @@
     <string name="create_group">Create Group</string>
     <string name="tag">Group Tag</string>
     <string name="group_size_colon">Group Size:</string>
-    <string name="group_image_colon">Group Image:</string>
+    <string name="group_image_colon">Group Image (click to edit):</string>
     <string name="group_description_colon">Group Description:</string>
     <string name="group_description">Group Description</string>
     <string name="finish">FINISH</string>
