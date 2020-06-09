@@ -74,4 +74,9 @@
     <string name="disband">DISBAND</string>
     <string name="image_placeholder_prompt">We will use a default image if no image is uploaded.</string>
     <string name="husky_husky">Husky husky</string>
+    <string name="name">Name</string>
+    <string name="year">Year</string>
+    <string name="major">Major</string>
+    <string name="interest">Interest</string>
+    <string name="save">Save</string>
 </resources>

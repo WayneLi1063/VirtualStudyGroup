@@ -3,6 +3,8 @@ package com.example.virtualstudygroup.groupActivity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -20,17 +22,6 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_my_group.*
-import kotlinx.android.synthetic.main.activity_my_group.btnExamSquad
-import kotlinx.android.synthetic.main.activity_my_group.btnHomeworkHelp
-import kotlinx.android.synthetic.main.activity_my_group.btnLabMates
-import kotlinx.android.synthetic.main.activity_my_group.btnNoteExchange
-import kotlinx.android.synthetic.main.activity_my_group.btnProjectPartners
-import kotlinx.android.synthetic.main.activity_my_group.btn_chatroom
-import kotlinx.android.synthetic.main.activity_my_group.btn_explore_groups
-import kotlinx.android.synthetic.main.activity_my_group.btn_profile
-import kotlinx.android.synthetic.main.activity_my_group.groupSearch
-import kotlinx.android.synthetic.main.activity_my_group.rvGroupList
-import kotlinx.android.synthetic.main.activity_my_group.toolbar
 
 class MyGroupActivity : AppCompatActivity() {
 
@@ -84,10 +75,10 @@ class MyGroupActivity : AppCompatActivity() {
             }
         })
 
-        btnCreate.setOnClickListener {
+/*        btnCreate.setOnClickListener {
             val intent = Intent(this, CreateGroupActivity::class.java)
             startActivity(intent)
-        }
+        }*/
 
         groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -283,5 +274,20 @@ class MyGroupActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_create_group -> {
+                val intent = Intent(this, CreateGroupActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.create_group_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }

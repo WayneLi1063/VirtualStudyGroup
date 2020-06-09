@@ -38,6 +38,11 @@ class UserProfileEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile_edit)
+
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Edit Profile"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         getApp().currentUser?.let {
             currentUser = it
         }
@@ -147,6 +152,7 @@ class UserProfileEditActivity : AppCompatActivity() {
                     getApp().currentUser = currentUser
                     val intent = Intent(this, UserProfileActivity::class.java)
                     startActivity(intent)
+                    finish()
                     Log.i(RegisterActivity.TAG, "saved into database")
                 }.addOnFailureListener {
                     Log.i(RegisterActivity.TAG, "user upload failed")
@@ -168,5 +174,10 @@ class UserProfileEditActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Failed to select photo", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

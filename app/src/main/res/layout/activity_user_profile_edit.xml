@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".userManagerActivity.UserProfileEditActivity">
 
-    <ImageView
+<!--    <ImageView
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/huskyPurple"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:contentDescription="@string/profile" />-->
 
-    <TextView
+<!--    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/topPanelText"
@@ -25,7 +26,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/topPanel"
         app:layout_constraintBottom_toBottomOf="@id/topPanel"
-        android:textSize="40sp"/>
+        android:textSize="40sp"/>-->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/BarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:titleTextColor="@color/white" />
 
     <TextView
         android:layout_width="250dp"
@@ -37,12 +48,13 @@
         app:layout_constraintTop_toBottomOf="@id/user_profile_image"
         android:textSize="20sp"
         tools:text="aaa@example.com"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp" />
 
     <EditText
         android:layout_width="250dp"
+        android:layout_marginTop="8dp"
         android:layout_height="wrap_content"
-        android:hint="Name:"
+        android:hint="@string/name"
         android:id="@+id/name_text"
         android:textColor="@android:color/black"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -50,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@id/username_text"/>
 
     <EditText
-        android:hint="Year: "
+        android:hint="@string/year"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -62,7 +74,7 @@
         android:layout_marginTop="10dp"/>
 
     <EditText
-        android:hint="Major:"
+        android:hint="@string/major"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@id/username_text"
@@ -73,7 +85,7 @@
         android:layout_marginTop="10dp"/>
 
     <EditText
-        android:hint="Interest:"
+        android:hint="@string/interest"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@id/username_text"
@@ -106,7 +118,7 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="50dp"
-        android:text="Save"/>
+        android:text="@string/save"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
