@@ -65,14 +65,6 @@ class UserProfileEditActivity : AppCompatActivity() {
         })
     }
 
-    override fun onResume() {
-        super.onResume()
-        getApp().currentUser?.let {
-            currentUser = it
-        }
-        fetchUser()
-    }
-
     private fun fillUpInfo() {
         userData.let { user ->
             Picasso.get().load(user.photoURL).into(user_profile_image)
