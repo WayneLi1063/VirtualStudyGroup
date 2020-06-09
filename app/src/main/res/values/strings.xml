@@ -79,4 +79,5 @@
     <string name="major">Major</string>
     <string name="interest">Interest</string>
     <string name="save">Save</string>
+    <string name="new_profile_image_prompt">Click the image below to select a new profile image.</string>
 </resources>

@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:text="Click the image below to select a new profile image."
+        android:text="@string/new_profile_image_prompt"
         app:layout_constraintBottom_toTopOf="@id/user_profile_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
