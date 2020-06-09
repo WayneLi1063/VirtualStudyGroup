@@ -3,7 +3,6 @@ package com.example.virtualstudygroup.chatActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
@@ -13,7 +12,6 @@ import com.example.virtualstudygroup.groupActivity.MyGroupActivity
 import com.example.virtualstudygroup.userManagerActivity.LoginActivity
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.userManagerActivity.UserProfileActivity
-import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.chatActivity.NewMessageActivity.Companion.USER_KEY
 import com.example.virtualstudygroup.getApp
 import com.example.virtualstudygroup.model.ChatFilter
@@ -47,9 +45,6 @@ class MessageActivity : AppCompatActivity() {
 
         messages_recycler.adapter = adapter
         messages_recycler.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-
-        // get filter message
-        // filters = intent.getParcelableExtra(FILTER_KEY)
 
         groups = ArrayList<String>()
 
@@ -232,7 +227,6 @@ class MessageActivity : AppCompatActivity() {
         reference.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
                 currentUser = p0.getValue(User::class.java)
-                Log.i(CHATAG, "Current chat user ${currentUser?.uid}")
             }
 
             override fun onCancelled(p0: DatabaseError) {
@@ -249,8 +243,6 @@ class MessageActivity : AppCompatActivity() {
                             if (group_name != null) {
                                 groups?.add(group_name)
                             }
-                            Log.i(CHATAG, "hello this is " + group_name)
-                            Log.i(CHATAG, groups.toString())
                         }
                     }
                 }
@@ -278,23 +270,6 @@ class MessageActivity : AppCompatActivity() {
                 val intent = Intent(this, NewMessageActivity::class.java)
                 startActivity(intent)
             }
-
-            // go to filter
-            /*R.id.menu_filter -> {
-                val intent = Intent(this, ChatFilterActivity::class.java)
-                startActivity(intent)
-            }
-             */
-
-            // sign out from chat activity
-            /* R.id.menu_sign_out -> {
-                FirebaseAuth.getInstance().signOut()
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            }
-
-             */
         }
         return super.onOptionsItemSelected(item)
     }
