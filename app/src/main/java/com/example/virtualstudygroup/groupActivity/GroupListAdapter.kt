@@ -25,6 +25,7 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
     init {
         groupFilterList = groupList
     }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -48,8 +49,6 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
     override fun onBindViewHolder(holder: GroupListViewHolder, position: Int) {
         if (groupFilterList.isNullOrEmpty()) {
             val group = groupList[position]
-            Log.i("info", "testingtestingtesting")
-            Log.i("info", group.toString())
             holder.bind(group)
         } else {
             val group = groupFilterList?.get(position)
