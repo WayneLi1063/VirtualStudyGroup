@@ -18,6 +18,9 @@ class ChatToItem (val text: String, private val user: User): Item<GroupieViewHol
         }
 
         viewHolder.itemView.tv_user_name.text = user.name
+        if (user.name.isNullOrEmpty()){
+            viewHolder.itemView.tv_user_name.text = user.email
+        }
     }
 
     override fun getLayout(): Int {
