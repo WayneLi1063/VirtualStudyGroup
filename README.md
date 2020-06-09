@@ -24,31 +24,41 @@ We have also added some bonus features, such as message notification.
 
 ## Emulator Preview
 Onboard Screen
+
 <img src="./preview/Onboard.png" width="200" height="420" />
 
 Explore Group Screen
+
 <img src="./preview/Explore.png" width="200" height="420" />
 
 Group Info Screen
+
 <img src="./preview/Group_Info.png" width="200" height="420" />
 
 My Group Screen
+
 <img src="./preview/My_Group.png" width="200" height="420" />
 
 My Group Info Screen
+
 <img src="./preview/My_Group_Info.png" width="200" height="420" />
 
 Chat Room Screen
+
 <img src="./preview/Chat_Room.png" width="200" height="420" />
 
 Empty Chat Screen
+
 <img src="./preview/Empty_Chat.png" width="200" height="420" />
 
 Group Chat Screen
+
 <img src="./preview/Group_Chat.png" width="200" height="420" />
 
 Profile Screen
+
 <img src="./preview/Profile.png" width="200" height="420" />
 
 Profile Edit Screen
+
 <img src="./preview/Profile_Edit.png" width="200" height="420" />
