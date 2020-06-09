@@ -21,11 +21,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_user_profile_edit.*
-import kotlinx.android.synthetic.main.activity_user_profile_edit.interest_text
-import kotlinx.android.synthetic.main.activity_user_profile_edit.major_text
-import kotlinx.android.synthetic.main.activity_user_profile_edit.user_profile_image
-import kotlinx.android.synthetic.main.activity_user_profile_edit.username_text
-import kotlinx.android.synthetic.main.activity_user_profile_edit.year_text
 import java.util.*
 
 

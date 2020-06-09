@@ -39,13 +39,6 @@ class ChatLogActivity : AppCompatActivity() {
         // get and show user email / name based on info
         toGroup = intent.getParcelableExtra(NewMessageActivity.USER_KEY)
         supportActionBar?.title = toGroup?.teamName
-        /*
-        if (toGroup?.teamName == "") {
-            supportActionBar?.title= toGroup!!.className
-        } else {
-            supportActionBar?.title = toGroup?.teamName
-        }
-         */
 
         listenForMessages()
 
@@ -91,30 +84,6 @@ class ChatLogActivity : AppCompatActivity() {
                         override fun onCancelled(p0: DatabaseError) {
                         }
                     })
-
-                    // check if its a from/to message
-                    /*
-                    if (chatMessage.fromId == fromId) {
-                        Log.i(CHATAG, "it's from me!")
-                        val currentUser = MessageActivity.currentUser ?:return
-                        adapter.add(ChatFromItem(chatMessage.text, currentUser))
-                    } else {
-                        val userRef = FirebaseDatabase.getInstance().getReference("/users/${chatMessage.fromId}")
-                        userRef.addListenerForSingleValueEvent(object :ValueEventListener{
-                            override fun onDataChange(p0: DataSnapshot) {
-                                val chatSender = p0.getValue(User::class.java)
-                                chatSender?.let {
-                                    Log.i(CHATAG, "the sender is ${chatSender.uid}")
-                                    adapter.add(ChatToItem(chatMessage.text, chatSender))
-                                }
-                            }
-
-                            override fun onCancelled(p0: DatabaseError) {
-                            }
-                        })
-                    }
-
-                     */
                 }
 
                 // scroll to the bottom of the screen
@@ -148,9 +117,7 @@ class ChatLogActivity : AppCompatActivity() {
         if (fromId == null || toId == null) return
 
         // call firebase database and prepare to send new msg
-        // val reference = FirebaseDatabase.getInstance().getReference("/group-messages/$fromId/$toId").push()
         val toReference = FirebaseDatabase.getInstance().getReference("/group-messages/$toId").push()
-        // val latestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId")
         val toLatestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$toId")
 
         val chatMessage = ChatMessage(toReference.key!!, text, fromId, toId, System.currentTimeMillis())
@@ -161,8 +128,6 @@ class ChatLogActivity : AppCompatActivity() {
                 chat_log_recycler.scrollToPosition(adapter.itemCount - 1)
             }
 
-        // toReference.setValue(chatMessage)
-        // latestMessageRef.setValue(chatMessage)
         toLatestMessageRef.setValue(chatMessage)
     }
 

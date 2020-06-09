@@ -48,9 +48,6 @@ class MessageActivity : AppCompatActivity() {
         messages_recycler.adapter = adapter
         messages_recycler.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
-        // get filter message
-        // filters = intent.getParcelableExtra(FILTER_KEY)
-
         groups = ArrayList<String>()
 
         // set up filter
@@ -112,7 +109,6 @@ class MessageActivity : AppCompatActivity() {
 
     private fun fetchGroupFilter() {
         val groupReference = FirebaseDatabase.getInstance().getReference("/groups")
-        // adapter.add(LatestMessageRow(chatMessage))
         groupReference.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 val groupInfo = p0.getValue(ChatFilter::class.java) ?:return
@@ -160,15 +156,6 @@ class MessageActivity : AppCompatActivity() {
                         }
                     }
                 }
-
-                // if (filterApplied.teamName.isNotEmpty() && !groupInfo.teamName.contains(filterApplied.teamName, ignoreCase = true)) { validGroup = false }
-                /*
-                if (filterApplied.examSquad && groupInfo.examSquad != filterApplied.examSquad) { validGroup = false }
-                if (filterApplied.homeworkHelp && groupInfo.homeworkHelp != filterApplied.homeworkHelp) { validGroup = false }
-                if (filterApplied.noteExchange && groupInfo.noteExchange != filterApplied.noteExchange) { validGroup = false }
-                if (filterApplied.projectPartners && groupInfo.projectPartners != filterApplied.projectPartners) { validGroup = false }
-                if (filterApplied.labMates && groupInfo.labMates != filterApplied.labMates) { validGroup = false }
-                 */
             }
 
 
@@ -278,23 +265,6 @@ class MessageActivity : AppCompatActivity() {
                 val intent = Intent(this, NewMessageActivity::class.java)
                 startActivity(intent)
             }
-
-            // go to filter
-            /*R.id.menu_filter -> {
-                val intent = Intent(this, ChatFilterActivity::class.java)
-                startActivity(intent)
-            }
-             */
-
-            // sign out from chat activity
-            /* R.id.menu_sign_out -> {
-                FirebaseAuth.getInstance().signOut()
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            }
-
-             */
         }
         return super.onOptionsItemSelected(item)
     }
