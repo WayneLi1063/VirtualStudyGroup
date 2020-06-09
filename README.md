@@ -20,6 +20,7 @@ The virtual study group is now fully functioning with all the requested features
 - Edit group information
 - Chat within a joined group
 - Edit user profile information
+
 We have also added some bonus features, such as message notification.
 
 ## Emulator Preview
