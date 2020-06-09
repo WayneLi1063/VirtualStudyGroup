@@ -6,12 +6,10 @@ import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.R
-import com.example.virtualstudygroup.chatActivity.MessageActivity
 import com.example.virtualstudygroup.getApp
 import com.example.virtualstudygroup.model.User
 import com.google.firebase.auth.FirebaseAuth
@@ -31,7 +29,6 @@ class RegisterActivity : AppCompatActivity() {
     private var currentUser: FirebaseUser ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.i(TAG, "onstart")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         getApp().currentUser = null
@@ -65,11 +62,9 @@ class RegisterActivity : AppCompatActivity() {
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             currentUser = auth.currentUser!!
-                            Log.i(TAG, "Create user success, uid=${currentUser?.uid}")
                             selectedPhoto?.let { photo ->
                                 uploadPhoto(photo)
                             } ?: run {
-                                Log.i(TAG, "No photo selected, use default")
                                 val default_photo_name = "default_image.png"
                                 val ref = FirebaseStorage.getInstance().getReference("/images/user_profile_image/$default_photo_name")
                                 ref.downloadUrl.addOnSuccessListener {
@@ -79,7 +74,6 @@ class RegisterActivity : AppCompatActivity() {
                             }
                         } else {
                             btnSignup.isClickable = true
-                            Log.i(TAG, "Create user failed")
                         }
                     }.addOnFailureListener {
                         progressBar.visibility = View.INVISIBLE
@@ -95,11 +89,9 @@ class RegisterActivity : AppCompatActivity() {
         currentUser?.let { user ->
 
             val uid = user.uid
-            Log.i(TAG, uid)
             val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
             val uploadUser = User(listOf(), user.email!!, "", "", "", "", selectedPhoto.toString(), user.uid)
-            Log.i(TAG, "user upload created")
             ref.setValue(uploadUser)
                 .addOnSuccessListener {
                     getApp().currentUser = currentUser
@@ -110,8 +102,6 @@ class RegisterActivity : AppCompatActivity() {
 
                 }.addOnFailureListener {
                     progressBar.visibility = View.GONE
-
-                    Log.i(TAG, "user upload failed")
                 }
         }
     }
@@ -120,8 +110,6 @@ class RegisterActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode== 0 && resultCode == Activity.RESULT_OK && data != null) {
-            Log.i(TAG, "photo selected")
-
             selectedPhoto = data.data
 
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhoto)
@@ -139,7 +127,6 @@ class RegisterActivity : AppCompatActivity() {
         ref.putFile(photoUri)
             .addOnSuccessListener {
                 ref.downloadUrl.addOnSuccessListener {
-                    Log.i(TAG, "Photo uploaded, uri = $it")
                     selectedPhoto = it
                     saveUserIntoDatabase()
                 }

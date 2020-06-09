@@ -1,22 +1,18 @@
 package com.example.virtualstudygroup.groupActivity
 
-import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import com.example.virtualstudygroup.R
 import com.example.virtualstudygroup.getApp
 import com.example.virtualstudygroup.model.Group
-import com.example.virtualstudygroup.userManagerActivity.RegisterActivity
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -269,7 +265,6 @@ class EditGroupActivity: AppCompatActivity() {
         ref.putFile(photoUri)
             .addOnSuccessListener {
                 ref.downloadUrl.addOnSuccessListener {
-                    Log.i(RegisterActivity.TAG, "Photo uploaded, uri = $it")
                     newGroupImage = it
                 }
             }
@@ -279,8 +274,6 @@ class EditGroupActivity: AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode== 0 && resultCode == Activity.RESULT_OK && data != null) {
-            Log.i(RegisterActivity.TAG, "photo selected")
-
             groupImage = data.data
             userSetNewImage = true
 

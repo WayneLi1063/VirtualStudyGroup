@@ -9,15 +9,6 @@ import kotlinx.android.synthetic.main.user_row_message.view.*
 
 class GroupChatItem(val group: GroupChat): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        // show email instead of user name b/c username info missing
-        /*
-        if (group.teamName == "") {
-            viewHolder.itemView.tvChatUserName.text = group.teamName
-        } else {
-            viewHolder.itemView.tvChatUserName.text = group.className
-        }
-         */
-
         viewHolder.itemView.tvChatUserName.text = "${group.className} - ${group.teamName}"
 
         if (group.img.startsWith("https:")) {

@@ -1,13 +1,12 @@
 package com.example.virtualstudygroup
 
 import android.app.Application
-import android.util.Log
-import com.example.virtualstudygroup.chatActivity.MessageActivity
 import com.example.virtualstudygroup.chatActivity.NotificationManager
 import com.example.virtualstudygroup.groupActivity.ExploreActivity
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -34,7 +33,6 @@ class VSGApplication: Application() {
 
             override fun onCancelled(error: DatabaseError) {
                 // Failed to read value
-                Log.i(ExploreActivity.TAG, "Failed to read value.", error.toException())
             }
         })
 

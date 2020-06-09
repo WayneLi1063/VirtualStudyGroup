@@ -3,9 +3,7 @@ package com.example.virtualstudygroup.chatActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.virtualstudygroup.R
-import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.model.ChatFilter
 import kotlinx.android.synthetic.main.activity_chat_filter.*
 import kotlinx.android.synthetic.main.activity_message.chat_toolbar
@@ -25,7 +23,6 @@ class ChatFilterActivity : AppCompatActivity() {
         supportActionBar?.title = "Filter"
 
         btn_chat_filter.setOnClickListener{
-            Log.i(CHATAG, "chat filter is clicked")
             performFilter()
         }
     }

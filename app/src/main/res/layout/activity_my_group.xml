@@ -17,64 +17,6 @@
         app:titleTextAppearance="@style/Toolbar.TitleText"
         app:titleTextColor="@color/white" />
 
-    <!--
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:theme="@style/BarTheme"
-        android:elevation="4dp"
-        app:contentInsetEnd="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetStart="0dp"
-        app:titleTextColor="@color/white"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnExploration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/huskyPurple"
-                android:text="Exploration"
-                android:textColor="@color/white"
-                android:padding="@dimen/padding_small"
-                android:gravity="left"
-                android:textSize="@dimen/text_medium" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textSize="@dimen/text_large"
-
-                android:text="My Groups"/>
-
-        </LinearLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-    -->
-
-
-<!--    <Button
-        android:id="@+id/btnCreate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/unselected_button"
-        android:text="@string/create_your_group"
-        android:textSize="@dimen/text_medium"
-        android:layout_margin="@dimen/padding_small"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />-->
-
     <androidx.appcompat.widget.SearchView
         android:id="@+id/groupSearch"
         android:layout_width="match_parent"
@@ -177,17 +119,6 @@
             app:layout_constraintStart_toStartOf="@+id/btnLabMates"
             app:layout_constraintTop_toTopOf="@id/btnHomeworkHelp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--    <Button-->
-<!--        android:id="@+id/btnHomeworkHelp"-->
-<!--        android:layout_width="180dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Homework Help"-->
-<!--        android:layout_margin="4dp"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/groupSearch"-->
-<!--        android:background="@drawable/tag_button_corners"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGroupList"

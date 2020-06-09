@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.SpannableStringBuilder
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.virtualstudygroup.R
@@ -115,7 +114,6 @@ class UserProfileEditActivity : AppCompatActivity() {
         ref.putFile(photoUri)
             .addOnSuccessListener {
                 ref.downloadUrl.addOnSuccessListener {
-                    Log.i(RegisterActivity.TAG, "Photo uploaded, uri = $it")
                     selectedPhoto = it
                     updateUserInfo()
                 }
@@ -126,7 +124,6 @@ class UserProfileEditActivity : AppCompatActivity() {
         currentUser.let { user ->
 
             val uid = user.uid
-            Log.i(RegisterActivity.TAG, uid)
             val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
             if (selectedPhoto == null) {
@@ -141,16 +138,13 @@ class UserProfileEditActivity : AppCompatActivity() {
                                 interest_text.text.toString(),
                                 selectedPhoto.toString(),
                                 user.uid)
-            Log.i(RegisterActivity.TAG, "user upload created")
             ref.setValue(uploadUser)
                 .addOnSuccessListener {
                     getApp().currentUser = currentUser
                     val intent = Intent(this, UserProfileActivity::class.java)
                     startActivity(intent)
                     finish()
-                    Log.i(RegisterActivity.TAG, "saved into database")
                 }.addOnFailureListener {
-                    Log.i(RegisterActivity.TAG, "user upload failed")
                 }
         }
     }
@@ -159,8 +153,6 @@ class UserProfileEditActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode== 0 && resultCode == Activity.RESULT_OK && data != null) {
-            Log.i(RegisterActivity.TAG, "photo selected")
-
             selectedPhoto = data.data
 
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhoto)

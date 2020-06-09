@@ -15,63 +15,6 @@
         app:titleTextAppearance="@style/Toolbar.TitleText"
         app:titleTextColor="@color/white" />
 
-<!--    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:theme="@style/BarTheme"
-        android:elevation="4dp"
-        app:contentInsetEnd="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetStart="0dp"
-        app:titleTextColor="@color/white"
-        >-->
-
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnExploration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/huskyPurple"
-                android:text="Exploration"
-                android:textColor="@color/white"
-                android:padding="@dimen/padding_small"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:textSize="@dimen/text_medium" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textSize="@dimen/text_large"
-                android:layout_weight="1"
-                android:text="Group"/>
-
-            <Button
-                android:id="@+id/btnMyGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/huskyPurple"
-                android:text="My Groups"
-                android:textColor="@color/white"
-                android:padding="@dimen/padding_small"
-                android:textSize="@dimen/text_medium"
-                android:gravity="right"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
-
-    </androidx.appcompat.widget.Toolbar>-->
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

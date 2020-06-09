@@ -2,7 +2,6 @@ package com.example.virtualstudygroup.groupActivity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -71,14 +70,8 @@ class MyGroupActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 // Failed to read value
-                Log.i(TAG, "Failed to read value.", error.toException())
             }
         })
-
-/*        btnCreate.setOnClickListener {
-            val intent = Intent(this, CreateGroupActivity::class.java)
-            startActivity(intent)
-        }*/
 
         groupSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -206,14 +199,6 @@ class MyGroupActivity : AppCompatActivity() {
                 }
             }
         })
-
-        /*
-        btnExploration.setOnClickListener {
-            val intent = Intent(this, ExploreActivity::class.java)
-            startActivity(intent)
-        }
-
-         */
     }
 
     private fun filterMyGroupList(groupValues: MutableMap<String, Group>) {
@@ -243,7 +228,6 @@ class MyGroupActivity : AppCompatActivity() {
 
                 override fun onCancelled(error: DatabaseError) {
                     // Failed to read value
-                    Log.i(TAG, "Failed to read value.", error.toException())
                 }
             })
         }

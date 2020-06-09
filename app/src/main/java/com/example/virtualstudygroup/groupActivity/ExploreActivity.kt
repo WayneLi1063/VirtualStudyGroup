@@ -2,7 +2,6 @@ package com.example.virtualstudygroup.groupActivity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -69,7 +68,6 @@ class ExploreActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 // Failed to read value
-                Log.i(TAG, "Failed to read value.", error.toException())
             }
         })
 
@@ -225,7 +223,6 @@ class ExploreActivity : AppCompatActivity() {
 
                 override fun onCancelled(error: DatabaseError) {
                     // Failed to read value
-                    Log.i(MyGroupActivity.TAG, "Failed to read value.", error.toException())
                 }
             })
         }

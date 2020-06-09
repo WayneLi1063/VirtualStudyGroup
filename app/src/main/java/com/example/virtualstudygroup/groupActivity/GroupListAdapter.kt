@@ -1,6 +1,5 @@
 package com.example.virtualstudygroup.groupActivity
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,8 +47,6 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
     override fun onBindViewHolder(holder: GroupListViewHolder, position: Int) {
         if (groupFilterList.isNullOrEmpty()) {
             val group = groupList[position]
-            Log.i("info", "testingtestingtesting")
-            Log.i("info", group.toString())
             holder.bind(group)
         } else {
             val group = groupFilterList?.get(position)
@@ -69,11 +66,7 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
                 } else {
                     searchIsEmpty = false
                     val resultList = ArrayList<Group>()
-                    Log.i("info", groupList.toString())
                     for (row in groupList) {
-                        Log.i("info", row.toString())
-                        Log.i("info", charSearch.toLowerCase(Locale.ROOT))
-                        Log.i("info", row.noteExchange.toString())
                         // var validGroup = true;
                         // rewrite the filter
                         if (row.teamName.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
@@ -84,22 +77,18 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
                             || (row.projectPartners && charSearch.toLowerCase(Locale.ROOT) == "projectpartner")
                             || (row.noteExchange && charSearch.toLowerCase(Locale.ROOT) == "noteexchange")) {
                             resultList.add(row)
-                            Log.i("info", "resultList:")
-                            Log.i("info", resultList.toString())
                         }
                     }
                     groupFilterList = resultList
                 }
                 val filterResults = FilterResults()
                 filterResults.values = groupFilterList
-                Log.i("info", filterResults.values.toString())
                 return filterResults
             }
 
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 groupFilterList = results?.values as MutableList<Group>
-                Log.i("info", groupFilterList.toString())
                 notifyDataSetChanged()
             }
 

@@ -20,20 +20,6 @@ class LatestMessageRow(private val chatMessage: ChatMessage): Item<GroupieViewHo
     }
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-/*
-        val chatPartnerId: String
-*/
-
-        /*
-        // get the chat partner
-        if (chatMessage.fromId == FirebaseAuth.getInstance().uid) {
-            // change here
-            chatPartnerId = chatMessage.toId.toString()
-        } else {
-            chatPartnerId = chatMessage.fromId
-        }
-
-         */
 
         // fetch the user inside the users database
         val reference = FirebaseDatabase.getInstance().getReference("/groups/${chatMessage.toId}")

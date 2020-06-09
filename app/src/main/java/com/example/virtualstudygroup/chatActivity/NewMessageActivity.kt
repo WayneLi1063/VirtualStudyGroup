@@ -3,9 +3,7 @@ package com.example.virtualstudygroup.chatActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.virtualstudygroup.R
-import com.example.virtualstudygroup.chatActivity.ChatLogActivity.Companion.CHATAG
 import com.example.virtualstudygroup.model.GroupChat
 import com.example.virtualstudygroup.views.GroupChatItem
 import com.google.firebase.database.DataSnapshot
@@ -49,14 +47,11 @@ class NewMessageActivity : AppCompatActivity() {
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 p0.children.forEach {
-                    Log.i("Diana", it.toString())
                     val group = it.getValue(GroupChat::class.java)
                     val groups = MessageActivity.groups
 
-                    Log.i(CHATAG, group!!.id)
-                    Log.i(CHATAG, groups.toString())
                     group.let {
-                        if (groups != null && groups.contains(group.id)) {
+                        if (groups != null && groups.contains(group!!.id)) {
                             adapter.add(
                                 GroupChatItem(group)
                             )
