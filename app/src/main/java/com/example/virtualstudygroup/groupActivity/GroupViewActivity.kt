@@ -67,8 +67,7 @@ class GroupViewActivity : AppCompatActivity() {
             val groupRef = Firebase.database.getReference("groups").child(groupId)
             val userRef = Firebase.database.getReference("users").child(uid)
 
-
-            if (isMember != null && isMember) {
+            if (isMember != null && isMember) { // If the user is a member
                 btnLeave.visibility = VISIBLE
                 btnChatRoom.visibility = VISIBLE
 
@@ -89,7 +88,7 @@ class GroupViewActivity : AppCompatActivity() {
                     startActivity(intent)
 
                 }
-            } else if (isLeader != null && isLeader) {
+            } else if (isLeader != null && isLeader) { // If the user is a leader
                 btnEdit.visibility = VISIBLE
                 btnChatRoom.visibility = VISIBLE
 
@@ -104,7 +103,7 @@ class GroupViewActivity : AppCompatActivity() {
                     intent.putExtra(NewMessageActivity.USER_KEY, groupChat)
                     startActivity(intent)
                 }
-            } else if (group.currNumber < group.totalNumber) { // User has not yet join the group
+            } else if (group.currNumber < group.totalNumber) { // User has not yet join the group, and the group is available to join
                 btnJoin.visibility = VISIBLE
 
                 btnJoin.setOnClickListener {
@@ -118,16 +117,6 @@ class GroupViewActivity : AppCompatActivity() {
                 }
             }
         }
-
-/*        btnExploration.setOnClickListener {
-            val intent = Intent(this, ExploreActivity::class.java)
-            startActivity(intent)
-        }
-
-        btnMyGroup.setOnClickListener {
-            val intent = Intent(this, MyGroupActivity::class.java)
-            startActivity(intent)
-        }*/
 
     }
 
