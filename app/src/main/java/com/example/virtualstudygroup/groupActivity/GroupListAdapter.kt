@@ -20,6 +20,7 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
 
     var onGroupClickListener: ((group: Group) -> Unit)? = null
     private var groupFilterList: MutableList<Group>? = null
+    private var searchIsEmpty: Boolean = true
 
     init {
         groupFilterList = groupList
@@ -33,7 +34,7 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
     }
 
     override fun getItemCount(): Int {
-        if (groupFilterList.isNullOrEmpty()) {
+        if (groupFilterList.isNullOrEmpty() && searchIsEmpty) {
             return groupList.size
         }
         return groupFilterList!!.size
@@ -47,6 +48,8 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
     override fun onBindViewHolder(holder: GroupListViewHolder, position: Int) {
         if (groupFilterList.isNullOrEmpty()) {
             val group = groupList[position]
+            Log.i("info", "testingtestingtesting")
+            Log.i("info", group.toString())
             holder.bind(group)
         } else {
             val group = groupFilterList?.get(position)
@@ -61,10 +64,16 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
                 if (charSearch.isEmpty()) {
+                    searchIsEmpty = true
                     groupFilterList = groupList
                 } else {
+                    searchIsEmpty = false
                     val resultList = ArrayList<Group>()
+                    Log.i("info", groupList.toString())
                     for (row in groupList) {
+                        Log.i("info", row.toString())
+                        Log.i("info", charSearch.toLowerCase(Locale.ROOT))
+                        Log.i("info", row.noteExchange.toString())
                         // var validGroup = true;
                         // rewrite the filter
                         if (row.teamName.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
@@ -75,53 +84,22 @@ class GroupListAdapter(private var groupList: MutableList<Group>): RecyclerView.
                             || (row.projectPartners && charSearch.toLowerCase(Locale.ROOT) == "projectpartner")
                             || (row.noteExchange && charSearch.toLowerCase(Locale.ROOT) == "noteexchange")) {
                             resultList.add(row)
+                            Log.i("info", "resultList:")
+                            Log.i("info", resultList.toString())
                         }
-                        /*
-                        if (charSearch.toLowerCase(Locale.ROOT).isNotEmpty()) {
-                            Log.i("filter", "not empty: " + charSearch)
-                            if (!row.teamName.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))
-                                        && !row.className.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))){
-                                    Log.i("filter", "not a valid group bc charsearch: " + row.className)
-                                    validGroup = false
-                            }
-                        }
-
-                        if (row.homeworkHelp && charSearch.toLowerCase(Locale.ROOT) != "homeworkhelp"){
-                            Log.i("filter", "not a valid group bc hw: " + row.className)
-                            validGroup = false
-                        }
-                        if (row.examSquad && charSearch.toLowerCase(Locale.ROOT) != "examsquad"){
-                            Log.i("filter", "not a valid group bc exam: " + row.className)
-                            validGroup = false
-                        }
-                        if (row.labMates && charSearch.toLowerCase(Locale.ROOT) != "labmate"){
-                            Log.i("filter", "not a valid group bc lab: " + row.className)
-                            validGroup = false
-                        }
-                        if (row.projectPartners && charSearch.toLowerCase(Locale.ROOT) != "projectpartner"){
-                            Log.i("filter", "not a valid group bc project: " + row.className)
-                            validGroup = false
-                        }
-                        if (row.noteExchange && charSearch.toLowerCase(Locale.ROOT) != "noteexchange"){
-                            Log.i("filter", "not a valid group bc notes: " + row.className)
-                            validGroup = false
-                        }
-
-                        // add it here
-                        if (validGroup) {
-                            resultList.add(row)
-                        }*/
                     }
                     groupFilterList = resultList
                 }
                 val filterResults = FilterResults()
                 filterResults.values = groupFilterList
+                Log.i("info", filterResults.values.toString())
                 return filterResults
             }
 
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 groupFilterList = results?.values as MutableList<Group>
+                Log.i("info", groupFilterList.toString())
                 notifyDataSetChanged()
             }
 
