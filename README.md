@@ -63,3 +63,7 @@ Profile Screen
 Profile Edit Screen
 
 <img src="./preview/Profile_Edit.png" width="200" height="420" />
+
+Notification
+
+<img src="./preview/Notification.jpg" />
